@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 #petit script pour aspirer seulement le html d'une liste de sites web qui se trouvent dans un fichier .csv
-#zf181028.1832
+#zf181029.1717
 #source: https://www.cyberciti.biz/faq/unix-linux-bash-read-comma-separated-cvsfile/
 
 echo ---------- start
 
-INPUT=./urls_test.csv
+INPUT=./data/urls_test.csv
 #INPUT=./liste_sites.csv
 
 OLDIFS=$IFS
@@ -13,11 +13,12 @@ IFS=,
 [ ! -f $INPUT ] && { echo "$INPUT file not found"; exit 99; }
 
 nblines=0
-while read sites ; do
+while read name ip ; do
 	echo $nblines
 	if [ $nblines != "0" ]
 	then
-		./aspi.sh $sites
+		./aspi.sh "http://"$name".epfl.ch"
+		./aspi.sh "https://"$name".epfl.ch"
 	fi
 	((nblines+=1))
 	echo ""
