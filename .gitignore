@@ -1,7 +1,10 @@
 html/
 html2/
 data/
-
+tempzip.csv
+images/
+.DS_Store
+._.DS_Store
 
 
 # Byte-compiled / optimized / DLL files
