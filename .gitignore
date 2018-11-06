@@ -3,6 +3,9 @@ html2/
 data/
 tempzip.csv
 images/
+images_result
+
+
 .DS_Store
 ._.DS_Store
 

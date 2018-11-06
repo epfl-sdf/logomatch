@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #petit script tout simple pour comparer une série d'images avec une image master
-#zf181106.1545
+#zf181106.1721
 #source: https://www.cyberciti.biz/faq/unix-linux-bash-read-comma-separated-cvsfile/
 #source: http://manpages.ubuntu.com/manpages/cosmic/en/man1/idiff.1.html
 
@@ -22,9 +22,13 @@ read -p "Appuyer une touche pour démarrer $zNAME"
 
 echo ---------- start
 
+rm -Rf ./images_result
+mkdir images_result
+
+
 echo "file,f1,f2,f3,f4,f5,f6,f7,f8,f9" > logo_diff.csv
 
-head -n 100 liste_images_name.csv > tmp.csv
+head -n 1000 liste_images_name.csv > tmp.csv
 INPUT=./tmp.csv
 #INPUT=./liste_sites.csv
 
@@ -38,8 +42,19 @@ while read name ip ; do
 	if [ $nblines != "0" ]
 	then
         echo $name
-        idiff imgdiff/logo_master.gif images/$name |awk '{print $4}' |tr '\n' ',' >> logo_diff.csv
-        echo "" >> logo_diff.csv
+#        idiff imgdiff/logo_master.gif images/$name |awk '{print $4}' |tr '\n' ',' >> logo_diff.csv
+
+
+        convert -resize 462X222 images/$name tmp.png
+
+
+#        zcoeff=`idiff imgdiff/logo_master.png images/$name |awk '{print $4}' |tr '\n' ',' |awk -F "," '{print $4}'`
+        zcoeff=`idiff imgdiff/logo_master.png tmp.png |awk '{print $4}' |tr '\n' ',' |awk -F "," '{print $2}' |head -c 6`
+        echo $zcoeff
+        cp images/$name images_result/$zcoeff"_"$name
+
+
+#        echo "" >> logo_diff.csv
 
 
 	fi
