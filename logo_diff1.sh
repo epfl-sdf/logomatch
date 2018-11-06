@@ -22,8 +22,10 @@ read -p "Appuyer une touche pour démarrer $zNAME"
 
 echo ---------- start
 
-head -n 100 liste_images.csv > tmp_images.csv
-INPUT=./tmp_images.csv
+echo "file,f1,f2,f3,f4,f5,f6,f7,f8,f9" > logo_diff.csv
+
+head -n 100 liste_images_name.csv > tmp.csv
+INPUT=./tmp.csv
 #INPUT=./liste_sites.csv
 
 OLDIFS=$IFS
@@ -36,10 +38,10 @@ while read name ip ; do
 	if [ $nblines != "0" ]
 	then
         echo $name
+        idiff imgdiff/logo_master.gif images/$name |awk '{print $4}' |tr '\n' ',' >> logo_diff.csv
+        echo "" >> logo_diff.csv
 
 
-#		./aspi.sh "http://"$name".epfl.ch"
-#		./aspi.sh "https://"$name".epfl.ch"
 	fi
 	((nblines+=1))
 	echo ""
