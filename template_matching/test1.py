@@ -32,6 +32,7 @@ for meth in methods:
 
     # Apply template Matching
     res = cv2.matchTemplate(img,template,method)
+    print(res)
     min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
 
     print(min_val, max_val, min_loc, max_loc)
@@ -52,5 +53,4 @@ for meth in methods:
     plt.suptitle(meth)
 
     plt.show()
-
 
