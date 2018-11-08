@@ -60,3 +60,18 @@ for jpag in pages/*.jpg ; do
   fi
 done
 
+[ -d pages/gray ] || mkdir -p pages/gray
+for rgb in pages/*.jpg ; do
+  gra=pages/gray/$(basename $rgb)
+  convert $rgb -fx '(r+g+b)/3' -colorspace Gray $gra
+done
+
+[ -d logo/gray ] || mkdir -p logo/gray
+for l in c_280.jpg ci_280.jpg crc_280.jpg ; do
+  rgb=logo/jpg/$l
+  gra=logo/gray/$l
+  convert $rgb -fx '(r+g+b)/3' -colorspace Gray $gra
+done
+
+
+
