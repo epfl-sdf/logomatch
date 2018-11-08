@@ -31,7 +31,7 @@ if (w<ww or h<hh):
 # methods = ['cv2.TM_CCOEFF', 'cv2.TM_CCOEFF_NORMED', 'cv2.TM_CCORR',
 #             'cv2.TM_CCORR_NORMED', 'cv2.TM_SQDIFF', 'cv2.TM_SQDIFF_NORMED']
 
-print(w, h, ww, hh);
+# print(w, h, ww, hh);
 
 methods = ['cv2.TM_SQDIFF_NORMED']
 
