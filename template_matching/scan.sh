@@ -4,11 +4,7 @@ for ext in jpg png ; do
   for page in pages/*.$ext ; do
     # for logo in logo/$ext/c_*.$ext logo/$ext/ci_*.$ext ; do 
     for logo in logo/$ext/c_*.$ext logo/$ext/crc_*.$ext ; do 
-      if grep -q "$page $logo" out ; then
-        echo "$page $logo already done"
-      else
-        python test2.py $page $logo | tee -a out
-      fi
+      grep -q "$page $logo" out || (python test2.py $page $logo | tee -a out)
     done
   done
 done
