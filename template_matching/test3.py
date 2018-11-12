@@ -65,6 +65,7 @@ def match(img2_path, img1_path, thr, match_path=None):
 
     img3 = cv.drawMatches(img1,kp1,img2,kp2,good,None,**draw_params)
     cv.imwrite(match_path, img3)
+    #print(match_path)
 
   return len(good)
 
@@ -83,19 +84,18 @@ print(logos)
 for page in pages:
   pname=os.path.splitext(os.path.basename(page))[0]
   m_max=0
+  print("\n"+page)
   for logo in logos:
     lname=os.path.splitext(os.path.basename(logo))[0]
     ypath="match/yes/" + pname + "_" + lname + ".jpg"
-    print(page, logo, MIN_MATCH_COUNT, ypath)
     m=match(page, logo, MIN_MATCH_COUNT, ypath)
     if (m>m_max): 
       m_max = m
-
     print("%-40s %-40s %2d / %2d" % (pname, lname, m, MIN_MATCH_COUNT))
 
   if m_max < MIN_MATCH_COUNT:
     npath="match/no/" + pname + ".jpg"
-    print(npath)
+    #print(npath)
     os.symlink("../../"+page, npath)
 
 
