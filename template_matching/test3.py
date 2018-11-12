@@ -57,6 +57,7 @@ def match(img2_path, img1_path, thr, match_path=None):
     dst = cv.perspectiveTransform(pts,M)
 
     img2 = cv.polylines(img2,[np.int32(dst)],True,255,3, cv.LINE_AA)
+    
 
     draw_params = dict(matchColor = (0,255,0), # draw matches in green color
                        singlePointColor = None,
