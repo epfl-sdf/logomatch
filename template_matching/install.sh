@@ -2,9 +2,9 @@
 #Petit script pour installer tout ce qu'il faut pour OpenCV sur Python
 #ATTENTION: ça été fait pour une structure perso !
 #faudra modifier le script pour d'autres structures
-#zf181107.1406
+#zf181109.1032
 
-#source: 
+#source: faut regarder aussi ceci https://pypi.org/project/opencv-contrib-python/
 
 sudo apt update
 sudo apt install -y python-pip python-opencv python-tk

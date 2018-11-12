@@ -10,7 +10,7 @@ import numpy as np
 import cv2 as cv
 # from matplotlib import pyplot as plt
 
-MIN_MATCH_COUNT = 10
+MIN_MATCH_COUNT = 3
 
 def match(img2_path, img1_path, thr, match_path=None):
 
@@ -84,6 +84,7 @@ for page in pages:
   for logo in logos:
     lname=os.path.splitext(os.path.basename(logo))[0]
     ypath="match/yes/" + pname + "_" + lname + ".jpg"
+    print(page, logo, MIN_MATCH_COUNT, ypath)
     m=match(page, logo, MIN_MATCH_COUNT, ypath)
     if (m>m_max): 
       m_max = m
@@ -92,6 +93,7 @@ for page in pages:
 
   if m_max < MIN_MATCH_COUNT:
     npath="match/no/" + pname + ".jpg"
+    print(npath)
     os.symlink("../../"+page, npath)
 
 
