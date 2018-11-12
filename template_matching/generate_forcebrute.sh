@@ -6,8 +6,9 @@ done
 
 for svg in $(ls logo/*.svg) ; do 
   j=$(basename $svg .svg)
-  for s in 120 180 240 ; do
-    png=logo/$(printf "%s_%03d.png" $j $s)
+  for i in {20..140}; do 
+    let s=2*$i
+    png=logo/png/$(printf "%s_%03d.png" $j $s)
     if [ ! -f $png ] ; then
       # convert -density $s $svg $png 
       # inkscape -z $svg  --export-dpi=$s --export-png=$png
@@ -16,24 +17,25 @@ for svg in $(ls logo/*.svg) ; do
   done
 done
 
-for full in logo/c_*.png ; do
-  crp=logo/cr$(basename $full)
+for full in logo/png/c_*.png ; do
+  crp=logo/png/cr$(basename $full)
   if [ ! -f $crp ] ; then
+    # convert -crop 54%x59%+35%+0 $full $crp
     convert -gravity North -crop 54%x59% $full $crp
   fi
 done
 
-for png in logo/*.png ; do
-  jpg=logo/$(basename $png .png).jpg
+for png in logo/png/*.png ; do
+  jpg=logo/jpg/$(basename $png .png).jpg
   if [ ! -f $jpg ] ; then
     convert $png $jpg
   fi
 done
 
 [ -d pages ] || mkdir pages
-for s in 120 180 240 ; do
-  jpg=logo/c_$s.jpg
-  png=logo/c_$s.png
+for s in 100 140 200 ; do
+  jpg=logo/jpg/c_$s.jpg
+  png=logo/png/c_$s.png
   jpag=pages/logo_$s.jpg
   ppag=pages/logo_$s.png
   if [ ! -f $ppag ] ; then
@@ -57,3 +59,19 @@ for jpag in pages/*.jpg ; do
     convert $jpag $ppag
   fi
 done
+
+[ -d pages/gray ] || mkdir -p pages/gray
+for rgb in pages/*.jpg ; do
+  gra=pages/gray/$(basename $rgb)
+  convert $rgb -fx '(r+g+b)/3' -colorspace Gray $gra
+done
+
+[ -d logo/gray ] || mkdir -p logo/gray
+for l in c_280.jpg ci_280.jpg crc_280.jpg ; do
+  rgb=logo/jpg/$l
+  gra=logo/gray/$l
+  convert $rgb -fx '(r+g+b)/3' -colorspace Gray $gra
+done
+
+
+
