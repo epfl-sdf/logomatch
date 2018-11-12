@@ -8,9 +8,7 @@ import glob
 import sys
 import numpy as np
 import cv2
-# from matplotlib import pyplot as plt
 
-MIN_MATCH_COUNT = 6
 DISTANCE_FACTOR = 0.7
 
 def match(img2_path, img1_path):
@@ -47,12 +45,12 @@ pages_file_or_dir=sys.argv[1]
 logos_file_or_dir=sys.argv[2]
 
 if os.path.isdir(pages_file_or_dir):
-  pages=glob.glob(pages_file_or_dir + "/.jpg")
+  pages=glob.glob(pages_file_or_dir + "/*.jpg")
 else:
   pages=[pages_file_or_dir]
 
 if os.path.isdir(logos_file_or_dir):
-  logos=glob.glob(logos_file_or_dir + "/.jpg")
+  logos=glob.glob(logos_file_or_dir + "/*.jpg")
 else:
   logos=[logos_file_or_dir]
 
@@ -61,7 +59,7 @@ verbose=(len(pages)>1 or len(logos)>1)
 for page in pages:
   pname=os.path.splitext(os.path.basename(page))[0]
   m_max=0
-  l_max=""
+  m_logo=""
   for logo in logos:
     lname=os.path.splitext(os.path.basename(logo))[0]
 
@@ -69,9 +67,9 @@ for page in pages:
     m=match(page, logo)
     if (m>m_max): 
       m_max = m
-      l_max = logo
+      m_logo = lname
 
   if (verbose):
-    print("%-40s %-40s %2d" % (pname, lname, m))
+    print("%-20s %-20s %2d" % (pname, m_logo, m_max))
   else:
     print(m_max)
