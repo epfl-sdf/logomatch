@@ -3,6 +3,8 @@
 # rm match/yes/*
 # docker run -it -v $PWD:/app -w=/app valian/docker-python-opencv-ffmpeg python test3.py
 #
+#zf181112.1617
+
 import os.path
 import glob
 import sys
@@ -14,12 +16,12 @@ MIN_MATCH_COUNT = 3
 
 def match(img2_path, img1_path, thr, match_path=None):
 
-  img1 = cv.imread(img1_path,0) # queryImage
-  img2 = cv.imread(img2_path,0) # trainImage
+  img1 = cv.imread(img1_path) # queryImage
+  img2 = cv.imread(img2_path) # trainImage
 
   # Trasform to Grayscale
-  # img1 = cv.cvtColor(img1, cv.COLOR_BGR2GRAY)
-  # img2 = cv.cvtColor(img2, cv.COLOR_BGR2GRAY)
+  img1 = cv.cvtColor(img1, cv.COLOR_BGR2GRAY)
+  img2 = cv.cvtColor(img2, cv.COLOR_BGR2GRAY)
 
 
   # Initiate SIFT detector
@@ -72,8 +74,8 @@ def match(img2_path, img1_path, thr, match_path=None):
 
 
 
-pages=glob.glob("pages/gray/*.jpg")
-logos=glob.glob("logo/gray/*.jpg")
+pages=glob.glob("pages/jpg/*.jpg")
+logos=glob.glob("logo/jpg/*.jpg")
 
 print(pages)
 print(logos)
