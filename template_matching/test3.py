@@ -64,6 +64,7 @@ print(logos)
 for page in pages:
   pname=os.path.splitext(os.path.basename(page))[0]
   m_max=0
+  m_path=""
   print("\n"+page)
   for logo in logos:
     lname=os.path.splitext(os.path.basename(logo))[0]
@@ -71,11 +72,12 @@ for page in pages:
     m=match(page, logo, MIN_MATCH_COUNT, "match/all/"+mpath)
     if (m>m_max): 
       m_max = m
+      m_path = mpath
     print("%-40s %-40s %2d / %2d" % (pname, lname, m, MIN_MATCH_COUNT))
 
   if m_max < MIN_MATCH_COUNT:
     npath="match/no/%02d_%s.jpg" % (m_max, pname)
-    os.symlink("../all/"+mpath, npath)
+    os.symlink("../all/"+m_path, npath)
   else:
     ypath="match/yes/%02d_%s.jpg" % (m_max, pname)
-    os.symlink("../all/"+mpath, ypath)
+    os.symlink("../all/"+m_path, ypath)
