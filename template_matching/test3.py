@@ -12,10 +12,13 @@ import numpy as np
 import cv2 as cv
 # from matplotlib import pyplot as plt
 
-MIN_MATCH_COUNT = 3
+SURE_MIN_MATCH_COUNT = 12
+MAYBE_MATCH_COUNT = 5
+
+# Ho many features to show in the match_patch image
 SHOW_MATCHES = 20
 
-def match(img2_path, img1_path, thr, match_path=None):
+def match(img2_path, img1_path, match_path=None):
 
   img1 = cv.imread(img1_path) # queryImage
   img2 = cv.imread(img2_path) # trainImage
@@ -44,9 +47,9 @@ def match(img2_path, img1_path, thr, match_path=None):
     if m.distance < 0.7*n.distance:
       good.append(m)
 
-  if match_path is not Null:
-    matches = sorted(good, key = lambda x:x[0].distance)
-    img3 = cv.drawMatchesKnn(img1,kp1,img2,kp2,good[:SHOW_MATCHES], None, flags=2)
+  if match_path is not None:
+    matches = sorted(good, key = lambda x:x.distance)
+    img3 = cv.drawMatches(img1,kp1,img2,kp2,matches[:SHOW_MATCHES], None, flags=2)
     cv.imwrite(match_path, img3)
 
   return len(good)
@@ -69,15 +72,18 @@ for page in pages:
   for logo in logos:
     lname=os.path.splitext(os.path.basename(logo))[0]
     mpath=pname + "_" + lname + ".jpg"
-    m=match(page, logo, MIN_MATCH_COUNT, "match/all/"+mpath)
+    m=match(page, logo, "match/all/"+mpath)
     if (m>m_max): 
       m_max = m
       m_path = mpath
-    print("%-40s %-40s %2d / %2d" % (pname, lname, m, MIN_MATCH_COUNT))
+    print("%-40s %-40s %2d" % (pname, lname, m))
 
-  if m_max < MIN_MATCH_COUNT:
-    npath="match/no/%02d_%s.jpg" % (m_max, pname)
-    os.symlink("../all/"+m_path, npath)
+  if m_max < MAYBE_MATCH_COUNT:
+    lpath="match/no/%02d_%s.jpg" % (m_max, pname)
   else:
-    ypath="match/yes/%02d_%s.jpg" % (m_max, pname)
-    os.symlink("../all/"+m_path, ypath)
+    if m_max > SURE_MIN_MATCH_COUNT:
+      lpath="match/yes/%02d_%s.jpg" % (m_max, pname)
+    else:
+      lpath="match/maybe/%02d_%s.jpg" % (m_max, pname)
+
+  os.symlink("../all/"+m_path, lpath)
