@@ -42,29 +42,35 @@ def match(img2_path, img1_path, thr, match_path=None):
     if m.distance < 0.7*n.distance:
       good.append(m)
 
-  if len(good)>thr and match_path is not None:
-    src_pts = np.float32([ kp1[m.queryIdx].pt for m in good ]).reshape(-1,1,2)
-    dst_pts = np.float32([ kp2[m.trainIdx].pt for m in good ]).reshape(-1,1,2)
-
-    M, mask = cv.findHomography(src_pts, dst_pts, cv.RANSAC,5.0)
-    matchesMask = mask.ravel().tolist()
-
-    # h,w,d = img1.shape
-    h,w = img1.shape
-    pts = np.float32([ [0,0],[0,h-1],[w-1,h-1],[w-1,0] ]).reshape(-1,1,2)
-    dst = cv.perspectiveTransform(pts,M)
-
-    img2 = cv.polylines(img2,[np.int32(dst)],True,255,3, cv.LINE_AA)
-
-    draw_params = dict(matchColor = (0,255,0), # draw matches in green color
-                       singlePointColor = None,
-                       matchesMask = matchesMask, # draw only inliers
-                       flags = 2)
-
-    img3 = cv.drawMatches(img1,kp1,img2,kp2,good,None,**draw_params)
+  if match_path is not Null:
+    matches = sorted(good, key = lambda x:x[0].distance)
+    img3 = cv.drawMatchesKnn(img1,kp1,img2,kp2,good[:SHOW_MATCHES], None, flags=2)
     cv.imwrite(match_path, img3)
 
   return len(good)
+
+  # if len(good)>thr and match_path is not None:
+  #   src_pts = np.float32([ kp1[m.queryIdx].pt for m in good ]).reshape(-1,1,2)
+  #   dst_pts = np.float32([ kp2[m.trainIdx].pt for m in good ]).reshape(-1,1,2)
+
+  #   M, mask = cv.findHomography(src_pts, dst_pts, cv.RANSAC,5.0)
+  #   matchesMask = mask.ravel().tolist()
+
+  #   # h,w,d = img1.shape
+  #   h,w = img1.shape
+  #   pts = np.float32([ [0,0],[0,h-1],[w-1,h-1],[w-1,0] ]).reshape(-1,1,2)
+  #   dst = cv.perspectiveTransform(pts,M)
+
+  #   img2 = cv.polylines(img2,[np.int32(dst)],True,255,3, cv.LINE_AA)
+
+  #   draw_params = dict(matchColor = (0,255,0), # draw matches in green color
+  #                      singlePointColor = None,
+  #                      matchesMask = matchesMask, # draw only inliers
+  #                      flags = 2)
+
+  #   img3 = cv.drawMatches(img1,kp1,img2,kp2,good,None,**draw_params)
+  #   cv.imwrite(match_path, img3)
+
 
   # plt.imshow(img3, 'gray'),plt.show()
 
@@ -83,23 +89,10 @@ for page in pages:
   m_max=0
   for logo in logos:
     lname=os.path.splitext(os.path.basename(logo))[0]
-    ypath="match/yes/" + pname + "_" + lname + ".jpg"
+    ypath="match/" + pname + "_" + lname + ".jpg"
     print(page, logo, MIN_MATCH_COUNT, ypath)
     m=match(page, logo, MIN_MATCH_COUNT, ypath)
     if (m>m_max): 
       m_max = m
 
-    print("%-40s %-40s %2d / %2d" % (pname, lname, m, MIN_MATCH_COUNT))
-
-  if m_max < MIN_MATCH_COUNT:
-    npath="match/no/" + pname + ".jpg"
-    print(npath)
-    os.symlink("../../"+page, npath)
-
-
-
-
-
-
-
-
+    print("%-40s %-40s %2d / %2d => %s" % (pname, lname, m, MIN_MATCH_COUNT, ypath))
