@@ -7,10 +7,9 @@ images_result
 
 template_matching/logo/jpg/
 template_matching/logo/png/
-#template_matching/logo/gray
-#template_matching/pages/gray/
-template_matching/pages/logo_*
-#template_matching/match/
+template_matching/logo/gray
+template_matching/pages/gray/
+template_matching/match/
 
 .DS_Store
 ._.DS_Store

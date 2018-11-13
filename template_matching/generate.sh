@@ -4,29 +4,34 @@ for ext in png jpg ; do
   [ -d logo/$ext ] || mkdir -p logo/$ext
 done
 
+which -s inkscape
+haveis="$?"
 for svg in $(ls logo/*.svg) ; do 
   j=$(basename $svg .svg)
-  for s in 120 240 ; do
+  for s in 480 ; do
     png=$(printf "logo/png/%s_%03d.png" $j $s)
     if [ ! -f $png ] ; then
-      # convert -density $s $svg $png 
-      # inkscape -z $svg  --export-dpi=$s --export-png=$png
-      inkscape -z $PWD/$svg  --export-width=$s --export-png=$PWD/$png
+      if [ "$haveis" == "0" ] ; then
+        inkscape -z $PWD/$svg  --export-width=$s --export-png=$PWD/$png
+      else
+        d=$(echo "$s*210.528/96" | bc -l) # in svg file size i 210 and density is 96 
+        convert -density $d $svg $png
+      fi
     fi
   done
 done
 
-for full in logo/png/c_*.png logo/png/ci_*.png ; do
+for full in logo/png/c_*.png logo/png/ci_*.png logo/png/m_*.png logo/png/mi_*.png ; do
   crp=logo/png/cr1$(basename $full)
   if [ ! -f $crp ] ; then
-    convert -gravity North -crop 54%x59% $full $crp
+    convert -gravity North -crop 54%x60% $full $crp
   fi
 done
 
 for full in logo/png/c_*.png logo/png/ci_*.png ; do
   crp=logo/png/cr2$(basename $full)
   if [ ! -f $crp ] ; then
-    convert -gravity South -crop 100%x41% $full $crp
+    convert -gravity South -crop 100%x38% $full $crp
   fi
 done
 

@@ -13,5 +13,7 @@ done
 
 # docker run -it -v $PWD:/app -w=/app valian/docker-python-opencv-ffmpeg
 # pyenv activate opencv
-python test3.py
 
+
+python test6.py pages/png logo/png match
+# python test6.py pages/png logo/png
