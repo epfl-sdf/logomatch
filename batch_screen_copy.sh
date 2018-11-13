@@ -28,7 +28,8 @@ mkdir ./images
 
 
 
-INPUT=./data/urls_test.csv.181029.1722
+INPUT=./data/urls_test.csv.181113.1156
+#urls_test.csv.181029.1722
 #INPUT=./liste_sites.csv
 
 OLDIFS=$IFS
@@ -43,19 +44,19 @@ while read name ip ; do
 
 
 
-    echo -e $name
+        site=$name".epfl.ch"
+        echo -e "site: "$site
+        url="http://"$site
+        echo -e "url: "$url
 
-    ./screen_copy.sh $name".epfl.ch"
+        curl --connect-timeout 1 $url -o tmp.txt 2>/dev/null
+        t1=`wc -c tmp.txt |awk '{print $1}'`
 
-
-
-
-
-
-#		./aspi.sh "http://"$name".epfl.ch"
-#		./aspi.sh "https://"$name".epfl.ch"
-
-
+        if [ $t1 != 0 ]
+        then
+            echo -e "t1: "$t1
+            ./screen_copy.sh $url "./images/"$site
+        fi
 
 
 

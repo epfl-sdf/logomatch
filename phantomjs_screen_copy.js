@@ -1,4 +1,4 @@
-//zf181113.1146
+//zf181113.1238
 
 var system = require('system');
 var args = system.args;
@@ -15,11 +15,11 @@ page.viewportSize = {
 
 page.settings.userAgent = "Phantom.js bot";
 
-var url = 'http://'+args[1];
+var url = args[1];
 
 page.open(url, function (status) {
     console.log('Page chargée');
-    page.render('./images/'+args[1]+'.png');
+    page.render(args[2]+'.png');
     phantom.exit();
 });
 
