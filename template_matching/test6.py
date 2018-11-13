@@ -10,8 +10,8 @@ import numpy as np
 import cv2
 
 MATCH_EXT="jpg"
-SURE_MIN_MATCH_COUNT = 20
-MAYBE_MATCH_COUNT = 5
+SURE_MIN_MATCH_COUNT = 16
+MAYBE_MATCH_COUNT = 8
 
 class MImage():
 
@@ -30,6 +30,7 @@ class Matcher():
   # class variables / constants
   DISTANCE_FACTOR = 0.7
   FLANN_INDEX_KDTREE = 1
+  MIN_MATCH_COUNT = 4
   index_params = dict(algorithm = FLANN_INDEX_KDTREE, trees = 5)
   search_params = dict(checks = 50)
   flann = cv2.FlannBasedMatcher(index_params, search_params)
@@ -37,12 +38,44 @@ class Matcher():
   def __init__(self, img2, img1):
     self.img1 = img1
     self.img2 = img2
-    self.matches = Matcher.flann.knnMatch(img1.des,img2.des,k=2)
-    self.score = 0
-    for m,n in self.matches:
+
+    matches = Matcher.flann.knnMatch(img1.des,img2.des,k=2)
+    lowe_matches=[]
+    for m,n in matches:
       if m.distance < Matcher.DISTANCE_FACTOR*n.distance:
-        self.score = self.score + 1
-    self.basepath=self.img2.name + "_" + self.img1.name + "." + MATCH_EXT
+        lowe_matches.append(m)
+
+    # If enough points, a second selection is done by the Homography algorithm that keeps
+    # only the points that can be linked geometrically
+    if len(lowe_matches) > Matcher.MIN_MATCH_COUNT:
+      src_pts = np.float32([ self.img1.kp[m.queryIdx].pt for m in lowe_matches ]).reshape(-1,1,2)
+      dst_pts = np.float32([ self.img2.kp[m.trainIdx].pt for m in lowe_matches ]).reshape(-1,1,2)
+      M, mask = cv2.findHomography(src_pts, dst_pts, cv2.RANSAC,5.0)
+      select_mask = mask.ravel().tolist()
+      self.good_matches = []
+      for i, m in enumerate(select_mask):
+        if (m==1):
+          self.good_matches.append(lowe_matches[i])
+    else:
+      self.good_matches = lowe_matches
+
+    self.score = len(self.good_matches)
+    self.basepath="%02d_%s_%s.%s" % (self.score, self.img2.name, self.img1.name, MATCH_EXT)
+
+    # points=[]
+    # for m in self.good_matches[:3]:
+    #   p=[img2.kp[m.trainIdx].pt[0], img2.kp[m.trainIdx].pt[1]]
+    #   points.append(p)
+    # self.ave = np.mean(points, 0)
+    # self.std = np.std(points, 0)
+    # print("ave = %6.2f  %6.2f" % (self.ave[0], self.ave[1]) )
+    # print("std = %6.2f  %6.2f" % (self.std[0], self.std[1]) )
+
+    # sgood = sorted(self.good_matches, key = lambda x:x.distance)
+    # for m in sgood:
+    #   # print("distance: %6.2f - %6.2f" % (m.distance, n.distance) )
+    #   print("\npage: %d = %6.2f %6.2f" % (m.trainIdx, img2.kp[m.trainIdx].pt[0], img2.kp[m.trainIdx].pt[1]) )
+    #   print("logo: %d = %6.2f %6.2f" % (m.queryIdx, img1.kp[m.queryIdx].pt[0], img1.kp[m.queryIdx].pt[1]) )
 
   def page(self):
     return self.img2
@@ -52,12 +85,16 @@ class Matcher():
 
   def save(self, match_path, show_max=20):
     good=[]
-    for m,n in self.matches:
-      if m.distance < Matcher.DISTANCE_FACTOR*n.distance:
-        good.append(m)
-    sgood = sorted(good, key = lambda x:x.distance)
+    sgood = sorted(self.good_matches, key = lambda x:x.distance)
     nshow = len(sgood) if show_max == 0 else show_max
     img3 = cv2.drawMatches(self.img1.img,self.img1.kp,self.img2.img,self.img2.kp,sgood[:nshow], None, flags=2)
+
+    # # c=self.ave + (self.img1.img.shape[1], 0)
+    # c=(float(self.ave[0])+100,100)
+    # # print(self.ave[0])
+    # a=(100, 50)
+    # cv2.ellipse(img3,c,a,0,0,360,255,3)
+
     cv2.imwrite(match_path + self.basepath, img3)
 
 # ----------------------------------------------------
@@ -109,10 +146,11 @@ for page_path in page_paths:
       max_score = m.score
       best_m = m
 
-    print("%-20s %-20s %2d" % ("", logo.name, m.score))
+    if (verbose):
+      print("%-20s %-20s %2d" % ("", logo.name, m.score))
 
     if match_dir is not None:
-      m.save(match_dir + "/all/")
+      m.save(match_dir + "/all/", 50)
 
   ans=""
   if max_score < MAYBE_MATCH_COUNT:
@@ -128,5 +166,5 @@ for page_path in page_paths:
     print(max_score)
 
   if match_dir is not None:
-    lpath="match/%s/%02d_%s.%3s" % (ans, max_score, page.name, MATCH_EXT)
+    lpath="match/" + ans + "/" + best_m.basepath
     os.symlink("../all/"+best_m.basepath, lpath)
