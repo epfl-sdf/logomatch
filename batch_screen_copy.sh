@@ -28,7 +28,9 @@ mkdir ./images
 
 
 
-INPUT=./data/urls_test.csv.181113.1156
+INPUT=./data/liste_sites.csv
+#urls_test.csv.181029.1722
+#urls_test.csv.181113.1156
 #urls_test.csv.181029.1722
 #INPUT=./liste_sites.csv
 
@@ -46,17 +48,44 @@ while read name ip ; do
 
         site=$name".epfl.ch"
         echo -e "site: "$site
+
+
+
         url="http://"$site
         echo -e "url: "$url
 
+        rm tmp.txt
         curl --connect-timeout 1 $url -o tmp.txt 2>/dev/null
         t1=`wc -c tmp.txt |awk '{print $1}'`
 
         if [ $t1 != 0 ]
         then
             echo -e "t1: "$t1
-            ./screen_copy.sh $url "./images/"$site
+            ./screen_copy.sh $url "./images/http_"$site
         fi
+
+
+
+        url="https://"$site
+        echo -e "url: "$url
+
+        rm tmp.txt
+        curl --connect-timeout 1 $url -o tmp.txt 2>/dev/null
+        t1=`wc -c tmp.txt |awk '{print $1}'`
+
+        if [ $t1 != 0 ]
+        then
+            echo -e "t1: "$t1
+            ./screen_copy.sh $url "./images/https_"$site
+        fi
+
+
+
+
+
+
+
+
 
 
 

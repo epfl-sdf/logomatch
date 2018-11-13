@@ -1,4 +1,4 @@
-//zf181113.1238
+//zf181113.1312
 
 var system = require('system');
 var args = system.args;
@@ -7,6 +7,23 @@ console.log('Chargement de la page web');
 console.log(args[1]);
 
 var page = require('webpage').create();
+
+
+
+page.settings.resourceTimeout = 2000; // 2 seconds
+page.onResourceTimeout = function(e) {
+  console.log(e.errorCode);   // it'll probably be 408 
+  console.log(e.errorString); // it'll probably be 'Network timeout on resource'
+  console.log(e.url);         // the url whose request timed out
+  phantom.exit(1);
+};
+
+
+
+
+
+
+
 
 page.viewportSize = {
     width: 1024,
@@ -19,7 +36,7 @@ var url = args[1];
 
 page.open(url, function (status) {
     console.log('Page chargée');
-    page.render(args[2]+'.png');
+    page.render(args[2]+'.jpeg', {format: 'jpeg', quality: '100'} );
     phantom.exit();
 });
 
