@@ -45,7 +45,7 @@ pages_file_or_dir=sys.argv[1]
 logos_file_or_dir=sys.argv[2]
 
 if os.path.isdir(pages_file_or_dir):
-  pages=glob.glob(pages_file_or_dir + "/*.jpg")
+  pages=glob.glob(pages_file_or_dir + "/*.png")
 else:
   pages=[pages_file_or_dir]
 

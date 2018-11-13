@@ -8,7 +8,7 @@
 #note: convert ../../../imgdiff/copyscreen_sans.png -fx '(r+g+b)/3' -colorspace Gray copyscreen_sans.jpg
 
 rm -Rf ./match
-mkdir -p ./match/all ; mkdir -p ./match/yes ; mkdir -p ./match/no
+mkdir -p ./match/all ; mkdir -p ./match/yes ; mkdir -p ./match/no ; mkdir -p ./match/maybe
 
 python test3.py
 

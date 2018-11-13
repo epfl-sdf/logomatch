@@ -3,7 +3,7 @@
 # rm match/yes/*
 # docker run -it -v $PWD:/app -w=/app valian/docker-python-opencv-ffmpeg python test3.py
 #
-#zf181113.0853
+#zf181113.0928
 
 import os.path
 import glob
@@ -13,7 +13,9 @@ import cv2
 
 SURE_MIN_MATCH_COUNT = 12
 MAYBE_MATCH_COUNT = 5
+#DISTANCE_FACTOR = 0.7
 DISTANCE_FACTOR = 0.7
+
 
 # Ho many features to show in the match_patch image
 SHOW_MATCHES = 20
@@ -55,7 +57,7 @@ def match(img2_path, img1_path, match_path=None):
 
 # ----------------------------------------------------
 
-pages=glob.glob("pages/jpg/*.jpg")
+pages=glob.glob("pages/png/*.png")
 logos=glob.glob("logo/jpg/*.jpg")
 
 for page in pages:
