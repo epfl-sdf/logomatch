@@ -10,8 +10,11 @@
 rm -Rf ./match
 mkdir -p ./match/all ; mkdir -p ./match/yes ; mkdir -p ./match/no ; mkdir -p ./match/maybe
 
-python test3.py
+# Generate logos from svg
+sh generate.sh
 
+# scan all logos in all pages and draw matches in the match directory
+python test6.py pages/png logo/png match
 
-
-
+# scan all logos in all pages but do not write match images
+# python test6.py pages/png logo/png
