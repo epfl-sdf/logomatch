@@ -2,12 +2,14 @@
 #Petit script pour lancer le binz
 #ATTENTION: ça été fait pour une structure perso !
 #faudra modifier le script pour d'autres structures
-#zf181112.1541
+#zf181113.0857
 
 #source: 
 #note: convert ../../../imgdiff/copyscreen_sans.png -fx '(r+g+b)/3' -colorspace Gray copyscreen_sans.jpg
 
-rm match/no/* ; rm match/yes/*
+rm -Rf ./match
+mkdir -p ./match/all ; mkdir -p ./match/yes ; mkdir -p ./match/no
+
 python test3.py
 
 
