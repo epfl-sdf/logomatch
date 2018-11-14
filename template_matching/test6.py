@@ -8,10 +8,12 @@ import glob
 import sys
 import numpy as np
 import cv2
+import argparse
 
 MATCH_EXT="jpg"
-SURE_MIN_MATCH_COUNT = 16
-MAYBE_MATCH_COUNT = 8
+DEFAULT_YES_ABOVE = 16
+DEFAULT_NO_BELOW  = 8
+DEFAULT_MATCHES_TO_DRAW = 50
 
 class MImage():
 
@@ -83,7 +85,7 @@ class Matcher():
   def logo(self):
     return self.img1
 
-  def save(self, match_path, show_max=20):
+  def save(self, match_path, show_max=DEFAULT_MATCHES_TO_DRAW):
     good=[]
     sgood = sorted(self.good_matches, key = lambda x:x.distance)
     nshow = len(sgood) if show_max == 0 else show_max
@@ -99,42 +101,55 @@ class Matcher():
 
 # ----------------------------------------------------
 
-# pages_file_or_dir=sys.argv[1]
-# logos_file_or_dir=sys.argv[2]
-# if (len(sys.argv))
-# match_dir=sys.argv[3]
+parser = argparse.ArgumentParser(
+  prog = "logospotter",
+  description = "Logo spotter",
+  epilog = """ This program scans one or more images ('page'), for presence of another image ('logo').
+               If a folder of 'pages' is provided, it will scann all of them;
+               If a folder of 'logos' is provided, it will search for the best match.
+           """
+)
+parser.add_argument("-v", "--verbose", action='store_true', help="Increase output level")
+parser.add_argument("-n", "--no_below", action='store', type=int, default=DEFAULT_NO_BELOW, help="Below this threshold, images do not match")
+parser.add_argument("-y", "--yes_above", action='store', type=int, default=DEFAULT_YES_ABOVE, help="Below this threshold, images do not match")
+parser.add_argument("-s", "--show_upto", action='store', type=int, default=DEFAULT_MATCHES_TO_DRAW, help="Number of matches to show in the inspection image")
+parser.add_argument("-m", "--matchdir", action='store', help="Output directory for match images (mostly used for inspecting output while debugging)")
+parser.add_argument("page", help="A file or a folder with 'page' images")
+parser.add_argument("logo", help="A file or a folder with 'logo' images")
+opts = parser.parse_args()
 
-# print(match_dir)
+# validate match dir and evetually create the various folder that are needed
+if opts.matchdir is not None:
+  for d in [opts.matchdir, opts.matchdir+"/all", opts.matchdir+"/yes", opts.matchdir+"/no", opts.matchdir+"/maybe"]:
+    if (not os.path.exists(d)):
+      os.mkdir(d)
+    elif (not (os.path.isdir(d) and os.access(d, os.W_OK))):
+      raise("Folder " + d + " is not a directory or is not writable")
 
-pages_file_or_dir=sys.argv.pop(1)
-logos_file_or_dir=sys.argv.pop(1)
-if (len(sys.argv) > 1):
-  match_dir=sys.argv.pop(1)
+if os.path.isdir(opts.page):
+  page_paths=glob.glob(opts.page + "/*.png") + glob.glob(opts.page + "/*.jpg")
 else:
-  match_dir=None
+  page_paths=[opts.page]
 
-if os.path.isdir(pages_file_or_dir):
-  page_paths=glob.glob(pages_file_or_dir + "/*.png") + glob.glob(pages_file_or_dir + "/*.jpg")
+if os.path.isdir(opts.logo):
+  logo_paths=glob.glob(opts.logo + "/*.png") + glob.glob(opts.logo + "/*.jpg")
 else:
-  page_paths=[pages_file_or_dir]
+  logo_paths=[opts.logo]
 
-
-if os.path.isdir(logos_file_or_dir):
-  logo_paths=glob.glob(logos_file_or_dir + "/*.png") + glob.glob(logos_file_or_dir + "/*.jpg")
-else:
-  logo_paths=[logos_file_or_dir]
+many_pages = (len(page_paths)>1)
+many_logos = (len(logo_paths)>1)
+verbose=(many_pages or many_logos)
 
 logos=[]
 for logo_path in logo_paths:
   logo = MImage(logo_path)
   logos.append(logo)
 
-verbose=(len(page_paths)>1 or len(logos)>1)
 
 for page_path in page_paths:
   page=MImage(page_path)
 
-  print("\n"+page_path)
+  if (many_pages and opts.verbose): print("\n"+page_path)
 
   max_score=0
   best_m=None
@@ -146,17 +161,16 @@ for page_path in page_paths:
       max_score = m.score
       best_m = m
 
-    if (verbose):
-      print("%-20s %-20s %2d" % ("", logo.name, m.score))
+    if (many_logos and opts.verbose): print("%-20s %-20s %2d" % ("", logo.name, m.score))
 
-    if match_dir is not None:
-      m.save(match_dir + "/all/", 50)
+    if opts.matchdir is not None:
+      m.save(opts.matchdir + "/all/", opts.show_upto)
 
   ans=""
-  if max_score < MAYBE_MATCH_COUNT:
+  if max_score < opts.no_below:
     ans="no"
   else:
-    if max_score > SURE_MIN_MATCH_COUNT:
+    if max_score > opts.yes_above:
       ans="yes"
     else:
       ans="maybe"
@@ -165,6 +179,6 @@ for page_path in page_paths:
   else:
     print(max_score)
 
-  if match_dir is not None:
+  if opts.matchdir is not None:
     lpath="match/" + ans + "/" + best_m.basepath
     os.symlink("../all/"+best_m.basepath, lpath)
