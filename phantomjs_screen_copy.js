@@ -1,4 +1,4 @@
-//zf181113.1312
+//zf181113.1334
 
 var system = require('system');
 var args = system.args;
@@ -19,12 +19,6 @@ page.onResourceTimeout = function(e) {
 };
 
 
-
-
-
-
-
-
 page.viewportSize = {
     width: 1024,
     height: 3000
@@ -36,7 +30,8 @@ var url = args[1];
 
 page.open(url, function (status) {
     console.log('Page chargée');
-    page.render(args[2]+'.jpeg', {format: 'jpeg', quality: '100'} );
+//    page.render(args[2]+'.jpeg', {format: 'jpeg', quality: '100'} );
+    page.render(args[2]+'.png');
     phantom.exit();
 });
 

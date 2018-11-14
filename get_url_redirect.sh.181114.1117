@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#Petit script pour suivre un redirect de type refresh dans un fichier HTML
+#ATTENTION: ça été fait pour une structure perso !
+#faudra modifier le script pour d'autres structures
+#zf181114.1049
+
+#source:  https://stackoverflow.com/questions/428109/extract-substring-in-bash
+#note:
+
+t1=`curl --connect-timeout 1 $1 2>/dev/null |grep refresh`
+tmp=${t1#*url=}   # remove prefix ending in "url="
+b=${tmp%\"*}   # remove suffix starting with "
+echo -e $1"/"$b
+
+
+         if [ "$b" != "" ]
+         then
+             echo -e "oups..."
+         fi
+
+
+
+
+
+

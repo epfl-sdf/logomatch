@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #petit script pour faire une copie d'écran des homes pages d'une liste de sites web qui se trouvent dans un fichier .csv
-#zf181114.1506
+#zf181113.1336
 
 #source: https://www.cyberciti.biz/faq/unix-linux-bash-read-comma-separated-cvsfile/
 
@@ -25,8 +25,7 @@ echo ---------- start
 
 rm -Rf ./images
 mkdir ./images
-touch err.log
-touch redir.log
+
 
 
 INPUT=./data/liste_sites.csv
@@ -51,13 +50,9 @@ while read name ip ; do
         echo -e "site: "$site
 
 
-        ./get_url_redirect.sh "http://"$site
 
-
-
-
-#        url="http://"$site
-#        echo -e "url: "$url
+        url="http://"$site
+        echo -e "url: "$url
 
 #        rm tmp.txt
 #         curl --connect-timeout 1 $url -o tmp.txt 2>/dev/null
@@ -66,13 +61,13 @@ while read name ip ; do
 #         if [ $t1 != 0 ]
 #         then
 #             echo -e "t1: "$t1
-#            ./screen_copy.sh $url "./images/http_"$site
+            ./screen_copy.sh $url "./images/http_"$site
 #         fi
 
 
 
-#        url="https://"$site
-#        echo -e "url: "$url
+        url="https://"$site
+        echo -e "url: "$url
 
 #         rm tmp.txt
 #         curl --connect-timeout 1 $url -o tmp.txt 2>/dev/null
@@ -81,7 +76,7 @@ while read name ip ; do
 #         if [ $t1 != 0 ]
 #         then
 #             echo -e "t1: "$t1
-#            ./screen_copy.sh $url "./images/https_"$site
+            ./screen_copy.sh $url "./images/https_"$site
 #         fi
 
 
