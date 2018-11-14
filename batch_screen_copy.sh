@@ -51,7 +51,8 @@ while read name ip ; do
         echo -e "site: "$site
 
 
-        ./get_url_redirect.sh "http://"$site
+        ./clean_url.sh "http://"$site
+#        ./get_url_redirect.sh "http://"$site
 
 
 
