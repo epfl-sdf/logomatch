@@ -25,8 +25,8 @@ echo ---------- start
 
 rm -Rf ./images
 mkdir ./images
-touch err.log
-touch redir.log
+cp /dev/null err.log
+cp /dev/null redir.log
 
 
 INPUT=./data/liste_sites.csv
@@ -51,7 +51,12 @@ while read name ip ; do
         echo -e "site: "$site
 
 
-        ./clean_url.sh "http://"$site
+        url=`./clean_url.sh "http://"$site`
+        url=`./test_error_40x.sh $url`
+        echo "une belle url toute propre: "$url
+
+
+
 #        ./get_url_redirect.sh "http://"$site
 
 

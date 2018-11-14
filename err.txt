@@ -1,3 +1,2 @@
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+curl: no URL specified!
+curl: try 'curl --help' or 'curl --manual' for more information

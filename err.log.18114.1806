@@ -1,0 +1,842 @@
+err: http://cripc3.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: cripc3.epfl.ch
+err: http://admmac3.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://kismac2.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: kismac2.epfl.ch
+err: http://ctsgenas1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ctsgenas1.epfl.ch
+err: http://escgepc5.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://ciblp3.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://cl47.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://uc-expr-ext1.epfl.ch/, HTTP/1.1 404 Not Found on Accelerator
+err: http://lbncpc16.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://cellbase.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://lbncm1.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://lcpc33.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://imxlmsclp1.epfl.ch//web/guest/fr/websys/webArch/message.cgi?messageID=MSG_JAVASCRIPTOFF&buttonURL=/../../../, HTTP/1.1 404 Not Found
+err: http://lmscpc1.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://cryospc11.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://herus-a4-n1.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://epa-test.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://isaepat1.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://cdmprint.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: cdmprint.epfl.ch
+err: http://exterpsrv11.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://exopgesrv47.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: exopgesrv47.epfl.ch
+err: http://google.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: google.epfl.ch
+err: http://epa-prod.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://isaepap1.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://winmon1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: winmon1.epfl.ch
+err: http://kissrv137.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: kissrv137.epfl.ch
+err: http://actualites.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://mediatheque-old.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://teamframes.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://kissrv62.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: kissrv62.epfl.ch
+err: http://ditsbsrv63.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ditsbsrv63.epfl.ch
+err: http://vmsrv6.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://mysql-request.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://dllsti130.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://lmcpc14.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://lmcpc33.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://esllp1.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://esllp5.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://eslsrv2.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://esllp4.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://spipc6.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: spipc6.epfl.ch
+err: http://wosmose.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: wosmose.epfl.ch
+err: http://ipesevm113.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://ipesevm116.epfl.ch/, HTTP/1.1 400 Bad Request
+err: http://ipesevm118.epfl.ch/, HTTP/1.1 400 Bad Request
+err: http://beamer-i17-4-k2.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://scisbmn-vsadapt2.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://suva-illegale-1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: suva-illegale-1.epfl.ch
+err: http://enacitlp30.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://cclablp1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: cclablp1.epfl.ch
+err: http://itbpc21.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: itbpc21.epfl.ch
+err: http://lipidpc18.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://enacit3mac49.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://enacit3mac19.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: enacit3mac19.epfl.ch
+err: http://lts5pc34.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://spccis.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://spcpc313.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://spcsvn.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://spctt4.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://crpppc63.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: crpppc63.epfl.ch
+err: http://spcpc490.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://a3epfllp1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: a3epfllp1.epfl.ch
+err: http://stiitcgen0a01.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://stiitcgen0a.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://biorobsrv4-old.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: biorobsrv4-old.epfl.ch
+err: http://sbpositions.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://recruit.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://srisrv1.epfl.ch/, HTTP/1.1 401 Authorization Required
+err: http://enacxml.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: enacxml.epfl.ch
+err: http://sisbsrv14.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://larasrv06.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://enacit3vm1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: enacit3vm1.epfl.ch
+err: http://sarchives.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: sarchives.epfl.ch
+err: http://energy.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: energy.epfl.ch
+err: http://ipeseforum.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://leniblogs.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: leniblogs.epfl.ch
+err: http://leniprj.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: leniprj.epfl.ch
+err: http://lenisvn.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0 0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lenisvn.epfl.ch
+err: http://lenitime.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lenitime.epfl.ch
+err: http://leniwebserv.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: leniwebserv.epfl.ch
+err: http://leniwiki.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: leniwiki.epfl.ch
+err: http://leniwww.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: leniwww.epfl.ch
+err: http://plwiki.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: plwiki.epfl.ch
+err: http://ses.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ses.epfl.ch
+err: http://solarhtg.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: solarhtg.epfl.ch
+err: http://sunchem.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: sunchem.epfl.ch
+err: http://sisbsrv15.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://influxdb2.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://ipsbsrv2.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ipsbsrv2.epfl.ch
+err: http://blackrock.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: blackrock.epfl.ch
+err: http://garfield.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: garfield.epfl.ch
+err: http://ipcat2009.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ipcat2009.epfl.ch
+err: http://isrec-alumni.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: isrec-alumni.epfl.ch
+err: http://isrec2014.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: isrec2014.epfl.ch
+err: http://nccr-isrec.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: nccr-isrec.epfl.ch
+err: http://sv-report.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://wnt2009.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: wnt2009.epfl.ch
+err: http://icitlogsrv1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: icitlogsrv1.epfl.ch
+err: http://icteach.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: icteach.epfl.ch
+err: http://cimegesrv3.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://esrilic.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://ecallabsrv2.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://bigdata.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: bigdata.epfl.ch
+err: http://cowww.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: cowww.epfl.ch
+err: http://cvlabwiki.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: cvlabwiki.epfl.ch
+err: http://cvlabwww.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: cvlabwww.epfl.ch
+err: http://diwww.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: diwww.epfl.ch
+err: http://dps.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: dps.epfl.ch
+err: http://gcit.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: gcit.epfl.ch
+err: http://ic-sg.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ic-sg.epfl.ch
+err: http://icapp.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: icapp.epfl.ch
+err: http://icbss.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: icbss.epfl.ch
+err: http://icdean.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: icdean.epfl.ch
+err: http://icsvn.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: icsvn.epfl.ch
+err: http://icvmware.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: icvmware.epfl.ch
+err: http://ix.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ix.epfl.ch
+err: http://lsp2.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lsp2.epfl.ch
+err: http://ogsei.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ogsei.epfl.ch
+err: http://prjsv.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: prjsv.epfl.ch
+err: http://snjcc.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: snjcc.epfl.ch
+err: http://superstudio.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: superstudio.epfl.ch
+err: http://imxinstruments1.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://svitlimsintra.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://mics.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: mics.epfl.ch
+err: http://micswww.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: micswww.epfl.ch
+err: http://smartearth.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: smartearth.epfl.ch
+err: http://terminodes.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: terminodes.epfl.ch
+err: http://isicgesrv1.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://vpivsrv2.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://cmmsrv1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: cmmsrv1.epfl.ch
+err: http://icmovpe2014test.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: icmovpe2014test.epfl.ch
+err: http://ucontroller-lpi.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://namsrv4.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lpmv1.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://disalsrv10.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://disalvm1.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://hpcleg.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://afaig.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: afaig.epfl.ch
+err: http://alert.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: alert.epfl.ch
+err: http://apprentis2.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: apprentis2.epfl.ch
+err: http://auditenac.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: auditenac.epfl.ch
+err: http://capres.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: capres.epfl.ch
+err: http://enacnp10.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: enacnp10.epfl.ch
+err: http://enacprintstat.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: enacprintstat.epfl.ch
+err: http://fasta.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: fasta.epfl.ch
+err: http://fib.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: fib.epfl.ch
+err: http://lavocwww.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lavocwww.epfl.ch
+err: http://lch-news.epfl.ch/, HTTP/1.1 401 Unauthorized
+err: http://railnet2.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: railnet2.epfl.ch
+err: http://transp-or2.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: transp-or2.epfl.ch
+err: http://vt.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: vt.epfl.ch
+err: http://vplp4.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://epflecalllp1.epfl.ch//web/guest/en/websys/webArch/message.cgi?messageID=MSG_JAVASCRIPTOFF&buttonURL=/../../../, HTTP/1.1 404 Not Found
+err: http://ogifpc1.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://sglp2.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://diietel2.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: diietel2.epfl.ch
+err: http://smalp2.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://stigelp2.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://ltcmlp1.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://ltclp11.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ltclp11.epfl.ch
+err: http://theoslp14.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://theoslp16.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://afalp3.epfl.ch/, HTTP/1.1 400 Bad Request
+err: http://grlvtlp1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: grlvtlp1.epfl.ch
+err: http://lgpplp2.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lgpplp2.epfl.ch
+err: http://ltcmlp5.epfl.ch/, HTTP/1.1 404 Not found
+err: http://lreselp2.epfl.ch/, HTTP/1.1 400 Bad Request
+err: http://qnegelp7.epfl.ch//wcd/js_error.xml, HTTP/1.1 404 Not Found
+err: http://qnegelp8.epfl.ch//wcd/js_error.xml, HTTP/1.1 404 Not Found
+err: http://qnegelp9.epfl.ch//wcd/js_error.xml, HTTP/1.1 404 Not Found
+err: http://rhflp2-new.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: rhflp2-new.epfl.ch
+err: http://rhflp1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: rhflp1.epfl.ch
+err: http://ggeclp1.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://lcpmlp2-new.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lcpmlp2-new.epfl.ch
+err: http://isicgelp3-new.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: isicgelp3-new.epfl.ch
+err: http://isicgelp4-new.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: isicgelp4-new.epfl.ch
+err: http://isicgelp26-new.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: isicgelp26-new.epfl.ch
+err: http://lgrclp3-new.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lgrclp3-new.epfl.ch
+err: http://lcpmlp1-new.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lcpmlp1-new.epfl.ch
+err: http://lsulp3-new.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lsulp3-new.epfl.ch
+err: http://lpilp6-new.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lpilp6-new.epfl.ch
+err: http://sbsstlp4-new.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: sbsstlp4-new.epfl.ch
+err: http://sbsstlp5-new.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: sbsstlp5-new.epfl.ch
+err: http://isicgelp5-new.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: isicgelp5-new.epfl.ch
+err: http://lgrclp5.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://isicgelp6.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://grmolp2-new.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: grmolp2-new.epfl.ch
+err: http://csaglp4.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://mathgeompriv2.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: mathgeompriv2.epfl.ch
+err: http://csaglp6.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: csaglp6.epfl.ch
+err: http://lcvmmsg1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lcvmmsg1.epfl.ch
+err: http://caglp12.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: caglp12.epfl.ch
+err: http://lcvmmlp1.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://csagpc4.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: csagpc4.epfl.ch
+err: http://grjetlp2.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://lmomlp9.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://ltc-illegale-1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ltc-illegale-1.epfl.ch
+err: http://lmomlp5.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://lasapc22.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://lca1srv40.epfl.ch/, HTTP/1.1 401 Unauthorized
+err: http://icsil1-lp21.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://icsil1noteb64.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: icsil1noteb64.epfl.ch
+err: http://icsil1-lp20.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://icsil1noteb69.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: icsil1noteb69.epfl.ch
+err: http://lca1srv68.epfl.ch/, HTTP/1.1 406 Not Acceptable
+err: http://icsil1noteb200.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: icsil1noteb200.epfl.ch
+err: http://immgepc4.epfl.ch/, HTTP/1.1 400 Bad Request
+err: http://laneshpprint.epfl.ch/, HTTP/1.1 400 Bad Request
+err: http://lanespc19.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://lmis4pc33.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://lmis4pc5.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://lmis4pc16.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://lmis4pc36.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lampsrv13.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://lampsrv20.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://lampsrv22.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://mtcsvn.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://larasrv01.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://lampsrv24.epfl.ch/, HTTP/1.1 404 Not found
+err: http://tresor-srv08.epfl.ch/, HTTP/1.1 404 Not found
+err: http://lamppc21.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://lampsrv18.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://larasrv10.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://liapc36.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://liapc37.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://lias4.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lias4.epfl.ch
+err: http://smartpark.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: smartpark.epfl.ch
+err: http://ltpnmac2.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ltpnmac2.epfl.ch
+err: http://cecam-ottokar10.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://cecampc6.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://ottokar10.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://lcpmpc39.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://lpipc9.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://lpipc18.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lpipc18.epfl.ch
+err: http://lcpmpc23.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://enacit1cam1.epfl.ch/, HTTP/1.1 401 Unauthorized
+err: http://cmipc83.epfl.ch/, HTTP/1.1 401 Unauthorized
+err: http://cmipc84.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://cmipc57.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://icitnass1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: icitnass1.epfl.ch
+err: http://icitnass2.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: icitnass2.epfl.ch
+err: http://iccumulus.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: iccumulus.epfl.ch
+err: http://icitsrv1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: icitsrv1.epfl.ch
+err: http://lmsmac4.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://lmrpc15.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lmrpc15.epfl.ch
+err: http://gellp1.epfl.ch/index.html, HTTP/1.1 405 Method Not Allowed
+err: http://gcd0383-a3-c1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: gcd0383-a3-c1.epfl.ch
+err: http://gcd0383-a4-c1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: gcd0383-a4-c1.epfl.ch
+err: http://isrflp2.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: isrflp2.epfl.ch
+err: http://icmpgelp14.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://icmpgepc18.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lnspc2.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://loeqpc6.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: loeqpc6.epfl.ch
+err: http://lqmlp1.epfl.ch/, HTTP/1.1 400 Bad Request
+err: http://lqmlp2.epfl.ch/, HTTP/1.1 400 Bad Request
+err: http://lnnmepc2.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://tif.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://tiflx.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://albator.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://icmpgelp15.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://corail.epfl.ch/, HTTP/1.1 400 Bad Request
+err: http://icmpgelp13.epfl.ch/, HTTP/1.1 400 Bad Request
+err: http://icmpgepc199.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: icmpgepc199.epfl.ch
+err: http://lpmcpc13.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lrspc46.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://lrsmac7.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lrsmac7.epfl.ch
+err: http://filoselle.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://icmpgelp7.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://ipmcgelp1.epfl.ch/, HTTP/1.1 400 Bad Request
+err: http://lrsother2.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://lsmpc42.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://lsmwww.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://hsmlib.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: hsmlib.epfl.ch
+err: http://ielsrv01.epfl.ch/edadk-pmw, HTTP/1.1 404 Not Found
+err: http://grkapc18.epfl.ch/, HTTP/1.1 405 METHOD NOT ALLOWED
+err: http://ospc8.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://updalpesrv3.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://lbmpc20.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://naef-hackpad.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: naef-hackpad.epfl.ch
+err: http://sv4-123.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://sv4-125.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://svitsrv6.epfl.ch/, HTTP/1.1 404 Not found
+err: http://ws-ermsv01.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ws-ermsv01.epfl.ch
+err: http://sv4-75.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://upkinlp1.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://svitmgr3.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://updeplalp3.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://upablasserlp3.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://ncemmac1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ncemmac1.epfl.ch
+err: http://svitpc1.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://ptbbsrv3.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://upblolp3.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://lbmpc1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lbmpc1.epfl.ch
+err: http://ptpsrv1.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://lbmbeowulf3.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lbmbeowulf3.epfl.ch
+err: http://naveirasslip1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: naveirasslip1.epfl.ch
+err: http://ecvpdev.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ecvpdev.epfl.ch
+err: http://llcblp1.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://lvglp3.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://cavgelp4.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://daphne.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: daphne.epfl.ch
+err: http://svcrashplan2.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: svcrashplan2.epfl.ch
+err: http://svinlp9.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://upcoleslip1.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://ditti-test-18.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://test-ssl-100.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://test-ssl-102.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://ditti-test-19.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://test-ssl-101.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://ditti-test-20.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://ditti-test-21.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://enacit2lab1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: enacit2lab1.epfl.ch
+err: http://enacitpc17.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: enacitpc17.epfl.ch
+err: http://enacitpc26.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: enacitpc26.epfl.ch
+err: http://enacit2dhcp20b.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: enacit2dhcp20b.epfl.ch
+err: http://enacitpc81.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: enacitpc81.epfl.ch
+err: http://dgclp5.epfl.ch/index.html, HTTP/1.1 405 Method Not Allowed
+err: http://gcd1384-a0-c5.epfl.ch/index.html, HTTP/1.1 405 Method Not Allowed
+err: http://gcd1384-a1-c5.epfl.ch/index.html, HTTP/1.1 405 Method Not Allowed
+err: http://gcd1384-a1-c5-hpgl2.epfl.ch/index.html, HTTP/1.1 405 Method Not Allowed
+err: http://iclabpc1.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://optlp1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: optlp1.epfl.ch
+err: http://pvlabpc3.epfl.ch/, HTTP/1.1 401 Unauthorized
+err: http://lmtmpc1.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://imtgelp2.epfl.ch/, HTTP/1.1 404 Not found
+err: http://esplabnas1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: esplabnas1.epfl.ch
+err: http://scitassrv18.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://mssql-sb.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: mssql-sb.epfl.ch
+err: http://kissrv117.epfl.ch/, HTTP/1.1 403 FORBIDDEN
+err: http://www39.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://dc-mon-nag.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: dc-mon-nag.epfl.ch
+err: http://exinfrsrv5.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://dadmin2.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://cmp2app.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://cmp2prd7.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://fnsepfl.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://sapproxyp3.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://sapservices.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://mssql-rep1.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://opsmanagerdw-mssql.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://scitassrv17.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://kissrv56.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: kissrv56.epfl.ch
+err: http://myprint-test2.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: myprint-test2.epfl.ch
+err: http://infoview.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://ditexvcops02.epfl.ch/, HTTP/1.1 403 
+err: http://vsprd1.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://ditex-vi-gw.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ditex-vi-gw.epfl.ch
+err: http://ditexvits01.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ditexvits01.epfl.ch
+err: http://bgq1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: bgq1.epfl.ch
+err: http://bluegene.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: bluegene.epfl.ch
+err: http://rancher-exopge-2.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: rancher-exopge-2.epfl.ch
+err: http://fadmin1.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://ditsbsrv51.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://zeus.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://scistimmpc2.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://a10-e-v22.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://ax-test-1-v221-8.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://c6-slb-1-v222.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: c6-slb-1-v222.epfl.ch
+err: http://c6-slb-2-v222.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: c6-slb-2-v222.epfl.ch
+err: http://test-notifier.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://test-websrv.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://hotelinfo.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: hotelinfo.epfl.ch
+err: http://notifier.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://websrv.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://afrotech.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: afrotech.epfl.ch
+err: http://association-solar.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: association-solar.epfl.ch
+err: http://benchmarking-achats.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: benchmarking-achats.epfl.ch
+err: http://bois-chamblard.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: bois-chamblard.epfl.ch
+err: http://cesb.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: cesb.epfl.ch
+err: http://cfi-sinergia.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: cfi-sinergia.epfl.ch
+err: http://chantiers.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: chantiers.epfl.ch
+err: http://conventioncenter.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: conventioncenter.epfl.ch
+err: http://cream.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: cream.epfl.ch
+err: http://decanat-bama.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: decanat-bama.epfl.ch
+err: http://dit-intra.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: dit-intra.epfl.ch
+err: http://ethique.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ethique.epfl.ch
+err: http://eurojp2phase2015.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: eurojp2phase2015.epfl.ch
+err: http://exploringedges.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: exploringedges.epfl.ch
+err: http://facultes-test.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: facultes-test.epfl.ch
+err: http://gartner.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: gartner.epfl.ch
+err: http://gsf.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: gsf.epfl.ch
+err: http://ic-anniversary-30-20.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ic-anniversary-30-20.epfl.ch
+err: http://icmp.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: icmp.epfl.ch
+err: http://ipep.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ipep.epfl.ch
+err: http://ipsb.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ipsb.epfl.ch
+err: http://jensenlab.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: jensenlab.epfl.ch
+err: http://lprx.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lprx.epfl.ch
+err: http://mathgeom.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: mathgeom.epfl.ch
+err: http://mssql.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: mssql.epfl.ch
+err: http://mysql.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: mysql.epfl.ch
+err: http://rcfe.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: rcfe.epfl.ch
+err: http://respect.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0 0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: respect.epfl.ch
+err: http://rsb.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: rsb.epfl.ch
+err: http://seances-vppl.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: seances-vppl.epfl.ch
+err: http://socialmedialab.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: socialmedialab.epfl.ch
+err: http://support-it.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: support-it.epfl.ch
+err: http://swisstechhotel.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: swisstechhotel.epfl.ch
+err: http://tip-conference.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: tip-conference.epfl.ch
+err: http://tplaime.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: tplaime.epfl.ch
+err: http://dsps-secu-labo-dev.epfl.ch/, HTTP/1.1 404 VCL says: you reached a dead end.
+err: http://geoportail-dev.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://geoportail-new.epfl.ch/, HTTP/1.1 404 VCL says: you reached a dead end.
+err: http://plan-demo.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: plan-demo.epfl.ch
+err: http://plan-dev.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: plan-dev.epfl.ch
+err: http://plan-dev-mobile.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: plan-dev-mobile.epfl.ch
+err: http://plan-epfl-tile0.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://plan-epfl-tile1.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://plan-epfl-tile2.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://plan-epfl-tile3.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://plan-epfl-tile4.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://plan-epfl-wmts.epfl.ch/, HTTP/1.1 404 VCL says: you reached a dead end.
+err: http://plan-epfl-wmts0.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://plan-epfl-wmts1.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://plan-epfl-wmts2.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://plan-epfl-wmts3.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://plan-epfl-wmts4.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://plan-preprod.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: plan-preprod.epfl.ch
+err: http://plan-prod.epfl.ch/, HTTP/1.1 404 VCL says: you reached a dead end.
+err: http://plan-slb.epfl.ch/, HTTP/1.1 404 VCL says: you reached a dead end.
+err: http://plan-tiles.epfl.ch/, HTTP/1.1 404 VCL says: you reached a dead end.
+err: http://rr.epfl.ch/, HTTP/1.1 405 Method Not Allowed
+err: http://documents.epfl.ch/, HTTP/1.1 401 Unauthorized
+err: http://livingwithrisks.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: livingwithrisks.epfl.ch
+err: http://mappingcontroversies.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: mappingcontroversies.epfl.ch
+err: http://spectra.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: spectra.epfl.ch
+err: http://test-calendars.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0 0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: test-calendars.epfl.ch
+err: http://test-actu.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: test-actu.epfl.ch
+err: http://interactive-test.epfl.ch/, HTTP/1.1 401 Unauthorized
+err: http://rr-test.epfl.ch/, HTTP/1.1 405 Method Not Allowed
+err: http://caas-exopge-cms.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: caas-exopge-cms.epfl.ch
+err: http://ditexview-test.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ditexview-test.epfl.ch
+err: http://academique.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://academique-migr.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: academique-migr.epfl.ch
+err: http://aci-commandes-migr.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: aci-commandes-migr.epfl.ch
+err: http://architango-migr.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: architango-migr.epfl.ch
+err: http://clic2.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://cnbi-web.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://cssa-migr.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: cssa-migr.epfl.ch
+err: http://funweb-migr.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: funweb-migr.epfl.ch
+err: http://idm-migr.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: idm-migr.epfl.ch
+err: http://iplt-migr.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: iplt-migr.epfl.ch
+err: http://lis2-migr.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lis2-migr.epfl.ch
+err: http://ltp-tools.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://mappingurbanhistory-migr.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: mappingurbanhistory-migr.epfl.ch
+err: http://nano-tera-migr.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: nano-tera-migr.epfl.ch
+err: http://pscc2016-migr.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: pscc2016-migr.epfl.ch
+err: http://qi2.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: qi2.epfl.ch
+err: http://swisscube-migr.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: swisscube-migr.epfl.ch
+err: http://sysmic-migr.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: sysmic-migr.epfl.ch
+err: http://tree-migr.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: tree-migr.epfl.ch
+err: http://tunes2.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://test-poc-migr-cms.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: test-poc-migr-cms.epfl.ch
+err: http://shibb-sp.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://webproxy01.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://webproxy02.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://webproxy03.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://craftmoodle11.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: craftmoodle11.epfl.ch
+err: http://slb-listes.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: slb-listes.epfl.ch
+err: http://ditexsrv70-2.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ditexsrv70-2.epfl.ch
+err: http://ditexsrv71.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ditexsrv71.epfl.ch
+err: http://ditexsrv71-2.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ditexsrv71-2.epfl.ch
+err: http://ditexview04.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ditexview04.epfl.ch
+err: http://ditexview04-2.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ditexview04-2.epfl.ch
+err: http://ditexview05.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ditexview05.epfl.ch
+err: http://ditexview05-2.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ditexview05-2.epfl.ch
+err: http://myepfl01.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: myepfl01.epfl.ch
+err: http://myepfl05.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://myepfl06.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://myepfl07.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://myepfl08.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://jahia04.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://jahia05.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://tequila04-prod-migr.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: tequila04-prod-migr.epfl.ch
+err: http://exopgesrv58.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: exopgesrv58.epfl.ch
+err: http://tequila03-prod-migr.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: tequila03-prod-migr.epfl.ch
+err: http://tequila02-prod-migr.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: tequila02-prod-migr.epfl.ch
+err: http://tequila01-prod-migr.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: tequila01-prod-migr.epfl.ch
+err: http://edx3.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: edx3.epfl.ch
+err: http://edx4.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: edx4.epfl.ch
+err: http://edx5.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: edx5.epfl.ch
+err: http://edx6.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: edx6.epfl.ch
+err: http://scoldap04-prod-migr.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: scoldap04-prod-migr.epfl.ch
+err: http://scoldap03-prod-migr.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: scoldap03-prod-migr.epfl.ch
+err: http://scoldap02-prod-migr.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: scoldap02-prod-migr.epfl.ch
+err: http://exopgesrv19.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://exopgesrv20.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://jahia11.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: jahia11.epfl.ch
+err: http://jahia12.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: jahia12.epfl.ch
+err: http://jahia13.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: jahia13.epfl.ch
+err: http://jahia14.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: jahia14.epfl.ch
+err: http://jahia15.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: jahia15.epfl.ch
+err: http://exopgesrv54.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: exopgesrv54.epfl.ch
+err: http://prometheus-cmsprd-exopge.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: prometheus-cmsprd-exopge.epfl.ch
+err: http://spadfst01.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://spadfst02.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://spadfsp01.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://spadfsp02.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://search10.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: search10.epfl.ch
+err: http://search11.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: search11.epfl.ch
+err: http://dinfo1.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://dinfo1-cs.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://dinfo2.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://dinfo2-cs.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://exopgesrv55.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: exopgesrv55.epfl.ch
+err: http://kissrv125.epfl.ch/, HTTP/1.1 404 VCL says: you reached a dead end.
+err: http://kissrv126.epfl.ch/, HTTP/1.1 404 VCL says: you reached a dead end.
+err: http://exopgesrv6.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://ewa7-dir.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://myepfl03-old.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: myepfl03-old.epfl.ch
+err: http://kissrv72.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: kissrv72.epfl.ch
+err: http://kissrv85.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: kissrv85.epfl.ch
+err: http://ewa0.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ewa0.epfl.ch
+err: http://tewa-slb.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: tewa-slb.epfl.ch
+err: http://edu-test.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: edu-test.epfl.ch
+err: http://kissrv73.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: kissrv73.epfl.ch
+err: http://search-test.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: search-test.epfl.ch
+err: http://myepfl07-old.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: myepfl07-old.epfl.ch
+err: http://test-dinfo1.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://test-dinfo2.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://exopgesrv53.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: exopgesrv53.epfl.ch
+err: http://stiitsrv4.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: stiitsrv4.epfl.ch
+err: http://stiitsrv5.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: stiitsrv5.epfl.ch
+err: http://eslsrv9.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://lnesrv1.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://stisrv5cmd.epfl.ch/, HTTP/1.1 405 Method Not Allowed
+err: http://accessrv1.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://enacvm-demosite.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lastrosrv1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lastrosrv1.epfl.ch
+err: http://lastrozfs1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lastrozfs1.epfl.ch
+err: http://itpsrv3.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://ieledanas1.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://lts5vm1.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://sti-qnap-temp-1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: sti-qnap-temp-1.epfl.ch
+err: http://lbensrv1-new.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lbensrv1-new.epfl.ch
+err: http://lts2srv1-gestion.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lts2srv1-gestion.epfl.ch
+err: http://ielsrv01.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://lemasrv10.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lemasrv10.epfl.ch
+err: http://genserver02.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://ipesewiki.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://scistifmsrv3.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://ieledasrv1.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://grebrave1.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://leniplcomp.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: leniplcomp.epfl.ch
+err: http://leniplweb.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: leniplweb.epfl.ch
+err: http://pinchlight.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: pinchlight.epfl.ch
+err: http://ieledasrv2.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://grlsmpc22.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: grlsmpc22.epfl.ch
+err: http://lts3pc51.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lts3pc51.epfl.ch
+err: http://ielsrv1.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://reactbuild.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://pedestriantag.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: pedestriantag.epfl.ch
+err: http://svitsrv35.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://upnaesrv2.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://dhlabsrv8.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://enacitpc61.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: enacitpc61.epfl.ch
+err: http://transpormac2.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: transpormac2.epfl.ch
+err: http://cremona3.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://ibeton2.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://ibetonsrv3.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://transporsrv4-drac.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://isbetonpc5.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: isbetonpc5.epfl.ch
+err: http://ibetonpc23.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: ibetonpc23.epfl.ch
+err: http://mcs-illegale-1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: mcs-illegale-1.epfl.ch
+err: http://lrhmac27.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lrhmac27.epfl.ch
+err: http://lchpc24.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://lrhmac16.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lrhmac16.epfl.ch
+err: http://lhemesure1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0 0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lhemesure1.epfl.ch
+err: http://lrhmac19.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lrhmac19.epfl.ch
+err: http://lchpc6.epfl.ch/, HTTP/1.1 401 Unauthorized
+err: http://enacdo-a4-n3.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://enacsglp1.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://gca2402-n1.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://fsilp4.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://lanossrv5.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://suprasrv2.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://ics.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://icservice.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://iscas.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lanos.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://suprasrv4.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://gcg1547-a4-n1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: gcg1547-a4-n1.epfl.ch
+err: http://gcg1547-a4-n1-ps.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: gcg1547-a4-n1-ps.epfl.ch
+err: http://imacpc58.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://imaclp4.epfl.ch/, HTTP/1.1 405 Method Not Allowed
+err: http://soclp2.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://diiipc15.epfl.ch/, HTTP/1.1 404 Introuvable
+err: http://cmmpc6.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: cmmpc6.epfl.ch
+err: http://lmhmm6.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lmhshare.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lmhpc62.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lmhintra.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lmhsrv6.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lmhibm2.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://lmhdb.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lmhibm5.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://ditti-test-42.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://idevingtest1.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://grcel-a4-c4.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://eml-a4-n3.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://imalp7.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://malp12.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://imalp13.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://sbitpc12.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://imalp6.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://igatlp2.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://lphelcsrv2.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://isicsrv7.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://eln2.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://icmbpc139.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: icmbpc139.epfl.ch
+err: http://superblc1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: superblc1.epfl.ch
+err: http://grjetsrv1.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://imbsrv6.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://lboscanco1.epfl.ch/, HTTP/1.1 401 Authorization Required
+err: http://svinlp11.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://ioalp4.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://lapdpc17.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lapdsrv1.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://loblp1.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://miplab-old.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://igc-illegale-1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0 0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: igc-illegale-1.epfl.ch
+err: http://limnopc24.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://cavgelp6.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://iapc17.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://ialp4.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://cognac2.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://uc-srvtools1.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://proengineer.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://www10.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://mysearch.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://www7.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://trex3.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: trex3.epfl.ch
+err: http://tmssql-rep1.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://a3-data.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: a3-data.epfl.ch
+err: http://adec-projets.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: adec-projets.epfl.ch
+err: http://aleph.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: aleph.epfl.ch
+err: http://archisources.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: archisources.epfl.ch
+err: http://camsa.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: camsa.epfl.ch
+err: http://elemo-research.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://gxsl.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: gxsl.epfl.ch
+err: http://hotes.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: hotes.epfl.ch
+err: http://indico.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: indico.epfl.ch
+err: http://italaus.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: italaus.epfl.ch
+err: http://kis-doc.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: kis-doc.epfl.ch
+err: http://lausanneheart.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lausanneheart.epfl.ch
+err: http://lis2.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://phptest.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: phptest.epfl.ch
+err: http://pip.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: pip.epfl.ch
+err: http://tristan.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: tristan.epfl.ch
+err: http://video-sav.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: video-sav.epfl.ch
+err: http://www15.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://decline.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: decline.epfl.ch
+err: http://decwww.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: decwww.epfl.ch
+err: http://cognac4-mgr.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: cognac4-mgr.epfl.ch
+err: http://ditti-expdb-1.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://mydocs.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://mydocs1.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://kispc1.epfl.ch/, HTTP/1.1 400 Bad Request
+err: http://dev-winauth.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://dev-wintest.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://exappsrv3.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://pcline.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://pwad.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://studlogs.epfl.ch/, HTTP/1.1 401 Unauthorized
+err: http://wintest.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://veritas-md3.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: veritas-md3.epfl.ch
+err: http://imapwww.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: imapwww.epfl.ch
+err: http://nalsw02-mgt.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://cibmserv4.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://cibmscannerb.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://cibmscannerc.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://lifmetpc25.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lifmetpc25.epfl.ch
+err: http://lip1pc4.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://lgsapriv2.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lcbcpriv13.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lcbcpriv13.epfl.ch
+err: http://lscopc1.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://kross4.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://lcicpc15.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://isicgems2.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: isicgems2.epfl.ch
+err: http://icmbpc179.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: icmbpc179.epfl.ch
+err: http://icmbprt019.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://chemcalc.epfl.ch/script/, HTTP/1.1 404 Not Found
+err: http://hds.epfl.ch/script/, HTTP/1.1 404 Not Found
+err: http://influxdb14.epfl.ch/script/, HTTP/1.1 404 Not Found
+err: http://isic-tools.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://magres.epfl.ch/script/, HTTP/1.1 404 Not Found
+err: http://icmbmac018.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://influxdb.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://script15.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://icmbpc038.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://icmbpc065.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: icmbpc065.epfl.ch
+err: http://icmbpc070.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://icmbmac004.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: icmbmac004.epfl.ch
+err: http://isicgelp7.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://cetox-a4-n1.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://aphyspc5.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://aphyspc18.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://eflumpc7.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: eflumpc7.epfl.ch
+err: http://sapsrm7d2.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://sapsrm7t1.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://icare-srv02.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lesopbsrv112.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://icare-srv03.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://icarewww.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://intranet-lesopb.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://leso-pb2.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lesobox.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lesoftp.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lesomail.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lesomail2.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lesopbsrv113.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lesosai.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://madd.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://osip.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://radiance.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lesopbsrv3.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lesopc25.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lesopc25.epfl.ch
+err: http://lesopbpc7.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://cdmlp3.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: cdmlp3.epfl.ch
+err: http://dasilp3.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: dasilp3.epfl.ch
+err: http://arpc009.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://armac004.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://enac3rip.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://enacit3linux6.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://enacit3-lic.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://diiepc56.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: diiepc56.epfl.ch
+err: http://diipcc-pccdatisrv02.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://seepc12.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: seepc12.epfl.ch
+err: http://diiepc28.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: diiepc28.epfl.ch
+err: http://seelp1.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://lbbspc10.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lbbspc10.epfl.ch
+err: http://lcbpc37.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lbbspc5.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lbbspc5.epfl.ch
+err: http://lbbspc7.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lbbspc7.epfl.ch
+err: http://lcsb1lp10.epfl.ch/, HTTP/1.1 401 Unauthorized
+err: http://lsulp1.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://isicgelp20.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://lumespc15.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://mathicselp10.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://iacslp1.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://iacslp2.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://grc0504-a3-c7.epfl.ch/, HTTP/1.1 401 Unauthorized
+err: http://cdtpc5.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: cdtpc5.epfl.ch
+err: http://echo-a4-c9.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://echopc28.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://iscsrv15.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://lthcube.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lthcube.epfl.ch
+err: http://iscsrv30.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://arni.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: arni.epfl.ch
+err: http://dsalabs.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://isit02.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: isit02.epfl.ch
+err: http://isit02sec.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: isit02sec.epfl.ch
+err: http://licos.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: licos.epfl.ch
+err: http://upseeger.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: upseeger.epfl.ch
+err: http://iscsrv35.epfl.ch/, HTTP/1.1 401 Unauthorized
+err: http://iscsrv46.epfl.ch/, HTTP/1.1 401 Unauthorized
+err: http://algosrv3.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: algosrv3.epfl.ch
+err: http://iscsrv9.epfl.ch/, HTTP/1.1 401 Unauthorized
+err: http://icvmwpc178.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: icvmwpc178.epfl.ch
+err: http://lsilp2.epfl.ch//web/guest/en/websys/webArch/message.cgi?messageID=MSG_JAVASCRIPTOFF&buttonURL=/../../../, HTTP/1.1 404 Not Found
+err: http://lsipc17.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://lsipc18.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://lappc11.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://lappc59-vm0.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://lappc13.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://lappc38.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://parsalp1.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lacallp3.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://lacallp1.epfl.ch/, HTTP/1.1 400 Bad Request
+err: http://dslabpc14.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://icivrllp1.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://icitlp4.epfl.ch/, HTTP/1.1 400 Bad Request
+err: http://icdolp3.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://risdlp1.epfl.ch/, HTTP/1.1 405 Method Not Allowed
+err: http://ivrllp1.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://lcavscan1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lcavscan1.epfl.ch
+err: http://icnallp1.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://elysee.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: elysee.epfl.ch
+err: http://lcavsrv8.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lcavsrv8.epfl.ch
+err: http://cmspc11.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://cms-aflex.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://cmspc46.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://eesdpc9.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://lasigpc18.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://topopriv2.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://lasigpc51.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lasigpc52.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://wirepc23.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://topopc22.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lasigpc2.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://svinslip7.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://bbplphp03.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: bbplphp03.epfl.ch
+err: http://bbplpxe02.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: bbplpxe02.epfl.ch
+err: http://bbplpxe04.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: bbplpxe04.epfl.ch
+err: http://upcourtinelp3.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://grvdvmac3.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: grvdvmac3.epfl.ch
+err: http://grvdvmac4.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: grvdvmac4.epfl.ch
+err: http://grvdvmac8.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: grvdvmac8.epfl.ch
+err: http://grvdvmac9.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: grvdvmac9.epfl.ch
+err: http://grvdvlp2.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: grvdvlp2.epfl.ch
+err: http://grvdvlp1.epfl.ch/, HTTP/1.1 404 Not found
+err: http://spihp1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: spihp1.epfl.ch
+err: http://preslp4.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://diiipc18.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://lpheserv.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: lpheserv.epfl.ch
+err: http://www-lphe.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: www-lphe.epfl.ch
+err: http://lphe1lp10.epfl.ch/, HTTP/1.1 400 Bad Request
+err: http://env-stcc-po.epfl.ch/, HTTP/1.1 400 ERROR
+err: http://disalsrv7.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://ecol-a4-n2.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://lte-a4-n1.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://diie-greatcell-1.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://cimemac19.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: cimemac19.epfl.ch
+err: http://agepolysrv1.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://fbibm2.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://vpn-255-007.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://c2cpc63.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://procsim1.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://bluewatt3.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://anemomind1.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: anemomind1.epfl.ch
+err: http://equinoxe1.epfl.ch/, HTTP/1.1 400 Bad Request
+err: http://lyncee1.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://almatech1.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://sushizen2.epfl.ch/, HTTP/1.1 401 Authorization Required
+err: http://balelecsrv2.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://polydata.epfl.ch, url: (28) Connection timed out after 1001 milliseconds
+err: http://polylan4.epfl.ch, url: (28) Connection timed out after 1002 milliseconds
+err: http://polylan6.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://polynas.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://lsir-sciencewise-01.epfl.ch/, HTTP/1.1 404 Not Found
+err: http://lsir-sciencewise-02.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://bbpfe07.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://cbs.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://bbpfe10.epfl.ch/, HTTP/1.1 404 Not Found on Accelerator
+err: http://bbpsrv38.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://bbpfe20.epfl.ch/, HTTP/1.1 403 Forbidden
+err: http://bbpfe23.epfl.ch/, HTTP/1.1 400 Bad Request
+err: http://bbpproxy.epfl.ch/, HTTP/1.1 400 Bad Request
+err: http://bbpdev.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://bbpfe02.epfl.ch, url: (28) Connection timed out after 1000 milliseconds
+err: http://bbpfe03.epfl.ch/, HTTP/1.1 404 Not Found on Accelerator
+err: http://hbp.epfl.ch/, HTTP/1.1 404 Not Found on Accelerator
+err: http://.epfl.ch,  0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0curl: (6) Could not resolve host: .epfl.ch
