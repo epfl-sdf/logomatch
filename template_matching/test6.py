@@ -30,7 +30,9 @@ class MImage():
 class Matcher():
 
   # class variables / constants
-  DISTANCE_FACTOR = 0.7
+  LOWE_FACTOR = 0.7
+  GIOVA_FACTOR = 0.9
+  GIOVA_THRESHOLD = 0
   FLANN_INDEX_KDTREE = 1
   MIN_MATCH_COUNT = 4
   index_params = dict(algorithm = FLANN_INDEX_KDTREE, trees = 5)
@@ -40,11 +42,26 @@ class Matcher():
   def __init__(self, img2, img1):
     self.img1 = img1
     self.img2 = img2
+    self.good_matches = None
 
-    matches = Matcher.flann.knnMatch(img1.des,img2.des,k=2)
+  def match(self, 
+            lowe_factor  = 0.7,
+            giova_factor = 0.9,
+            giova_thr    = 0,
+          ):
+
+    matches = Matcher.flann.knnMatch(self.img1.des,self.img2.des,k=2)
+
+    if (giova_thr > 0):
+      dmin = min(matches, key=lambda v: v[0].distance)[0].distance
+      dmax = max(matches, key=lambda v: v[0].distance)[0].distance
+      giova_maxdist = dmin + giova_thr * (dmax - dmin)
+    else:
+      giova_maxdist = 0.0
+
     lowe_matches=[]
     for m,n in matches:
-      if m.distance < Matcher.DISTANCE_FACTOR*n.distance:
+      if m.distance < lowe_factor*n.distance or (m.distance < giova_maxdist and m.distance < giova_factor*n.distance):
         lowe_matches.append(m)
 
     # If enough points, a second selection is done by the Homography algorithm that keeps
@@ -61,23 +78,23 @@ class Matcher():
     else:
       self.good_matches = lowe_matches
 
-    self.score = len(self.good_matches)
-    self.basepath="%02d_%s_%s.%s" % (self.score, self.img2.name, self.img1.name, MATCH_EXT)
+    # self.score = len(self.good_matches)
+    # self.basepath="%02d_%s_%s.%s" % (self.score(), self.img2.name, self.img1.name, MATCH_EXT)
+    return self.score()
+    
 
-    # points=[]
-    # for m in self.good_matches[:3]:
-    #   p=[img2.kp[m.trainIdx].pt[0], img2.kp[m.trainIdx].pt[1]]
-    #   points.append(p)
-    # self.ave = np.mean(points, 0)
-    # self.std = np.std(points, 0)
-    # print("ave = %6.2f  %6.2f" % (self.ave[0], self.ave[1]) )
-    # print("std = %6.2f  %6.2f" % (self.std[0], self.std[1]) )
+  def score(self):
+    if self.good_matches is None:
+      return None
+    else:
+      return len(self.good_matches)
 
-    # sgood = sorted(self.good_matches, key = lambda x:x.distance)
-    # for m in sgood:
-    #   # print("distance: %6.2f - %6.2f" % (m.distance, n.distance) )
-    #   print("\npage: %d = %6.2f %6.2f" % (m.trainIdx, img2.kp[m.trainIdx].pt[0], img2.kp[m.trainIdx].pt[1]) )
-    #   print("logo: %d = %6.2f %6.2f" % (m.queryIdx, img1.kp[m.queryIdx].pt[0], img1.kp[m.queryIdx].pt[1]) )
+  def basepath(self):
+    if self.good_matches is None:
+      return ("%s_%s.%s" % (self.img2.name, self.img1.name, MATCH_EXT))
+    else:
+      return ("%02d_%s_%s.%s" % (self.score(), self.img2.name, self.img1.name, MATCH_EXT))
+
 
   def page(self):
     return self.img2
@@ -86,6 +103,9 @@ class Matcher():
     return self.img1
 
   def save(self, match_path, show_max=DEFAULT_MATCHES_TO_DRAW):
+    if self.good_matches is None:
+      raise "Please run match before calling save"
+
     good=[]
     sgood = sorted(self.good_matches, key = lambda x:x.distance)
     nshow = len(sgood) if show_max == 0 else show_max
@@ -114,6 +134,7 @@ parser.add_argument("-n", "--no_below", action='store', type=int, default=DEFAUL
 parser.add_argument("-y", "--yes_above", action='store', type=int, default=DEFAULT_YES_ABOVE, help="Below this threshold, images do not match")
 parser.add_argument("-s", "--show_upto", action='store', type=int, default=DEFAULT_MATCHES_TO_DRAW, help="Number of matches to show in the inspection image")
 parser.add_argument("-m", "--matchdir", action='store', help="Output directory for match images (mostly used for inspecting output while debugging)")
+parser.add_argument("-g", "--giova_thr", action='store', type=float, default=0.0, help="Loosen the Lowe Key point selection condition for points whose distance d<d_min + GIOVA_THR*(d_max - d_min)")
 parser.add_argument("page", help="A file or a folder with 'page' images")
 parser.add_argument("logo", help="A file or a folder with 'logo' images")
 opts = parser.parse_args()
@@ -155,17 +176,19 @@ for page_path in page_paths:
   best_m=None
   for logo in logos:
     m=Matcher(page, logo)
+    score = m.match(giova_thr=opts.giova_thr)
 
     # print(page, logo, MIN_MATCH_COUNT, ypath)
-    if (m.score > max_score): 
-      max_score = m.score
+    if (score > max_score): 
+      max_score = score
       best_m = m
 
-    if (many_logos and opts.verbose): print("%-20s %-20s %2d" % ("", logo.name, m.score))
+    if (many_logos and opts.verbose): print("%-20s %-20s %2d" % ("", logo.name, score))
 
     if opts.matchdir is not None:
       m.save(opts.matchdir + "/all/", opts.show_upto)
-
+    m=None
+    
   ans=""
   if max_score < opts.no_below:
     ans="no"
@@ -174,11 +197,15 @@ for page_path in page_paths:
       ans="yes"
     else:
       ans="maybe"
+  
   if (verbose):
-    print("%-20s %-20s %2d -> %s" % (page.name, best_m.logo().name, max_score, ans))
+    logoname = best_m.logo().name if best_m is not None else "NO_MATCHES"
+    print("%-20s %-20s %2d -> %s" % (page.name, logoname, max_score, ans))
   else:
     print(max_score)
 
   if opts.matchdir is not None:
-    lpath="match/" + ans + "/" + best_m.basepath
-    os.symlink("../all/"+best_m.basepath, lpath)
+    lpath="match/" + ans + "/" + best_m.basepath()
+    os.symlink("../all/"+best_m.basepath(), lpath)
+
+  page=None
