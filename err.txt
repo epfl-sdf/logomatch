@@ -1,18 +1,52 @@
-*   Trying 128.178.102.84...
+* Rebuilt URL to: https://gnugen-webapps.epfl.ch/
+*   Trying 128.179.100.20...
 * TCP_NODELAY set
-* Connected to files2.epfl.ch (128.178.102.84) port 80 (#0)
+* Connected to gnugen-webapps.epfl.ch (128.179.100.20) port 443 (#0)
+* ALPN, offering h2
+* ALPN, offering http/1.1
+* successfully set certificate verify locations:
+*   CAfile: /etc/ssl/certs/ca-certificates.crt
+  CApath: /etc/ssl/certs
+} [5 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Client hello (1):
+} [220 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server hello (2):
+{ [112 bytes data]
+* TLSv1.2 (IN), TLS handshake, Certificate (11):
+{ [4486 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server key exchange (12):
+{ [556 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server finished (14):
+{ [4 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Client key exchange (16):
+} [37 bytes data]
+* TLSv1.2 (OUT), TLS change cipher, Client hello (1):
+} [1 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Finished (20):
+} [16 bytes data]
+* TLSv1.2 (IN), TLS handshake, Finished (20):
+{ [16 bytes data]
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES256-GCM-SHA384
+* ALPN, server accepted to use http/1.1
+* Server certificate:
+*  subject: CN=morgarten.gnugen.ch
+*  start date: Oct  5 17:36:50 2018 GMT
+*  expire date: Jan  3 17:36:50 2019 GMT
+*  subjectAltName: host "gnugen-webapps.epfl.ch" matched cert's "gnugen-webapps.epfl.ch"
+*  issuer: C=US; O=Let's Encrypt; CN=Let's Encrypt Authority X3
+*  SSL certificate verify ok.
+} [5 bytes data]
 > HEAD / HTTP/1.1
-> Host: files2.epfl.ch
+> Host: gnugen-webapps.epfl.ch
 > User-Agent: curl/7.58.0
 > Accept: */*
 > 
-< HTTP/1.1 303 See Other
-< Date: Thu, 15 Nov 2018 10:34:42 GMT
-< Server: Apache
-< Cache-Control: no-cache, no-store, must-revalidate
-< Pragma: no-cache
-< Expires: 0
-< Location: http://files2.epfl.ch/sysmgr/SysMgr.html
-< Content-Type: text/html; charset=iso-8859-1
+{ [5 bytes data]
+< HTTP/1.1 403 Forbidden
+< Server: nginx
+< Date: Thu, 15 Nov 2018 13:42:41 GMT
+< Content-Type: text/html
+< Content-Length: 345
+< Connection: keep-alive
 < 
-* Connection #0 to host files2.epfl.ch left intact
+* Connection #0 to host gnugen-webapps.epfl.ch left intact

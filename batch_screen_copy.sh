@@ -49,27 +49,23 @@ while read name ip ; do
         echo -e "site: "$site
 
 
+        url="http://"$site
+        url=`./url_process_header.sh $url`
 
-
-        url=`./clean_url.sh "http://"$site`
-        url=`./test_error_40x.sh $url`
+        if [ $url != 0 ]
+        then
+            echo "toto.."
+#            url=`./url_process_html.sh $url`
+        fi
 
         if [ $url != 0 ]
         then
             echo -e "url: "$url
-            ./screen_copy.sh $url "./images/http_"$site
+#            ./screen_copy.sh $url "./images/http_"$site
         fi
 
 
 
-        url=`./clean_url.sh "https://"$site`
-        url=`./test_error_40x.sh $url`
-
-        if [ $url != 0 ]
-        then
-            echo -e "url: "$url
-            ./screen_copy.sh $url "./images/https_"$site
-        fi
 
 
 
