@@ -52,10 +52,10 @@ class Matcher():
 
   def match(self, 
             lowe_factor  = 0.7,
-            giova_factor = 0.9,
             giova_thr    = 0,
           ):
 
+    giova_factor = (1.0 + lowe_factor)/2,
     if self.matches is None: return 0
 
     if (giova_thr > 0):
@@ -138,14 +138,17 @@ parser = argparse.ArgumentParser(
   epilog = """ This program scans one or more images ('page'), for presence of another image ('logo').
                If a folder of 'pages' is provided, it will scann all of them;
                If a folder of 'logos' is provided, it will search for the best match.
+               There are various parameters to change the algorithm but the defaults are most probably the best choice.
            """
 )
 parser.add_argument("-v", "--verbose", action='store_true', help="Increase output level")
 parser.add_argument("-n", "--no_below", action='store', type=int, default=DEFAULT_NO_BELOW, help="Below this threshold, images do not match")
 parser.add_argument("-y", "--yes_above", action='store', type=int, default=DEFAULT_YES_ABOVE, help="Below this threshold, images do not match")
-parser.add_argument("-s", "--show_upto", action='store', type=int, default=DEFAULT_MATCHES_TO_DRAW, help="Number of matches to show in the inspection image")
 parser.add_argument("-m", "--matchdir", action='store', help="Output directory for match images (mostly used for inspecting output while debugging)")
 parser.add_argument("-M", "--maybe", action='store_true', help="Only save inspection images for uncertain matches (maybe matches)")
+
+parser.add_argument("-s", "--show_upto", action='store', type=int, default=DEFAULT_MATCHES_TO_DRAW, help="Number of matches to show in the inspection image")
+parser.add_argument("-l", "--lowe_factor", action='store', type=float, default=Matcher.LOWE_FACTOR, help="Set the Lowe factor: keypoint is kept only if distance(NN) < LF * distance(NNN)")
 parser.add_argument("-g", "--giova_thr", action='store', type=float, default=0.0, help="Loosen the Lowe Key point selection condition for points whose distance d<d_min + GIOVA_THR*(d_max - d_min)")
 parser.add_argument("-w", "--nolowe", action='store_true', help="Use simpler matching method exclusively base on distance of NN keypoints and homography")
 parser.add_argument("page", help="A file or a folder with 'page' images")
@@ -218,7 +221,7 @@ for page_path in page_paths:
     if (opts.nolowe):
       score = m.match_simpler()
     else:
-      score = m.match(giova_thr=opts.giova_thr)
+      score = m.match(lowe_factor=opts.lowe_factor, giova_thr=opts.giova_thr)
 
     # print(page, logo, MIN_MATCH_COUNT, ypath)
     if (score > max_score): 
