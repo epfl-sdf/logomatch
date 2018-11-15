@@ -22,7 +22,9 @@ else
     #traitement de la redirection au niveau du header HTTP
     if [ "`echo -e $h |grep -i 'HTTP/1.1 30'`" != "" ]                  #test si c'est une redirection
     then
-        url=`echo -e $h |grep -i '< Location: ' |awk '{print $2}'`      #récupère la redirection
+#        url=`echo -e $h |grep -i 'Location: ' |awk '{print $2}'`      #récupère la redirection
+        url=`echo -e $h |grep -i 'Location: ' `      #récupère la redirection
+echo -e "toto: "$url >tmp.txt
         echo -e "redirect: "$1", "$url >> redir.log                     #garde une trace du site redirigé pour debug
         h=`curl --max-time 1 -Ivs $url  2>err.txt`                      #récupère le nouveau le header HTTP
     fi
