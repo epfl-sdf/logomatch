@@ -1,63 +1,11 @@
-* Could not resolve host: HTTP
-* Closing connection 0
-* Rebuilt URL to: 301/
-*   Trying 0.0.1.45...
+*   Trying 128.178.128.155...
 * TCP_NODELAY set
-* Immediate connect fail for 0.0.1.45: Invalid argument
-* Closing connection 1
-* Rebuilt URL to: Moved/
-* Could not resolve host: Moved
-* Closing connection 2
-* Illegal characters found in URL
-* Closing connection -1
-* Rebuilt URL to: Server:/
-* Could not resolve host: Server
-* Closing connection 3
-* Illegal characters found in URL
-* Closing connection -1
-* Rebuilt URL to: Date:/
-* Could not resolve host: Date
-* Closing connection 4
-* Rebuilt URL to: Thu,/
-* Could not resolve host: Thu,
-* Closing connection 5
-* Rebuilt URL to: 15/
-*   Trying 0.0.0.15...
-* TCP_NODELAY set
-* Immediate connect fail for 0.0.0.15: Invalid argument
-* Closing connection 6
-* Rebuilt URL to: Nov/
-* Could not resolve host: Nov
-* Closing connection 7
-* Rebuilt URL to: 2018/
-*   Trying 0.0.7.226...
-* TCP_NODELAY set
-* Immediate connect fail for 0.0.7.226: Invalid argument
-* Closing connection 8
-* Rebuilt URL to: 14:42:29/
-* Port number ended with ':'
-* Closing connection -1
-* Illegal characters found in URL
-* Closing connection -1
-* Rebuilt URL to: Content-Type:/
-* Could not resolve host: Content-Type
-* Closing connection 9
-* Illegal characters found in URL
-* Closing connection -1
-* Rebuilt URL to: Content-Length:/
-* Could not resolve host: Content-Length
-* Closing connection 10
-* Illegal characters found in URL
-* Closing connection -1
-* Rebuilt URL to: Connection:/
-* Could not resolve host: Connection
-* Closing connection 11
-* Illegal characters found in URL
-* Closing connection -1
-* Rebuilt URL to: Location:/
-* Could not resolve host: Location
-* Closing connection 12
-* Illegal characters found in URL
-* Closing connection -1
-* Illegal characters found in URL
-* Closing connection -1
+* Connected to crppdev8.epfl.ch (128.178.128.155) port 443 (#0)
+* ALPN, offering h2
+* ALPN, offering http/1.1
+* successfully set certificate verify locations:
+*   CAfile: /etc/ssl/certs/ca-certificates.crt
+  CApath: /etc/ssl/certs
+} [5 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Client hello (1):
+} [214 bytes data]

@@ -1,1 +1,1 @@
-toto: HTTP/1.1 301 Moved Permanently Server: nginx Date: Thu, 15 Nov 2018 14:42:29 GMT Content-Type: text/html Content-Length: 178 Connection: keep-alive Location: https://gnugen-webapps.epfl.ch/ 
+toto: HTTP/1.1 301 Moved Permanently Server: nginx Date: Mon, 19 Nov 2018 14:52:03 GMT Content-Type: text/html Content-Length: 178 Connection: keep-alive Location: https://gnugen-webapps.epfl.ch/

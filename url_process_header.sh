@@ -2,14 +2,14 @@
 #Petit script pour traiter les erreurs 40x et récupérer les redirections 30x au niveau du header HTTP
 #ATTENTION: ça été fait pour une structure perso !
 #faudra modifier le script pour d'autres structures
-#zf181115.1415
+#zf181119.1723
 
 #source:  https://stackoverflow.com/questions/428109/extract-substring-in-bash
 #note:
 
 shopt -s extglob                                                        #demande au bash de supporter les pipes !
 
-h=`curl --max-time 1 -Ivs $1  2>err.txt`                                #récupère le header HTTP
+curl --max-time 1 -Ivs $1  2>err.txt | sed "s/\r/\n/g" > header.txt                       #récupère le header HTTP
 
 #traitement de l'erreurs de connection au niveau du CURL
 e=`cat err.txt |grep -i -e 'Connection timed out after' -e 'Could not resolve host' `
@@ -20,16 +20,18 @@ then
     url=""
 else
     #traitement de la redirection au niveau du header HTTP
-    if [ "`echo -e $h |grep -i 'HTTP/1.1 30'`" != "" ]                  #test si c'est une redirection
+    if [ "`cat header.txt |grep -i 'HTTP/1.1 30'`" != "" ]              #test si c'est une redirection
     then
-#        url=`echo -e $h |grep -i 'Location: ' |awk '{print $2}'`      #récupère la redirection
-        url=`echo -e $h |grep -i 'Location: ' `      #récupère la redirection
-echo -e "toto: "$url >tmp.txt
+        url=`cat header.txt |grep -i 'Location: ' |awk '{print $2}'`    #récupère la redirection
+        if [ "`echo -e $url |grep -i -e 'HTTP://' -e 'HTTPS://'`" = "" ]               #test si c'est une url absolue
+        then
+            url=$1$url
+        fi
         echo -e "redirect: "$1", "$url >> redir.log                     #garde une trace du site redirigé pour debug
-        h=`curl --max-time 1 -Ivs $url  2>err.txt`                      #récupère le nouveau le header HTTP
+        curl --max-time 1 -Ivs $url 2>err.txt | sed "s/\r/\n/g" > header.txt             #récupère le nouveau le header HTTP
     fi
     #traitement de l'erreur faite niveau du header HTTP
-    e=`echo -e $h |grep -i 'HTTP/1.1 40'`
+    e=`cat header.txt |grep -i 'HTTP/1.1 40'`
     if [ "$e" != "" ]                                                   #test si c'est une erreur
     then
         url=""
