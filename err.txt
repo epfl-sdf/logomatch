@@ -1,11 +1,3 @@
-*   Trying 128.178.128.155...
-* TCP_NODELAY set
-* Connected to crppdev8.epfl.ch (128.178.128.155) port 443 (#0)
-* ALPN, offering h2
-* ALPN, offering http/1.1
-* successfully set certificate verify locations:
-*   CAfile: /etc/ssl/certs/ca-certificates.crt
-  CApath: /etc/ssl/certs
-} [5 bytes data]
-* TLSv1.2 (OUT), TLS handshake, Client hello (1):
-} [214 bytes data]
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   149  100   149    0     0  18625      0 --:--:-- --:--:-- --:--:-- 21285

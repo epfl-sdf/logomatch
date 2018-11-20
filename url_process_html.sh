@@ -1,17 +1,17 @@
+
 #!/usr/bin/env bash
 #Petit script pour suivre un redirect de type refresh dans un fichier HTML.
 #Filtre aussi si le serveur ne répond pas
 #ATTENTION: ça été fait pour une structure perso !
 #faudra modifier le script pour d'autres structures
-#zf181114.1730
+#zf181120.0932
 
 #source:  https://stackoverflow.com/questions/428109/extract-substring-in-bash
 #note:
 
-shopt -s extglob                        #demande au bash de supporter les pipe !
+shopt -s extglob                                                                        #demande au bash de supporter les pipe !
 
-#récupère le HTML de l'URL
-t1=`curl --max-time 1 $1  2>err.txt |grep 'http-equiv="refresh"' |grep -i 'url=' `
+t1=`curl --max-time 1 $1  2>err.txt |grep -i 'http-equiv="refresh"' |grep -i 'url=' `      #récupère s'il y a une redirection dans le HTML
 
 #traitement de la redirection faite à l'intérieur du HTML
 tmp=${t1#*+(url|URL)=}                  # remove prefix ending in "url|URL="
@@ -26,7 +26,7 @@ fi
 #garde une trace du site redirigé pour debug
 if [ "$b" != "" ]
 then
-    echo -e "redirect: "$1", "$r >> redir.log
+    echo -e "redirect_html: "$1", "$r >> redir.log
 fi
 
 #traitement des erreurs de connection au niveau du CURL
