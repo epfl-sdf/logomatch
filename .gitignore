@@ -6,6 +6,12 @@ images/
 images2/
 images_result
 
+err.txt
+header.txt
+html.txt
+
+
+
 #template_matching/logo/jpg/
 #template_matching/logo/png/
 #template_matching/logo/gray

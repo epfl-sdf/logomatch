@@ -31,8 +31,8 @@ cp /dev/null redir.log
 cp /dev/null dyna.log
 cp /dev/null ./data/liste_url.csv
 
-#INPUT=./data/liste_sites.csv
-INPUT=./data/urls_test.csv
+INPUT=./data/liste_sites.csv
+#INPUT=./data/urls_test.csv
 
 
 OLDIFS=$IFS

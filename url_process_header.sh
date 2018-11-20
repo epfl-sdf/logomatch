@@ -10,7 +10,7 @@
 shopt -s extglob                                                        #demande au bash de supporter les pipes !
 
 url=$1
-curl --max-time 2 -Ivs $1  2>err.txt | sed "s/\r/\n/g" > header.txt                       #récupère le header HTTP
+curl --max-time 3 -Ivs $1  2>err.txt | sed "s/\r/\n/g" > header.txt                       #récupère le header HTTP
 
 #traitement de l'erreurs de connection au niveau du CURL
 e=`cat err.txt |grep -i -e 'Connection timed out after' -e 'Could not resolve host' `
@@ -29,7 +29,7 @@ else
             url=$1$url
         fi
         echo -e "redirect_header: "$1", "$url >> redir.log                     #garde une trace du site redirigé pour debug
-        curl --max-time 2 -Ivs $url 2>err.txt | sed "s/\r/\n/g" > header.txt             #récupère le nouveau le header HTTP
+        curl --max-time 3 -Ivs $url 2>err.txt | sed "s/\r/\n/g" > header.txt             #récupère le nouveau le header HTTP
     fi
     #traitement de l'erreur faite niveau du header HTTP
     e=`cat header.txt |grep -i -e 'HTTP/' |grep -i -e '40' -e '50'`
