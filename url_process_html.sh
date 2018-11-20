@@ -3,7 +3,7 @@
 #Filtre aussi si le serveur ne répond pas
 #ATTENTION: ça été fait pour une structure perso !
 #faudra modifier le script pour d'autres structures
-#zf181120.1503
+#zf181120.1648
 
 #source:  https://stackoverflow.com/questions/428109/extract-substring-in-bash
 #note:
@@ -11,7 +11,7 @@
 shopt -s extglob                                                                        #demande au bash de supporter les pipe !
 
 r=$1
-curl --max-time 1 $r  2>err.txt > html.txt                              #récupère le contenu HTML de la page web
+curl --max-time 2 $r  2>err.txt > html.txt                              #récupère le contenu HTML de la page web
 
 #traitement des erreurs de connection au niveau du CURL
 e=`cat err.txt |grep -e 'Connection timed out after' -e 'Could not resolve host' `
@@ -36,19 +36,18 @@ else
         fi
         #garde une trace du site redirigé pour debug
         echo -e "redirect_html: "$1", "$r >> redir.log
-#faut tester ici encore les erreurs que l'on pourrait avoir dans le header
+        r=`./loop_url_process_header.sh $r`                                 #teste s'il y a encore des erreurs dans la nouvelle redirection
     fi
 fi
 
 
 #traitement des logos pris sur statics.epfl.ch
-#e=`cat err.txt |grep -e 'Connection timed out after' -e 'Could not resolve host' `
-#e="${e:1}"                              #enlève le 1er caractère !
-#if [ "$e" != "" ]
-#then
-#    echo -e "err: "$1", "$e >> err.log
-#    r=""
-#fi
+t1=`cat html.txt |grep -i -e 'www.epfl.ch/img/epfl_small' -e 'static.epfl.ch/latest/includes/epfl-header'  `            #récupère s'il y a un logo sur static.epfl.ch
+if [ "`echo $t1 |grep http`" != "" ]                                        #test s'il y a un logo sur static.epfl.ch
+then
+    echo -e "static: "$1", "$t1 >> dyna.log
+    r=""
+fi
 
 
 echo $r

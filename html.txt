@@ -1,9 +1,336 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>404 Not Found</title>
-</head><body>
-<h1>Not Found</h1>
-<p>The requested URL /script was not found on this server.</p>
-<hr>
-<address>Apache/2.2.15 (CentOS) Server at script14.epfl.ch Port 80</address>
-</body></html>
+<!doctype html>
+<html lang="en-GB" class="no-js no-svg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" data-header-version="0.26.0">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+
+<link rel="shortcut icon" href="//www.epfl.ch/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="//www.epfl.ch/css/print.css" type="text/css" media="print" />
+
+<link rel="stylesheet" href="https://static.epfl.ch/v0.28.0/styles/epfl-built.css">
+
+<title>GrantsDB &#8211; REO</title>
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="REO &raquo; Feed" href="https://research-office.epfl.ch/feed/" />
+<link rel="alternate" type="application/rss+xml" title="REO &raquo; Comments Feed" href="https://research-office.epfl.ch/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/research-office.epfl.ch\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.8"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='EPFL-Share-css'  href='https://research-office.epfl.ch/wp-content/plugins/EPFL-Share/style.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='epfl_map_style-css'  href='https://research-office.epfl.ch/wp-content/plugins/epfl-map/css/style.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='epfl_video_style-css'  href='https://research-office.epfl.ch/wp-content/plugins/epfl-video/css/style.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='feedzy-rss-feeds-css'  href='https://research-office.epfl.ch/wp-content/plugins/feedzy-rss-feeds/css/feedzy-rss-feeds.css?ver=3.3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='bodhi-svgs-attachment-css'  href='https://research-office.epfl.ch/wp-content/plugins/svg-support/css/svgs-attachment.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='epfl-style-css'  href='https://research-office.epfl.ch/wp-content/themes/epfl-master/style.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='https://research-office.epfl.ch/wp-content/themes/epfl-master/assets/css/font-awesome.min.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='grid-css'  href='https://research-office.epfl.ch/wp-content/themes/epfl-master/assets/css/stylisticss.grid.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='compiled-styles-css'  href='https://research-office.epfl.ch/wp-content/themes/epfl-master/assets/css/theme.min.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='enlighter-local-css'  href='https://research-office.epfl.ch/wp-content/plugins/enlighter/resources/EnlighterJS.min.css?ver=3.8.1' type='text/css' media='all' />
+<script type='text/javascript' src='https://research-office.epfl.ch/wp-content/plugins/EPFL-Share/EPFL-Share.js?ver=4.9.8'></script>
+<script type='text/javascript' src='https://research-office.epfl.ch/wp-content/themes/epfl-master/assets/js/libs/modernizr.js'></script>
+<script type='text/javascript' src='https://research-office.epfl.ch/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://research-office.epfl.ch/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='https://research-office.epfl.ch/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://research-office.epfl.ch/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://research-office.epfl.ch/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.9.8" />
+<link rel="canonical" href="https://research-office.epfl.ch/resources/grantsdb-en/" />
+<link rel='shortlink' href='https://research-office.epfl.ch/?p=941' />
+<link rel="alternate" type="application/json+oembed" href="https://research-office.epfl.ch/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fresearch-office.epfl.ch%2Fresources%2Fgrantsdb-en%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://research-office.epfl.ch/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fresearch-office.epfl.ch%2Fresources%2Fgrantsdb-en%2F&#038;format=xml" />
+</head>
+
+<body class="page-template-default page page-id-941 page-parent page-child parent-pageid-939">
+<div id="page" class="site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+	
+	<div class="header-top wrap">
+		  	<header id="epfl-header" class="site-header epfl" data-ajax-header="https://static.epfl.ch/latest/includes/epfl-header.en.html"></header>
+	</div><!-- .header-top -->
+
+	<header id="masthead" class="site-header" role="banner">
+  	
+  	<section class="page-tools">
+    	<div class="wrap">
+  		
+
+    		<div class="breadcrumb"><ol id="breadcrumbs" class="breadcrumbs"><li class="item-home"><a class="bread-link bread-home" href="https://www.epfl.ch" title="EPFL">EPFL</a></li><li class="item-parent"><a class="bread-parent" href="http://recherche.epfl.ch/home" title="Research">Research</a></li><li class="item-parent item-parent-939"><a class="bread-parent bread-parent-939" href="https://research-office.epfl.ch/resources/" title="Resources">Resources</a></li><li class="item-current item-941"><strong title="GrantsDB"> GrantsDB</strong></li></ol></div>
+
+    		
+    		<div class="lang">
+      		<ul class="language-switcher">
+      		  	<li class="lang-item lang-item-2 lang-item-en lang-item-first current-lang"><a lang="en-GB" hreflang="en-GB" href="https://research-office.epfl.ch/resources/grantsdb-en/">English</a></li>
+      		</ul>
+    		</div>
+    		
+    	</div><!-- .wrap -->
+		</section><!-- .page-tools -->
+  	
+		<div class="site-branding">
+  		<div class="wrap">
+  			  				<p class="site-title">
+    				<a href="https://research-office.epfl.ch/" rel="home">
+      				        				  <span class="site-description">Research office</span>
+                      				<span class="title">REO</span>
+    				</a>
+    		</p>
+  			
+  		</div><!-- .wrap -->
+		</div><!-- .site-branding -->
+		
+		<div class="navigation-top">
+  		<div class="wrap">
+  			<nav id="site-navigation" class="main-navigation" role="navigation">
+  				<button class="menu-toggle" aria-controls="top-menu" aria-expanded="false">Menu</button>
+  				<div class="menu-main-container"><ul id="top-menu" class="menu"><li id="menu-item-1191" class="link-home menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1191"><a href="https://research-office.epfl.ch/">Research Office</a></li>
+<li id="menu-item-1192" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1192"><a href="https://research-office.epfl.ch/page-103594-fr-html/">Funding Opportunities</a>
+<ul class="sub-menu">
+	<li id="menu-item-1193" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1193"><a href="https://research-office.epfl.ch/research-funding/">Research Funding</a>
+	<ul class="sub-menu">
+		<li id="menu-item-1196" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1196"><a href="https://research-office.epfl.ch/epflopensciencefund/">EPFL Open Science Fund</a></li>
+		<li id="menu-item-1194" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1194"><a href="https://research-office.epfl.ch/research-funding/gaznat-call-for-proposals/">Gaznat</a></li>
+		<li id="menu-item-1195" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1195"><a href="https://research-office.epfl.ch/sav-novartis-health-call/">SAV Novartis Consumer Health Call</a></li>
+		<li id="menu-item-1356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1356"><a href="https://research-office.epfl.ch/research-funding/latsissymposiumepfl/">Symposium Latsis EPFL</a></li>
+	</ul>
+</li>
+	<li id="menu-item-1197" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1197"><a href="https://research-office.epfl.ch/fellowships-funding/">Fellowship and Mobility Funding</a>
+	<ul class="sub-menu">
+		<li id="menu-item-1285" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1285"><a href="https://research-office.epfl.ch/epflfellowsmariecurie/">EPFL Fellows co-funded by Marie Skłodowska-Curie</a>
+		<ul class="sub-menu">
+			<li id="menu-item-1286" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1286"><a href="https://research-office.epfl.ch/epflfellowsmariecurie/funding-internal-non-profit-epfl-fellows-about/">About EPFL Fellows</a>
+			<ul class="sub-menu">
+				<li id="menu-item-1289" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1289"><a href="https://research-office.epfl.ch/epflfellowsmariecurie/granted-fellowships-2016/">Selected Fellows Call 2016</a></li>
+				<li id="menu-item-1290" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1290"><a href="https://research-office.epfl.ch/epflfellowsmariecurie/granted-fellowships-2015/">Selected Fellows Call 2015</a></li>
+				<li id="menu-item-1291" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1291"><a href="https://research-office.epfl.ch/epflfellowsmariecurie/granted-fellowships-2014/">Selected Fellows Call 2014</a></li>
+				<li id="menu-item-1292" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1292"><a href="https://research-office.epfl.ch/epflfellowsmariecurie/granted-fellowships-2013/">Selected Fellows Call 2013</a></li>
+			</ul>
+</li>
+			<li id="menu-item-1287" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1287"><a href="https://research-office.epfl.ch/epflfellowsmariecurie/eligibility-criteria/">Eligibility criteria</a></li>
+			<li id="menu-item-1300" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1300"><a href="https://research-office.epfl.ch/epflfellowsmariecurie/submitting-application/">Submitting an application</a></li>
+			<li id="menu-item-1288" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1288"><a href="https://research-office.epfl.ch/epflfellowsmariecurie/faqbeforeapplyepflfellows/">FAQ – EPFL Fellows</a></li>
+			<li id="menu-item-1298" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1298"><a href="https://research-office.epfl.ch/epflfellowsmariecurie/new-fp7-h2020/">New: EPFL Fellows FP7 vs. H2020</a></li>
+		</ul>
+</li>
+	</ul>
+</li>
+	<li id="menu-item-1198" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1198"><a href="https://research-office.epfl.ch/page-103594-fr-html/page-98325-en-html/">EPFL Research Awards</a>
+	<ul class="sub-menu">
+		<li id="menu-item-1355" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1355"><a href="https://research-office.epfl.ch/page-103594-fr-html/page-98325-en-html/epfl-research-awards-haenny/">Rodolphe and Renée Haenny Foundation</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-1199" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1199"><a href="https://research-office.epfl.ch/ethical-legal-review/">Ethical &#038; Legal Review</a>
+<ul class="sub-menu">
+	<li id="menu-item-1200" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1200"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/">Research Ethics</a>
+	<ul class="sub-menu">
+		<li id="menu-item-1201" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1201"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/researchintegrity/">Research Integrity</a>
+		<ul class="sub-menu">
+			<li id="menu-item-1202" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1202"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/researchintegrity/research-ethics-integrity-research-integrity-integrity-statement/">Research Integrity Statement</a></li>
+			<li id="menu-item-1203" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1203"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/researchintegrity/research-ethics-integrity-research-integrity-good-research-practice/">Good Research Practice</a></li>
+			<li id="menu-item-1204" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1204"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/researchintegrity/research-ethics-integrity-research-integrity-related-links/">Related Links</a></li>
+		</ul>
+</li>
+		<li id="menu-item-1205" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1205"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/research-ethics-integrity-research-ethics-assessment/">Research Ethics Assessment</a>
+		<ul class="sub-menu">
+			<li id="menu-item-1206" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1206"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/research-ethics-integrity-research-ethics-assessment/research-ethics-integrity-research-ethics-assessment-ethical-review/">Ethical Review</a>
+			<ul class="sub-menu">
+				<li id="menu-item-1207" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1207"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/research-ethics-integrity-research-ethics-assessment/research-ethics-integrity-research-ethics-assessment-ethical-review/research-ethics-integrity-research-ethics-assessment-ethical-review-humans/">Research involving work with humans</a></li>
+				<li id="menu-item-1208" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1208"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/research-ethics-integrity-research-ethics-assessment/research-ethics-integrity-research-ethics-assessment-ethical-review/research-ethics-integrity-research-ethics-assessment-ethical-review-human-cells-tissues/">Research involving work with human cells/tissues</a></li>
+				<li id="menu-item-1209" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1209"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/research-ethics-integrity-research-ethics-assessment/research-ethics-integrity-research-ethics-assessment-ethical-review/research-ethics-integrity-research-ethics-assessment-ethical-review-animals/">Research involving work with animals</a></li>
+				<li id="menu-item-1210" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1210"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/research-ethics-integrity-research-ethics-assessment/research-ethics-integrity-research-ethics-assessment-ethical-review/research-ethics-integrity-research-ethics-assessment-ethical-review-personal-data/">Research involving work with personal data</a></li>
+				<li id="menu-item-1211" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1211"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/research-ethics-integrity-research-ethics-assessment/research-ethics-integrity-research-ethics-assessment-ethical-review/research-ethics-integrity-research-ethics-assessment-ethical-review-environment-health-safety-impact/">Research that may impact environment &#038; health and safety</a></li>
+				<li id="menu-item-1212" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1212"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/research-ethics-integrity-research-ethics-assessment/research-ethics-integrity-research-ethics-assessment-ethical-review/research-ethics-integrity-research-ethics-assessment-ethical-review-developing-countries/">Research involving work with Developing Countries</a></li>
+				<li id="menu-item-1213" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1213"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/research-ethics-integrity-research-ethics-assessment/research-ethics-integrity-research-ethics-assessment-ethical-review/dualuse/">Research involving work with potential for military applications</a></li>
+				<li id="menu-item-1214" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1214"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/research-ethics-integrity-research-ethics-assessment/research-ethics-integrity-research-ethics-assessment-ethical-review/research-ethics-integrity-research-ethics-assessment-ethical-review-potential-misuse/">Research involving work that could be potentially be misused</a></li>
+			</ul>
+</li>
+			<li id="menu-item-1222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1222"><a href="https://research-office.epfl.ch/ethical-legal-review/epfl-hrec/">EPFL Human Research Ethics Committee</a></li>
+			<li id="menu-item-1227" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1227"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/research-ethics-integrity-research-ethics-assessment/research-ethics-integrity-research-ethics-assessment-related-links/">Related Links</a></li>
+			<li id="menu-item-1228" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1228"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/research-ethics-integrity-research-ethics-assessment/research-ethics-integrity-research-ethics-assessment-ethical-issues-checklists/">Ethical Issues Checklists</a></li>
+		</ul>
+</li>
+		<li id="menu-item-1229" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1229"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/research-ethics-integrity-research-misconduct/">Research Misconduct</a>
+		<ul class="sub-menu">
+			<li id="menu-item-1230" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1230"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/research-ethics-integrity-research-misconduct/research-ethics-integrity-research-misconduct-whistleblowing-procedure/">Whistleblowing Procedure</a>
+			<ul class="sub-menu">
+				<li id="menu-item-1231" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1231"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/research-ethics-integrity-research-misconduct/research-ethics-integrity-research-misconduct-whistleblowing-procedure/research-ethics-integrity-research-misconduct-whistleblowing-faq/">Whistleblowing FAQ</a></li>
+				<li id="menu-item-1232" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1232"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/research-ethics-integrity-research-misconduct/research-ethics-integrity-research-misconduct-whistleblowing-procedure/ethique-recherche-research-misconduct-fr-whistleblowing-faq/">Whistleblowing FAQ (in French)</a></li>
+			</ul>
+</li>
+			<li id="menu-item-1233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1233"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/research-ethics-integrity-research-misconduct/research-ethics-integrity-research-misconduct-plagiarism/">Plagiarism</a></li>
+		</ul>
+</li>
+		<li id="menu-item-1234" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1234"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/research-ethics-integrity-training/">Training</a>
+		<ul class="sub-menu">
+			<li id="menu-item-1235" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1235"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/research-ethics-integrity-training/research-ethics-integrity-training-online-training/">On-line Training</a>
+			<ul class="sub-menu">
+				<li id="menu-item-1236" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1236"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/research-ethics-integrity-training/research-ethics-integrity-training-online-training/research-ethics-integrity-training-online-training-citi-training-programs/">CITI Training Programmes</a></li>
+				<li id="menu-item-1237" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1237"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/research-ethics-integrity-training/research-ethics-integrity-training-online-training/research-ethics-integrity-training-online-training-research-ethics-evaluation/">Training and resources in research ethics evaluation</a></li>
+			</ul>
+</li>
+			<li id="menu-item-1238" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1238"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/research-ethics-integrity-training/esearch-office-epfl-ch-ethics-face-to-facetraining/">Face-to-face Training</a>
+			<ul class="sub-menu">
+				<li id="menu-item-1239" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1239"><a href="https://research-office.epfl.ch/ethical-legal-review/research-integrity-ethics/research-ethics-integrity-training/esearch-office-epfl-ch-ethics-face-to-facetraining/research-ethics-training-face-to-face-training-courses-animal-science/">Courses in laboratory animal science (RESAL)</a></li>
+				<li id="menu-item-1240" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1240"><a href="http://www.cuso.ch/activity/?p=1203&#038;id=2067">Ethics and social issues in research practice (CUSO)</a></li>
+				<li id="menu-item-1241" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1241"><a href="http://www.formation-continue-unil-epfl.ch/investigateur-clinique">Recherche clinique &#8211; devenir investigateur-trice principal-e</a></li>
+				<li id="menu-item-1242" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1242"><a href="http://www.brocher.ch/fr/events/117?utm_source=Brocher+Foundation+Newsletter&#038;utm_campaign=2acd4c2a3f-Call+summer+academy&#038;utm_medium=email&#038;utm_term=0_2853a8792f-2acd4c2a3f-151245301">Ethical, Legal and Social Issues in Assisted Reproductive Technologies (Fondation Brocher)</a></li>
+			</ul>
+</li>
+		</ul>
+</li>
+	</ul>
+</li>
+	<li id="menu-item-1243" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1243"><a href="http://polylex.epfl.ch/page-63552-en.html">Research Rules &amp; Policies</a></li>
+	<li id="menu-item-1244" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1244"><a href="https://research-office.epfl.ch/ethical-legal-review/contract-review/">Research Contract Review</a></li>
+</ul>
+</li>
+<li id="menu-item-1245" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor current-menu-ancestor current-menu-parent current-page-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-1245"><a href="https://research-office.epfl.ch/resources/">Resources</a>
+<ul class="sub-menu">
+	<li id="menu-item-1246" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-941 current_page_item menu-item-has-children menu-item-1246"><a href="https://research-office.epfl.ch/resources/grantsdb-en/">GrantsDB</a>
+	<ul class="sub-menu">
+		<li id="menu-item-1247" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1247"><a href="https://research-office.epfl.ch/resources/grantsdb-en/grantsdb-fr-formation/">Formation – Aide aux utilisateurs</a></li>
+		<li id="menu-item-1248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1248"><a href="https://research-office.epfl.ch/resources/grantsdb-en/grantsdb-training/">Training – User support</a></li>
+	</ul>
+</li>
+	<li id="menu-item-1249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1249"><a href="https://research-office.epfl.ch/resources/resources-chronos/">Chronos</a></li>
+	<li id="menu-item-1250" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1250"><a href="https://research-office.epfl.ch/resources/resources-open-science/">Open Science</a></li>
+	<li id="menu-item-1317" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1317"><a href="https://research-office.epfl.ch/epfl-administrative-information/">EPFL Administrative Information</a></li>
+	<li id="menu-item-1252" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1252"><a href="https://research-office.epfl.ch/resources/responsible-research-innovation/">Responsible Research &#038; Innovation</a></li>
+</ul>
+</li>
+<li id="menu-item-1253" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1253"><a href="https://research-office.epfl.ch/about-us/">About us</a></li>
+</ul></div>  			</nav>
+  		</div><!-- .wrap -->
+		</div><!-- .navigation-top -->
+			
+	</header><!-- #masthead -->
+
+	<div class="site-content-container">
+		<div id="site-content" class="site-content">
+  		
+  		  		
+  		<section class="toolbar wrap">
+    		    		<div class="social-share">
+      		<p class="label">Share:</p>
+    		  <div class="EPFLShareHorizontal"><ul class="EPFLShareUl"><li class="EPFLShareRound"><i style="width:24px;height:24px;border-radius:999px;" alt="Facebook" Title="Facebook" class="EPFLShare EPFLShareFacebookBackground" onclick='EPFLSharePopup("https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fresearch-office.epfl.ch%2Fresources%2Fgrantsdb-en%2F")'><ss style="display:block;border-radius:999px;" class="EPFLShareSvg EPFLShareFacebookSvg"></ss></i></li>
+<li class="EPFLShareRound"><i style="width:24px;height:24px;border-radius:999px;" alt="Twitter" Title="Twitter" class="EPFLShare EPFLShareTwitterBackground" onclick='EPFLSharePopup("http://twitter.com/intent/tweet?text=GrantsDB&url=https%3A%2F%2Fresearch-office.epfl.ch%2Fresources%2Fgrantsdb-en%2F&hashtags=epfl,epflcampus")'><ss style="display:block;border-radius:999px;" class="EPFLShareSvg EPFLShareTwitterSvg"></ss></i></li>
+<li class="EPFLShareRound"><i style="width:24px;height:24px;border-radius:999px;" alt="LinkedIn" Title="LinkedIn" class="EPFLShare EPFLShareLinkedinBackground" onclick='EPFLSharePopup("http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fresearch-office.epfl.ch%2Fresources%2Fgrantsdb-en%2F&title=GrantsDB")'><ss style="display:block;border-radius:999px;" class="EPFLShareSvg EPFLShareLinkedinSvg"></ss></i></li>
+<li class="EPFLShareRound"><i style="width:24px;height:24px;border-radius:999px;" alt="Google+" Title="Google+" class="EPFLShare EPFLShareGoogleplusBackground" onclick='EPFLSharePopup("https://plus.google.com/share?url=https%3A%2F%2Fresearch-office.epfl.ch%2Fresources%2Fgrantsdb-en%2F")'><ss style="display:block;border-radius:999px;" class="EPFLShareSvg EPFLShareGoogleplusSvg"></ss></i></li>
+<li class="EPFLShareRound"><i style="width:24px;height:24px;border-radius:999px;" alt="Email" Title="Email" class="EPFLShare EPFLShareEmailBackground" onclick="window.location.href = 'mailto:?subject=' + decodeURIComponent('GrantsDB' ).replace('&', '%26') + '&body=' + decodeURIComponent('https%3A%2F%2Fresearch-office.epfl.ch%2Fresources%2Fgrantsdb-en%2F' )"><ss style="display:block" class="EPFLShareSvg EPFLShareEmailSvg"></ss></i></li>
+</ul></div>    		</div><!-- .social-share -->
+    		  		</section><!-- .toolbox -->
+	  
+      
+<div class="wrap">
+  	<div id="primary" class="content-area">
+  		<main id="main" class="site-main" role="main">
+  			
+<article id="post-941" class="post-941 page type-page status-publish hentry">
+	<header class="entry-header">
+		<h1 class="entry-title">GrantsDB</h1>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<div class="textBox">
+<p style="text-align: center"><strong>&gt;&gt; <a href="https://grantsdb.epfl.ch/pap/index.php" target="_blank" rel="noopener">ACCES A GRANTSDB ICI</a> / <a href="https://grantsdb.epfl.ch/pap/index.php" target="_blank" rel="noopener">ACCESS TO GRANTSDB HERE</a> &lt;&lt;</strong></p>
+<p><em>(English version below)</em></p>
+<p>GrantsDB est une base de données interne à l&#8217;EPFL (<a href="http://linux.epfl.ch/vpn" target="_blank" rel="noopener">connection sécurisée ou en VPN</a>). Les données enregistrées sont confidentielles et les accès restreints aux ayants-droits.</p>
+<p>GrantsDB est l&#8217;outil de référence pour :</p>
+<ul>
+<li>la gestion administrative des <strong>projets de recherche</strong></li>
+<li>le suivi des commandes et des paiements pour les <strong>équipements scientifiques </strong>passant par le &#8220;Equipment &amp; Centers Management Office&#8221; (<a href="https://recherche.epfl.ch/eco" target="_blank" rel="noopener">ECO</a>)</li>
+<li>la gestion des <strong>contrats industriels </strong>(gérés par le <a class="link_external" href="http://tto.epfl.ch/" target="_blank" rel="noopener">TTO</a>).</li>
+</ul>
+<p>Conformément à la <a href="/files/recueil_pdf/3.1.1_demande_financement_fr.pdf" target="_blank" rel="noopener">directive Polylex 3.1.1</a>,<strong> toute demande auprès de bailleurs de fonds privés et publics doit être immédiatement enregistrée sur GrantsDB dès sa soumission</strong>.</p>
+<p><strong>Pour plus d&#8217;information:</strong></p>
+<ul>
+<li><a href="https://research-office.epfl.ch/wp-content/uploads/2018/09/Petit-guide-pratique-utilisation-de-GrantsDB.pdf">Petit-guide-pratique-utilisation-de-GrantsDB</a></li>
+</ul>
+</div>
+<div class="textBox">
+<p>&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-</p>
+<p><span style="font-size: 13px;font-family: Arial, Helvetica, sans-serif;font-style: normal">GrantsDB is an internal EPFL database. The data which are registered in it are confidential and the access to this database is limited to EPFL members in charge of the management of funded research projects only. </span></p>
+<p>GrantsDB is the reference tool for:</p>
+<ul>
+<li>the administrative management of research projects</li>
+<li>the orders and payments for scientific equipment via the Equipment &amp; Centers Management Office (<a href="https://recherche.epfl.ch/eco" target="_blank" rel="noopener">ECO</a>)</li>
+<li>the management of industrial collaboration agreements (managed by the <a href="http://tto.epfl.ch/hompage_eng" target="_blank" rel="noopener">TTO</a>).</li>
+</ul>
+<p><span style="font-size: 13px;font-family: Arial, Helvetica, sans-serif;font-style: normal">According to the <a href="/files/recueil_pdf/ENG/3.1.1_demande_financement_en.pdf" target="_blank" rel="noopener">Directive Polylex 3.1.1</a></span><span style="font-size: 13px;font-family: Arial, Helvetica, sans-serif;font-style: normal">,</span><strong style="font-size: 13px;font-family: Arial, Helvetica, sans-serif;font-style: normal"> all submitted applications must be uploaded to GrantsDB on the same day that the proposal is submitted to the funding body</strong><strong style="font-size: 13px;font-family: Arial, Helvetica, sans-serif;font-style: normal">.</strong></p>
+<p><span style="font-size: 13px;font-family: Arial, Helvetica, sans-serif;font-style: normal">The data contained in the database is confidential </span><span lang="EN-GB"><span lang="EN-GB">(<a href="http://linux.epfl.ch/vpn" target="_blank" rel="noopener">secure connection or with a VPN client</a>)<span style="font-size: 13px;font-family: Arial, Helvetica, sans-serif;font-style: normal"> and the access is restricted to authorised persons.</span></span></span></p>
+</div>
+	</div><!-- .entry-content -->
+
+	</article><!-- #post-941 -->
+  
+  		</main><!-- #main -->
+  	</div><!-- #primary -->
+    
+    
+<aside id="secondary" class="sidebar" role="complementary">
+  
+      
+      	
+</aside><!-- #secondary -->
+
+</div><!-- .wrap -->
+
+
+	</div><!-- #content -->
+
+		<footer id="colophon" class="site-footer" role="contentinfo">
+			<div class="wrap">
+  			<div class="footer-content">
+    			<nav class="footer-navigation" role="navigation">
+      			
+      			      			
+      			<ul class="nav footer-nav">
+        			<li class="legal-notice"><a href="https://mediacom.epfl.ch/disclaimer-en">Legal notice</a></li>
+        			<li class="access"><a href="https://www.epfl.ch/accessibility.en.shtml">Accessibility</a></li>
+      			</ul>
+      			<div class="menu-footer_nav-container"><ul id="menu-footer_nav" class="nav footer-nav"><li id="menu-item-1189" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1189"><a href="https://research-office.epfl.ch/sitemap/">Sitemap</a></li>
+<li id="menu-item-1190" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1190"><a href="http://research-office.epfl.ch/about#contact">Contact</a></li>
+</ul></div>    			</nav><!-- .footer-navigation -->
+  				<p class="site-info">
+    				<span class="update">Last update: 05.09.2018</span>
+    				<span class="copyright">&copy; EPFL 2018</span>
+  				</p>
+  				<p class="site-admin">
+    				<a href="https://research-office.epfl.ch/wp-login.php" title="Log into site admin" class="admin-link">Login</a>
+  				</p>
+  			</div><!-- .wrap -->
+			</div><!-- .footer-content -->
+		</footer><!-- #colophon -->
+	</div><!-- .site-content-contain -->
+</div><!-- #page -->
+
+<script src="https://static.epfl.ch/latest/scripts/epfl-jquery-built.js"></script>
+<script type='text/javascript' src='https://research-office.epfl.ch/wp-content/themes/epfl-master/assets/js/navigation.js?ver=20151215'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var epfl_l10n = {"expand":"Expand child menu","collapse":"Collapse child menu"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://research-office.epfl.ch/wp-content/themes/epfl-master/assets/js/main.js'></script>
+<script type='text/javascript' src='https://research-office.epfl.ch/wp-content/plugins/enlighter/resources/mootools-core-yc.js?ver=3.8.1'></script>
+<script type='text/javascript' src='https://research-office.epfl.ch/wp-content/plugins/enlighter/resources/EnlighterJS.min.js?ver=3.8.1'></script>
+<script type='text/javascript' src='https://research-office.epfl.ch/wp-includes/js/wp-embed.min.js?ver=4.9.8'></script>
+<script type="text/javascript">/* <![CDATA[ */EnlighterJS_Config = {"selector":{"block":"pre.EnlighterJSRAW","inline":"code.EnlighterJSRAW"},"language":"generic","theme":"enlighter","indent":2,"hover":"hoverEnabled","showLinenumbers":true,"rawButton":true,"infoButton":true,"windowButton":true,"rawcodeDoubleclick":false,"grouping":true,"cryptex":{"enabled":false,"email":"mail@example.tld"}};!function(){var a=function(a){var b="Enlighter Error: ";console.error?console.error(b+a):console.log&&console.log(b+a)};return window.addEvent?"undefined"==typeof EnlighterJS?void a("Javascript Resources not loaded yet!"):"undefined"==typeof EnlighterJS_Config?void a("Configuration not loaded yet!"):void window.addEvent("domready",function(){EnlighterJS.Util.Init(EnlighterJS_Config.selector.block,EnlighterJS_Config.selector.inline,EnlighterJS_Config)}):void a("MooTools Framework not loaded yet!")}();;/* ]]> */</script>
+</body>
+</html>
