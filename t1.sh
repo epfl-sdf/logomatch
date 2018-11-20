@@ -2,21 +2,14 @@
 
 shopt -s extglob
 
-t1="toto URL= tutu"
-t1='<meta http-equiv="refresh" content="1; URL=/web/guest/fr/websys/webArch/message.cgi?messageID=MSG_JAVASCRIPTOFF&buttonURL=/../../../">'
 
 
 
-#tmp=${t1#*[uU][rR][lL]=}   # remove prefix ending in "url="
+        str=$1
+        echo "${str: -1}"
+        if [ "${str: -1}" = "/" ] || [ "${str: -1}" = "?" ]                                 #test si c'est une url relative ou absolue
+        then
+            echo -e "toto"
+        fi
 
-
-tmp=${t1#*+(url|URL)=}   # remove prefix ending in "url="
-
-
-#tmp=${t1//#*url=/toto}   # remove prefix ending in "url="
-
-
-#tmp2=${tmp#*URL=}   # remove prefix ending in "url="
-
-echo $tmp
 

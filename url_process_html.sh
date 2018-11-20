@@ -3,7 +3,7 @@
 #Filtre aussi si le serveur ne répond pas
 #ATTENTION: ça été fait pour une structure perso !
 #faudra modifier le script pour d'autres structures
-#zf181120.1648
+#zf181120.1815
 
 #source:  https://stackoverflow.com/questions/428109/extract-substring-in-bash
 #note:
@@ -11,7 +11,7 @@
 shopt -s extglob                                                                        #demande au bash de supporter les pipe !
 
 r=$1
-curl --max-time 3 $r  2>err.txt > html.txt                              #récupère le contenu HTML de la page web
+curl --insecure --max-time 5 $r  2>err.txt > html.txt                              #récupère le contenu HTML de la page web
 
 #traitement des erreurs de connection au niveau du CURL
 e=`cat err.txt |grep -e 'Connection timed out after' -e 'Could not resolve host' `
@@ -32,6 +32,14 @@ else
         then
             r=$b
         else
+            if [ "${b: -1}" = "?" ]                                     #test si cela termine par ? et si oui l'enlève
+            then
+                b=${b::-1}
+            fi
+            if [ "${b: -1}" = "/" ]                                     #test si cela termine par / et si oui l'enlève
+            then
+                b=${b::-1}
+            fi
             r=$1"/"$b
         fi
         #garde une trace du site redirigé pour debug
