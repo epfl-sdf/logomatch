@@ -2,7 +2,7 @@
 #Petit script pour traiter les erreurs 40x et récupérer les redirections 30x au niveau du header HTTP
 #ATTENTION: ça été fait pour une structure perso !
 #faudra modifier le script pour d'autres structures
-#zf181120.1845
+#zf181121.1441
 
 #source:  https://stackoverflow.com/questions/428109/extract-substring-in-bash
 #note:
@@ -13,7 +13,7 @@ url=$1
 curl --insecure --max-time 5 -Ivs $1  2>err.txt | sed "s/\r/\n/g" > header.txt                       #récupère le header HTTP
 
 #traitement de l'erreurs de connection au niveau du CURL
-e=`cat err.txt |grep -i -e 'Connection timed out after' -e 'Could not resolve host' `
+e=`cat err.txt |grep -i -e 'Failed to connect' -e 'Connection timed out after' -e 'Could not resolve host' `
 e="${e:1}"                                                              #enlève le 1er caractère !
 if [ "$e" != "" ]
 then
