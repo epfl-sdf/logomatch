@@ -3,7 +3,7 @@
 #Filtre aussi si le serveur ne répond pas
 #ATTENTION: ça été fait pour une structure perso !
 #faudra modifier le script pour d'autres structures
-#zf181120.1815
+#zf181121.1354
 
 #source:  https://stackoverflow.com/questions/428109/extract-substring-in-bash
 #note:
@@ -48,15 +48,13 @@ else
     fi
 fi
 
-
-#traitement des logos pris sur statics.epfl.ch
+#traitement des logos pris sur un serveur centralisé
 t1=`cat html.txt |grep -i -e '/img/epfl_small' -e '/latest/includes/epfl-header' -e 'id="nav-logo"' `            #récupère s'il y a un logo sur static.epfl.ch
-if [ "`echo $t1 |grep http`" != "" ]                                        #test s'il y a un logo sur static.epfl.ch
+if [ "$t1" != "" ]                                        #test s'il y a un logo sur un serveur centralisé
 then
     echo -e "static: "$1", "$t1 >> dyna.log
     r=""
 fi
-
 
 echo $r
 

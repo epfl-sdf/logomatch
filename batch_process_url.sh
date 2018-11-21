@@ -31,8 +31,8 @@ cp /dev/null redir.log
 cp /dev/null dyna.log
 cp /dev/null ./data/liste_url.csv
 
-INPUT=./data/liste_sites.csv
-#INPUT=./data/urls_test.csv
+#INPUT=./data/liste_sites.csv
+INPUT=./data/urls_test2.csv
 
 
 OLDIFS=$IFS
@@ -62,12 +62,6 @@ while read name ip ; do
             echo -e "url: "$url
             echo $url >> ./data/liste_url.csv                   #sauve l'url finale à scanner
         fi
-
-
-
-
-
-
 
 
 	fi
