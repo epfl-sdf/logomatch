@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #petit script pour faire une copie d'écran des homes pages d'une liste de sites web qui se trouvent dans un fichier .csv
-#zf181115.1123
+#zf181122.1051
 
 #source: https://www.cyberciti.biz/faq/unix-linux-bash-read-comma-separated-cvsfile/
 
@@ -28,46 +28,22 @@ mkdir ./images
 cp /dev/null err.log
 cp /dev/null redir.log
 
-
-INPUT=./data/liste_sites.csv
-#urls_test.csv.181029.1722
-#urls_test.csv.181113.1156
-#urls_test.csv.181029.1722
-#INPUT=./liste_sites.csv
+INPUT=./data/liste_url_unique.csv
 
 OLDIFS=$IFS
 IFS=,
 [ ! -f $INPUT ] && { echo "$INPUT file not found"; exit 99; }
 
 nblines=0
-while read name ip ; do
+while read site url ; do
 	echo $nblines
 	if [ $nblines != "0" ]
 	then
 
-        site=$name".epfl.ch"
-        echo -e "site: "$site
+echo -e "site: "$site
+echo -e "url: "$url
 
-
-        url="http://"$site
-        url=`./url_process_header.sh $url`
-
-        if [ $url != 0 ]
-        then
-            echo "toto.."
-#            url=`./url_process_html.sh $url`
-        fi
-
-        if [ $url != 0 ]
-        then
-            echo -e "url: "$url
-#            ./screen_copy.sh $url "./images/http_"$site
-        fi
-
-
-
-
-
+        ./screen_copy.sh $url "./images/http_"$site
 
 
 
@@ -76,17 +52,4 @@ while read name ip ; do
 	echo ""
 done < $INPUT
 IFS=$OLDIFS
-
-
-exit
-
-
-
-
-
-echo -e "
-il y a comme nombre de pages HTML:
-"
-
-find ./html |grep '\.html' |wc
 

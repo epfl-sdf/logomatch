@@ -16,7 +16,7 @@ fi
 
 if [ "$url" != "" ]
 then
-    echo -e "url: "$url
+#    echo -e "url: "$url
     echo $url
 fi
 
