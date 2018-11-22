@@ -9,23 +9,44 @@ import sys
 import numpy as np
 import cv2
 import argparse
+from termcolor import colored
 
 MATCH_EXT="jpg"
-DEFAULT_YES_ABOVE = 16
-DEFAULT_NO_BELOW  = 8
+DEFAULT_YES_ABOVE = 8
+DEFAULT_NO_BELOW  = 6
 DEFAULT_MATCHES_TO_DRAW = 50
+
 
 class MImage():
 
   # class variables / constants
   sift = cv2.xfeatures2d.SIFT_create()
 
-  def __init__(self, in_path):
+  def __init__(self, in_path, image=None):
     self.path = in_path
-    img_rgb = cv2.imread(self.path)
-    self.img = cv2.cvtColor(img_rgb,cv2.COLOR_BGR2GRAY)
-    self.kp, self.des = MImage.sift.detectAndCompute(self.img,None)
     self.name = os.path.splitext(os.path.basename(self.path))[0]
+
+    if image is None:
+      img_rgb = cv2.imread(self.path)
+      self.img = cv2.cvtColor(img_rgb,cv2.COLOR_BGR2GRAY)
+    else:
+      self.img = image
+
+    self.kp, self.des = MImage.sift.detectAndCompute(self.img,None)
+    # print("%20s  %d" % (self.name, len(self.kp)))
+
+  def nk(self):
+    return(len(self.kp))
+
+
+  def parts(self):
+    h, w = self.img.shape
+    hc = min(h/3, 250)
+    parts = []
+    parts.append(MImage(self.name+"_top.png", image=self.img[0:hc,0:w]))  # top
+    parts.append(MImage(self.name+"_cen.png", image=self.img[hc:h-hc, 0:w]))    # center
+    parts.append(MImage(self.name+"_bot.png", image=self.img[h-hc:h,0:w]))      # bottom
+    return(parts)
 
 class Matcher():
 
@@ -43,7 +64,9 @@ class Matcher():
   def __init__(self, img2, img1):
     self.img1 = img1
     self.img2 = img2
+    self.zone = None
     self.good_matches = None
+    self.invalid = False
     try:
       self.matches = Matcher.flann.knnMatch(self.img1.des,self.img2.des,k=2)
     except:
@@ -72,6 +95,7 @@ class Matcher():
 
     self.homographyFilter(lowe_matches)
 
+
     # self.score = len(self.good_matches)
     # self.basepath="%02d_%s_%s.%s" % (self.score(), self.img2.name, self.img1.name, MATCH_EXT)
     return self.score()
@@ -97,6 +121,26 @@ class Matcher():
       for i, m in enumerate(select_mask):
         if (m==1):
           self.good_matches.append(matches[i])
+      try:
+        h,w = self.logo().img.shape
+        pts = np.float32([ [0,0],[0,h-1],[w-1,h-1],[w-1,0] ]).reshape(-1,1,2)
+        self.zone = np.int32(cv2.perspectiveTransform(pts,M))
+        # Negative values in the rotation matrix indicates some bad transofmration that will heavily deform the rectangle ?
+        # if (M[0,0] < 0 or M[1,1] < 0 or M[0,1] < 0 or M[1,0] < 0):
+        #   self.good_matches = []
+
+        # If the diagonals are too different it is no longer a rectangle!
+        # Also we expect a logo to be larger than 25px in diagonal
+        d1 = np.linalg.norm(self.zone[2] - self.zone[0])
+        d2 = np.linalg.norm(self.zone[3] - self.zone[1])
+        if (d1 < 25 or d2 < 25):
+          self.invalid = True
+        else:
+          # accept upto 10% difference in the diagonals
+          dd = 2 * abs(d1-d2)/(d1+d2)
+          self.invalid = (dd>0.1)
+      except:
+        self.zone = None
     else:
       self.good_matches = matches
 
@@ -104,7 +148,11 @@ class Matcher():
     if self.good_matches is None:
       return None
     else:
-      return len(self.good_matches)
+      if (self.invalid):
+        return 0
+      else:
+        # Give a bit more points to logos with fewer number of keypoints
+        return len(self.good_matches)
 
   def basepath(self):
     if self.good_matches is None:
@@ -127,8 +175,14 @@ class Matcher():
       good=[]
       sgood = sorted(self.good_matches, key = lambda x:x.distance)
       nshow = len(sgood) if show_max == 0 else show_max
-      img3 = cv2.drawMatches(self.img1.img,self.img1.kp,self.img2.img,self.img2.kp,sgood[:nshow], None, flags=2)
-      cv2.imwrite(match_path + self.basepath(), img3)
+      if self.zone is None:
+        img3 = self.img2.img
+      else:
+        img3 = cv2.polylines(self.img2.img.copy(),[self.zone],True,255,3, cv2.LINE_AA)
+      img4 = cv2.drawMatches(self.img1.img,self.img1.kp,img3,self.img2.kp,sgood[:nshow], None, flags=2)
+
+
+      cv2.imwrite(match_path + self.basepath(), img4)
 
 # ----------------------------------------------------
 
@@ -142,13 +196,16 @@ parser = argparse.ArgumentParser(
            """
 )
 parser.add_argument("-v", "--verbose", action='store_true', help="Increase output level")
-parser.add_argument("-n", "--no_below", action='store', type=int, default=DEFAULT_NO_BELOW, help="Below this threshold, images do not match")
-parser.add_argument("-y", "--yes_above", action='store', type=int, default=DEFAULT_YES_ABOVE, help="Below this threshold, images do not match")
+parser.add_argument("-n", "--no_below", action='store', type=int, default=DEFAULT_NO_BELOW, help="Below this threshold, images do not match (default %d)" % DEFAULT_NO_BELOW)
+parser.add_argument("-y", "--yes_above", action='store', type=int, default=DEFAULT_YES_ABOVE, help="Below this threshold, images do not match (default %d)" % DEFAULT_YES_ABOVE)
+parser.add_argument("-k", "--kpcorrect", action='store_true', help="Correct the score based on the number of key points of the logo (cropped logos have much fewer kps)")
 parser.add_argument("-m", "--matchdir", action='store', help="Output directory for match images (mostly used for inspecting output while debugging)")
 parser.add_argument("-M", "--maybe", action='store_true', help="Only save inspection images for uncertain matches (maybe matches)")
+parser.add_argument("-c", "--color", action='store_true', help="Colorize output")
+parser.add_argument("-p", "--partials", action='store', type=int, default=0, help="Try to do the matching with parts of the page (default=0)")
 
-parser.add_argument("-s", "--show_upto", action='store', type=int, default=DEFAULT_MATCHES_TO_DRAW, help="Number of matches to show in the inspection image")
-parser.add_argument("-l", "--lowe_factor", action='store', type=float, default=Matcher.LOWE_FACTOR, help="Set the Lowe factor: keypoint is kept only if distance(NN) < LF * distance(NNN)")
+parser.add_argument("-s", "--show_upto", action='store', type=int, default=DEFAULT_MATCHES_TO_DRAW, help="Number of matches to show in the inspection image (default %d)" % DEFAULT_MATCHES_TO_DRAW)
+parser.add_argument("-l", "--lowe_factor", action='store', type=float, default=Matcher.LOWE_FACTOR, help="Set the Lowe factor: keypoint is kept only if distance(NN) < LF * distance(NNN) (default %f" % Matcher.LOWE_FACTOR)
 parser.add_argument("-g", "--giova_thr", action='store', type=float, default=0.0, help="Loosen the Lowe Key point selection condition for points whose distance d<d_min + GIOVA_THR*(d_max - d_min)")
 parser.add_argument("-w", "--nolowe", action='store_true', help="Use simpler matching method exclusively base on distance of NN keypoints and homography")
 parser.add_argument("page", help="A file or a folder with 'page' images")
@@ -203,7 +260,6 @@ for logo_path in logo_paths:
     print("Invalid logo found in " + logo_path, file=sys.stderr)
     pass
 
-
 for page_path in page_paths:
 
   try:
@@ -218,31 +274,57 @@ for page_path in page_paths:
   best_m=None
   for logo in logos:
     m=Matcher(page, logo)
+
     if (opts.nolowe):
       score = m.match_simpler()
     else:
       score = m.match(lowe_factor=opts.lowe_factor, giova_thr=opts.giova_thr)
+
+    if (opts.kpcorrect):
+      xscore = (300 - logo.nk())/80
+      score = max(0, score + xscore)
+    else:
+      xscore = 0
 
     # print(page, logo, MIN_MATCH_COUNT, ypath)
     if (score > max_score): 
       max_score = score
       best_m = m
 
-    if (many_logos and opts.verbose): print("%-20s %-20s %2d" % ("", logo.name, score))
+    if (many_logos and opts.verbose): print("%-20s %-20s %2d   %3d" % ("", logo.name, score, xscore))
 
     if (save_all_matches): 
       m.save(opts.matchdir + "/all/", opts.show_upto)
 
     m=None
 
+  if (max_score < opts.partials):
+
+    max_score2 = max_score
+    best_m2 = None
+    for part in page.parts():
+      for logo in logos:
+        m = Matcher(part, logo)
+        score = m.match(lowe_factor=opts.lowe_factor, giova_thr=opts.giova_thr)
+        if (score > max_score2): 
+          max_score2 = score
+          best_m2 = m
+        if (many_logos and opts.verbose): print("%20s %-20s %2d" % ("part", logo.name, score))
+        if (save_all_matches): 
+          m.save(opts.matchdir + "/all/", opts.show_upto)
+
+    if max_score2 > max_score:
+      max_score = max_score2
+      best_m = best_m2
+
   ans=""
   if max_score < opts.no_below:
-    ans="no"
+    ans=colored("no", "red") if opts.color else "no"
   else:
     if max_score > opts.yes_above:
-      ans="yes"
+      ans=colored("yes", "green") if opts.color else "yes"
     else:
-      ans="maybe"
+      ans=colored("maybe", "blue") if opts.color else "maybe"
       if (save_maybe_only):
         best_m.save(opts.matchdir + "/maybe/", opts.show_upto)
   
@@ -252,7 +334,7 @@ for page_path in page_paths:
   else:
     print(max_score)
 
-  if save_all_matches:
+  if save_all_matches and best_m is not None:
     lpath=opts.matchdir + "/" + ans + "/" + best_m.basepath()
     os.symlink("../all/"+best_m.basepath(), lpath)
 
