@@ -9,6 +9,7 @@ import sys
 import numpy as np
 import cv2
 import argparse
+import signal
 from termcolor import colored
 
 MATCH_EXT="jpg"
@@ -66,12 +67,13 @@ class Matcher():
   LOWE_FACTOR = 0.7          # For each point in logo 2 possible matches are detected in the page
                              # image. Points are kept only when the distance of the first match is 
                              # considerably (LOWE_FACTOR) smaller than the one or the second match
-  FLANN_INDEX_KDTREE = 0     # do not touch
   MIN_MATCH_COUNT = 4        # min no. points for homography to work
   STDDEV_FACTOR = 1.0        # drop points outside STDDEV_FACTOR * Sigma from mean
   MIN_STDDEV_COUNT = 10      # min number of points for a reasonable mean/stdev
   MIN_GDIST_COUNT = 4       # min number of points for a reasonable mean
 
+
+  FLANN_INDEX_KDTREE = 1     # 1 for SIFT, SURF; 6 for ORB   DO NOT TOUCH!
   index_params = dict(algorithm = FLANN_INDEX_KDTREE, trees = 5)
   search_params = dict(checks = 50)
   flann = cv2.FlannBasedMatcher(index_params, search_params)
@@ -249,6 +251,10 @@ class Matcher():
       cv2.imwrite(match_path + self.basepath(), img4)
 
 # ----------------------------------------------------
+def crepa():
+  exit(1)
+
+signal.signal(signal.SIGTERM, crepa)
 
 parser = argparse.ArgumentParser(
   prog = "logospotter",
@@ -327,10 +333,11 @@ for logo_path in logo_paths:
     print("Invalid logo found in " + logo_path, file=sys.stderr)
     pass
 
-i=0
+page_count=0
+page_total=len(page_paths)
 for page_path in page_paths:
-  i=i+1 
-  print(i)
+  page_count=page_count+1
+  sys.stderr.write("%d/%d\n" % (page_count, page_total))
   try:
     page=MImage(page_path)
   except:
@@ -409,3 +416,5 @@ for page_path in page_paths:
 
   page=None
   best_m=None
+
+exit(0)
