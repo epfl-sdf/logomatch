@@ -13,10 +13,15 @@ import cv2
 
 SURE_MIN_MATCH_COUNT = 12
 MAYBE_MATCH_COUNT = 5
+<<<<<<< HEAD
+DISTANCE_FACTOR = 0.7
+
+=======
 #DISTANCE_FACTOR = 0.7
 DISTANCE_FACTOR = 0.7
 
 
+>>>>>>> master
 # Ho many features to show in the match_patch image
 SHOW_MATCHES = 20
 
