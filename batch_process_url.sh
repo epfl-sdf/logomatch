@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #petit script pour faire le preprocessing d'une liste de sites web qui se trouvent dans un fichier .csv
 #afin d'épurer la liste brute d'url
-#zf181121.1706
+#zf181122.1738
 
 #source: https://www.cyberciti.biz/faq/unix-linux-bash-read-comma-separated-cvsfile/
 
@@ -23,12 +23,11 @@ read -p "Appuyer une touche pour démarrer $zNAME"
 
 echo ---------- start
 
-
-rm -Rf ./images
-mkdir ./images
 cp /dev/null err.log
 cp /dev/null redir.log
 cp /dev/null dyna.log
+cp /dev/null removed.log
+
 echo -e "site, url" > ./data/liste_url.csv
 
 INPUT=./data/liste_sites.csv
