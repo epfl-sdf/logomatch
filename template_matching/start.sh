@@ -13,17 +13,16 @@ fi
 
 pd=$1 
 od=$2
-
+if [ -n "$3" ] ; then
+  python="$3"
+else
+  python="python3"
+fi
+echo "Using $python"
 
 # ----------------------------------------------------------------
-
 # Generate logos from svg
-
-
-
-#./generate.sh
-
-
+./generate.sh
 
 lg=logo/png
 
@@ -34,11 +33,22 @@ o3=$od/m3
 # TODO: fix for absolute paths
 apd=$PWD/$pd
 
- [ -d $od ] || mkdir -p $od || (echo "Could not create output dir"; exit 1)
+if [ -d $od ] ; then
+  echo "Output directory $od already exists. Please delete it and try again or change name"
+  exit 1
+fi
+mkdir -p $od || (echo "Could not create output dir"; exit 1)
+
+# Copy this file for future reference 
+cp $0 $od/
 
 # First run without special treatments and large "maybe" zone
 echo "$(date +%F-%R:%S) Start first round" >&2
-python3 test6.py -n 5 -y 14 -m $o1 $pd $lg > $o1.out
+$python test6.py -l 0.72 -n 5 -y 14 -m $o1 $pd $lg > $o1.out
+if [ "$?" != "0" ] ; then
+  echo "Test failed. Stopping."
+  exit
+fi
 
 # Create a new set of pages with the maybe pages
 [ -d ${o1}_maybe ] || mkdir ${o1}_maybe
@@ -52,7 +62,11 @@ done
 # -l relax a bit the Lowe cryterium for match seleciton 
 echo "$(date +%F-%R:%S) Start second round" >&2
 
-python3 test6.py -k -E 40 -D 160 -l 0.72 -n 5 -y 8 -m $o2 ${o1}_maybe $lg > $o2.out
+$python test6.py -k --mingdist 40 --maxgdist 160 -l 0.74 -n 5 -y 8 -m $o2 ${o1}_maybe $lg > $o2.out
+if [ "$?" != "0" ] ; then
+  echo "Test failed. Stopping."
+  exit
+fi
 
 [ -d ${o2}_maybe ] || mkdir ${o2}_maybe
 awk '/maybe$/{print $1;}' $o2.out | while read p ; do
@@ -62,8 +76,12 @@ done
 # Run again on maybe-pages with some tweaks
 # -p split the image in three parts if score is smaller than given value (8)
 echo "$(date +%F-%R:%S) Start third round" >&2
-python3 test6.py -p 8 -k -E 40 -D 160 -l 0.72 -n 6 -y 8 -m $o3 ${o2}_maybe $lg > $o3.out
+$python test6.py -p 8 -k -E 40 -D 160 -l 0.74 -n 6 -y 8 -m $o3 ${o2}_maybe $lg > $o3.out
+if [ "$?" != "0" ] ; then
+  echo "Test failed. Stopping."
+  exit
+fi
 
-grep -e 'yes$' $o1.out $o2.out $o3.out  > $od.out
-grep -e 'no$'  $o1.out $o2.out $o3.out >> $od.out
-grep -e 'maybe$' $o3.out               >> $od.out
+cat $o1.out $o2.out $o3.out | grep -e 'yes$' >  $od.out
+cat $o1.out $o2.out $o3.out | grep -e 'no$'  >> $od.out
+cat $o3.out | grep -e 'maybe$'               >> $od.out
