@@ -1,14 +1,23 @@
 #!/bin/bash
 #zf181126.1550
 
-rm ./logo/png/*
+sizes="120 360"
 
-for ext in png jpg ; do
+nsizes=$(echo $sizes | wc -w)
+nlogos=$(echo "$nsizes * 10" | bc -l)
+
+for ext in png ; do
   [ -d logo/$ext ] || mkdir -p logo/$ext
 done
 
 which inkscape
 haveis="$?"
+if [ "$haveis" == "0" ] ; then
+  echo "Inkscape is present and will be used to generate logos"
+else
+  echo "Inkscape is NOT present. Imagemagic's convert will be used to generate the logos"
+fi
+
 for svg in $(ls logo/*.svg) ; do 
   j=$(basename $svg .svg)
   for s in 120 360 ; do
@@ -38,12 +47,20 @@ for full in logo/png/c_*.png logo/png/ci_*.png ; do
   fi
 done
 
-for png in logo/png/*.png ; do
-  jpg=logo/jpg/$(basename $png .png).jpg
-  if [ ! -f $jpg ] ; then
-    convert $png $jpg
-  fi
-done
+nl=$(ls -1 logo/png/*.png | wc  -l)
+echo "nl=$nl   nlogos=$nlogos"
+if [ $nl -gt $nlogos ] ; then
+  echo "Unexpected number of logos. Regenerating from scratch"
+  rm ./logo/png/*.png
+  $0
+fi
+
+# for png in logo/png/*.png ; do
+#   jpg=logo/jpg/$(basename $png .png).jpg
+#   if [ ! -f $jpg ] ; then
+#     convert $png $jpg
+#   fi
+# done
 
 # [ -d pages ] || mkdir pages
 # for s in 120 180 240 ; do
