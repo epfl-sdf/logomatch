@@ -16,7 +16,6 @@ DEFAULT_YES_ABOVE = 8
 DEFAULT_NO_BELOW  = 6
 DEFAULT_MATCHES_TO_DRAW = 50
 
-
 class MImage():
 
   # class variables / constants
@@ -35,17 +34,27 @@ class MImage():
     self.kp, self.des = MImage.sift.detectAndCompute(self.img,None)
     # print("%20s  %d" % (self.name, len(self.kp)))
 
+    self.h, self.w = self.img.shape
+
   def nk(self):
     return(len(self.kp))
 
+  def width(self):
+    return self.w
+
+  def height(self):
+    return self.h
+
+  def arf(self):
+    m=2.0/(self.h + self.w)
+    return np.float32([m*self.w, m*self.h])
 
   def parts(self):
-    h, w = self.img.shape
-    hc = min(h/3, 250)
+    hc = min(self.h/3, 250)
     parts = []
-    parts.append(MImage(self.name+"_top.png", image=self.img[0:hc,0:w]))  # top
-    parts.append(MImage(self.name+"_cen.png", image=self.img[hc:h-hc, 0:w]))    # center
-    parts.append(MImage(self.name+"_bot.png", image=self.img[h-hc:h,0:w]))      # bottom
+    parts.append(MImage(self.name+"_top.png", image=self.img[0:hc,0:self.w]))  # top
+    parts.append(MImage(self.name+"_cen.png", image=self.img[hc:self.h-hc, 0:self.w]))    # center
+    parts.append(MImage(self.name+"_bot.png", image=self.img[self.h-hc:self.h,0:self.w]))      # bottom
     return(parts)
 
 class Matcher():
@@ -56,6 +65,8 @@ class Matcher():
   GIOVA_THRESHOLD = 0
   FLANN_INDEX_KDTREE = 1
   MIN_MATCH_COUNT = 4
+  STDDEV_FACTOR = 1.0
+  MIN_GDIST_COUNT = 8
 
   index_params = dict(algorithm = FLANN_INDEX_KDTREE, trees = 5)
   search_params = dict(checks = 50)
@@ -76,6 +87,8 @@ class Matcher():
   def match(self, 
             lowe_factor  = 0.7,
             giova_thr    = 0,
+            geofix       = 0,
+            maxgdist      = 0,
           ):
 
     giova_factor = (1.0 + lowe_factor)/2,
@@ -93,7 +106,7 @@ class Matcher():
       if m.distance < lowe_factor*n.distance or (m.distance < giova_maxdist and m.distance < giova_factor*n.distance):
         lowe_matches.append(m)
 
-    self.homographyFilter(lowe_matches)
+    self.homographyFilter(lowe_matches, geofix, maxgdist)
 
 
     # self.score = len(self.good_matches)
@@ -109,12 +122,35 @@ class Matcher():
     self.homographyFilter(small_dist_matches)
     return self.score()
 
-  def homographyFilter(self, matches):
+  def homographyFilter(self, mm, geofix=0, maxgdist=0):
+    matches=[]
+    if (maxgdist == 0 or len(mm) < Matcher.MIN_GDIST_COUNT):
+      matches = mm
+    else:
+      pts = np.float32([ self.img2.kp[m.trainIdx].pt for m in mm ]).reshape(-1,2)
+      cen = np.mean(pts, (0))
+      if (maxgdist == 1):
+        maxdev = Matcher.STDDEV_FACTOR * np.std(pts, (0))
+      else:
+        maxdev = maxgdist * self.img2.arf()
+
+      i=0
+      for p in pts:
+        e = maxdev - np.abs(p - cen)
+        if (e[0] > 0 and e[1] > 0):
+          matches.append(mm[i])
+        i=i+1
+
     # If enough points, a second selection is done by the Homography algorithm that keeps
     # only the points that can be linked geometrically
     if len(matches) > Matcher.MIN_MATCH_COUNT:
-      src_pts = np.float32([ self.img1.kp[m.queryIdx].pt for m in matches ]).reshape(-1,1,2)
+
+    #   if (maxgdist>0):
+    #     g=np.sum(dst_pts, (0,1))/len(matches)
+        
       dst_pts = np.float32([ self.img2.kp[m.trainIdx].pt for m in matches ]).reshape(-1,1,2)
+      src_pts = np.float32([ self.img1.kp[m.queryIdx].pt for m in matches ]).reshape(-1,1,2)
+
       M, mask = cv2.findHomography(src_pts, dst_pts, cv2.RANSAC,5.0)
       select_mask = mask.ravel().tolist()
       self.good_matches = []
@@ -125,6 +161,10 @@ class Matcher():
         h,w = self.logo().img.shape
         pts = np.float32([ [0,0],[0,h-1],[w-1,h-1],[w-1,0] ]).reshape(-1,1,2)
         self.zone = np.int32(cv2.perspectiveTransform(pts,M))
+      except:
+        self.zone = None
+
+      if (len(self.good_matches) < geofix and self.zone is not None):
         # Negative values in the rotation matrix indicates some bad transofmration that will heavily deform the rectangle ?
         # if (M[0,0] < 0 or M[1,1] < 0 or M[0,1] < 0 or M[1,0] < 0):
         #   self.good_matches = []
@@ -139,8 +179,11 @@ class Matcher():
           # accept upto 10% difference in the diagonals
           dd = 2 * abs(d1-d2)/(d1+d2)
           self.invalid = (dd>0.1)
-      except:
-        self.zone = None
+          # check correct order in corners
+          # self.zone[0][0][0] < self.zone[2][0][0]
+          # self.zone[0][0][0] < self.zone[3][0][0]
+          # self.zone[1][0][0] < self.zone[2][0][0]
+          # self.zone[1][0][0] < self.zone[3][0][0]
     else:
       self.good_matches = matches
 
@@ -203,10 +246,12 @@ parser.add_argument("-m", "--matchdir", action='store', help="Output directory f
 parser.add_argument("-M", "--maybe", action='store_true', help="Only save inspection images for uncertain matches (maybe matches)")
 parser.add_argument("-c", "--color", action='store_true', help="Colorize output")
 parser.add_argument("-p", "--partials", action='store', type=int, default=0, help="Try to do the matching with parts of the page (default=0)")
+parser.add_argument("-g", "--geofix", action='store', type=int, default=0, help="Try to exclude matches with unlikely geometry when score < geofix (default=0)")
+parser.add_argument("-D", "--maxgdist", action='store', default=0, type=int, help="Remove all the keypoints that are more than maxgdist from center of mass. If D<3 then it is multiplied by stddev")
 
 parser.add_argument("-s", "--show_upto", action='store', type=int, default=DEFAULT_MATCHES_TO_DRAW, help="Number of matches to show in the inspection image (default %d)" % DEFAULT_MATCHES_TO_DRAW)
 parser.add_argument("-l", "--lowe_factor", action='store', type=float, default=Matcher.LOWE_FACTOR, help="Set the Lowe factor: keypoint is kept only if distance(NN) < LF * distance(NNN) (default %f" % Matcher.LOWE_FACTOR)
-parser.add_argument("-g", "--giova_thr", action='store', type=float, default=0.0, help="Loosen the Lowe Key point selection condition for points whose distance d<d_min + GIOVA_THR*(d_max - d_min)")
+parser.add_argument("-t", "--giova_thr", action='store', type=float, default=0.0, help="Loosen the Lowe Key point selection condition for points whose distance d<d_min + GIOVA_THR*(d_max - d_min)")
 parser.add_argument("-w", "--nolowe", action='store_true', help="Use simpler matching method exclusively base on distance of NN keypoints and homography")
 parser.add_argument("page", help="A file or a folder with 'page' images")
 parser.add_argument("logo", help="A file or a folder with 'logo' images")
@@ -278,7 +323,7 @@ for page_path in page_paths:
     if (opts.nolowe):
       score = m.match_simpler()
     else:
-      score = m.match(lowe_factor=opts.lowe_factor, giova_thr=opts.giova_thr)
+      score = m.match(geofix=opts.geofix, maxgdist=opts.maxgdist, lowe_factor=opts.lowe_factor, giova_thr=opts.giova_thr)
 
     if (opts.kpcorrect):
       xscore = (300 - logo.nk())/80
