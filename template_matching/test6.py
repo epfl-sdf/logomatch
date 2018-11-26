@@ -92,7 +92,8 @@ class Matcher():
             lowe_factor  = None,
             giova_thr    = 0,
             geofix       = 0,
-            maxgdist      = 0,
+            mingdist     = 0,
+            maxgdist     = 0,
           ):
 
     if lowe_factor is None:
@@ -113,7 +114,7 @@ class Matcher():
       if m.distance < lowe_factor*n.distance or (m.distance < giova_maxdist and m.distance < giova_factor*n.distance):
         lowe_matches.append(m)
 
-    self.homographyFilter(lowe_matches, geofix, maxgdist)
+    self.homographyFilter(lowe_matches, geofix, mingdist, maxgdist)
 
 
     # self.score = len(self.good_matches)
@@ -129,7 +130,8 @@ class Matcher():
     self.homographyFilter(small_dist_matches)
     return self.score()
 
-  def homographyFilter(self, mm, geofix=0, maxgdist=0):
+  def homographyFilter(self, mm, geofix=0, mingdist=0, maxgdist=0):
+
     matches=[]
     if maxgdist == 0 or ( (maxgdist == 1) and (len(mm) < Matcher.MIN_STDDEV_COUNT) ) or ( (maxgdist > 1) and len(mm) < Matcher.MIN_GDIST_COUNT ):
       matches = mm
@@ -147,6 +149,18 @@ class Matcher():
         if (e[0] > 0 and e[1] > 0):
           matches.append(mm[i])
         i=i+1
+
+      if mingdist > 0 and len(matches) > 0:
+        pts = np.float32([ self.img2.kp[m.trainIdx].pt for m in matches ]).reshape(-1,2)
+        dev = np.std(pts, (0))
+        mindev = mingdist * self.img2.arf()
+        if (dev[0] < mindev[0] or dev[1] < mindev[1]):
+          matches = []
+
+    if len(matches) == 0:
+      self.good_matches = []
+      self.invalid = True
+      return
 
     # If enough points, a second selection is done by the Homography algorithm that keeps
     # only the points that can be linked geometrically
@@ -255,6 +269,7 @@ parser.add_argument("-c", "--color", action='store_true', help="Colorize output"
 parser.add_argument("-p", "--partials", action='store', type=int, default=0, help="Try to do the matching with parts of the page (default=0)")
 parser.add_argument("-g", "--geofix", action='store', type=int, default=0, help="Try to exclude matches with unlikely geometry when score < geofix (default=0)")
 parser.add_argument("-D", "--maxgdist", action='store', default=0, type=int, help="Remove all the keypoints that are more than maxgdist from center of mass. If D<3 then it is multiplied by stddev")
+parser.add_argument("-E", "--mingdist", action='store', default=0, type=int, help="If dispersion of keypoints is smaller than this, match is not valid")
 
 parser.add_argument("-s", "--show_upto", action='store', type=int, default=DEFAULT_MATCHES_TO_DRAW, help="Number of matches to show in the inspection image (default %d)" % DEFAULT_MATCHES_TO_DRAW)
 parser.add_argument("-l", "--lowe_factor", action='store', type=float, default=Matcher.LOWE_FACTOR, help="Set the Lowe factor: keypoint is kept only if distance(NN) < LF * distance(NNN) (default %f" % Matcher.LOWE_FACTOR)
@@ -330,7 +345,7 @@ for page_path in page_paths:
     if (opts.nolowe):
       score = m.match_simpler()
     else:
-      score = m.match(geofix=opts.geofix, maxgdist=opts.maxgdist, lowe_factor=opts.lowe_factor, giova_thr=opts.giova_thr)
+      score = m.match(geofix=opts.geofix, mingdist=opts.mingdist, maxgdist=opts.maxgdist, lowe_factor=opts.lowe_factor, giova_thr=opts.giova_thr)
 
     if (opts.kpcorrect):
       xscore = (300 - logo.nk())/80
@@ -357,7 +372,7 @@ for page_path in page_paths:
     for part in page.parts():
       for logo in logos:
         m = Matcher(part, logo)
-        score = m.match(lowe_factor=opts.lowe_factor, giova_thr=opts.giova_thr)
+        score = m.match(geofix=opts.geofix, mingdist=opts.mingdist, maxgdist=opts.maxgdist, lowe_factor=opts.lowe_factor, giova_thr=opts.giova_thr)
         if (score > max_score2): 
           max_score2 = score
           best_m2 = m
