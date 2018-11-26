@@ -327,8 +327,10 @@ for logo_path in logo_paths:
     print("Invalid logo found in " + logo_path, file=sys.stderr)
     pass
 
+i=0
 for page_path in page_paths:
-
+  i=i+1 
+  print(i)
   try:
     page=MImage(page_path)
   except:

@@ -1,10 +1,13 @@
 #!/bin/bash
+#zf181126.1550
+
+rm ./logo/png/*
 
 for ext in png jpg ; do
   [ -d logo/$ext ] || mkdir -p logo/$ext
 done
 
-which -s inkscape
+which inkscape
 haveis="$?"
 for svg in $(ls logo/*.svg) ; do 
   j=$(basename $svg .svg)
