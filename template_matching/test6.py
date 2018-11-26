@@ -60,13 +60,17 @@ class MImage():
 class Matcher():
 
   # class variables / constants
-  LOWE_FACTOR = 0.7
-  GIOVA_FACTOR = 0.9
-  GIOVA_THRESHOLD = 0
-  FLANN_INDEX_KDTREE = 1
-  MIN_MATCH_COUNT = 4
-  STDDEV_FACTOR = 1.0
-  MIN_GDIST_COUNT = 8
+  GIOVA_FACTOR = 0.9         # (Failed) attempt to do better than Lowe using the fact that we have 
+  GIOVA_THRESHOLD = 0        # undeformed logo.
+
+  LOWE_FACTOR = 0.7          # For each point in logo 2 possible matches are detected in the page
+                             # image. Points are kept only when the distance of the first match is 
+                             # considerably (LOWE_FACTOR) smaller than the one or the second match
+  FLANN_INDEX_KDTREE = 0     # do not touch
+  MIN_MATCH_COUNT = 4        # min no. points for homography to work
+  STDDEV_FACTOR = 1.0        # drop points outside STDDEV_FACTOR * Sigma from mean
+  MIN_STDDEV_COUNT = 10      # min number of points for a reasonable mean/stdev
+  MIN_GDIST_COUNT = 4       # min number of points for a reasonable mean
 
   index_params = dict(algorithm = FLANN_INDEX_KDTREE, trees = 5)
   search_params = dict(checks = 50)
@@ -85,11 +89,14 @@ class Matcher():
       self.good_matches=[]
 
   def match(self, 
-            lowe_factor  = 0.7,
+            lowe_factor  = None,
             giova_thr    = 0,
             geofix       = 0,
             maxgdist      = 0,
           ):
+
+    if lowe_factor is None:
+      lowe_factor = Matcher.LOWE_FACTOR
 
     giova_factor = (1.0 + lowe_factor)/2,
     if self.matches is None: return 0
@@ -124,7 +131,7 @@ class Matcher():
 
   def homographyFilter(self, mm, geofix=0, maxgdist=0):
     matches=[]
-    if (maxgdist == 0 or len(mm) < Matcher.MIN_GDIST_COUNT):
+    if maxgdist == 0 or ( (maxgdist == 1) and (len(mm) < Matcher.MIN_STDDEV_COUNT) ) or ( (maxgdist > 1) and len(mm) < Matcher.MIN_GDIST_COUNT ):
       matches = mm
     else:
       pts = np.float32([ self.img2.kp[m.trainIdx].pt for m in mm ]).reshape(-1,2)
