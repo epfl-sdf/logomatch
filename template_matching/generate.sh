@@ -8,7 +8,7 @@ which -s inkscape
 haveis="$?"
 for svg in $(ls logo/*.svg) ; do 
   j=$(basename $svg .svg)
-  for s in 480 ; do
+  for s in 120 180 360 ; do
     png=$(printf "logo/png/%s_%03d.png" $j $s)
     if [ ! -f $png ] ; then
       if [ "$haveis" == "0" ] ; then
