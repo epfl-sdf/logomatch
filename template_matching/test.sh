@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# This script executes start.sh on all the test pages, then make a summary of the result
 
 if [ -z "$1" ]
   then
@@ -20,7 +20,7 @@ echo "-----------------------------------------------" >> $out
 cat start.sh                                           >> $out
 echo "-----------------------------------------------" >> $out
 date                                                   >> $out
-./start.sh pages/test $match "$python"
+./start.sh pages/aaa $match "$python"
 cat ${match}.out                                       >> $out
 date                                                   >> $out
 echo "-----------------------------------------------" >> $out

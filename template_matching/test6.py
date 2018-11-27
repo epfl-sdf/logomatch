@@ -101,6 +101,7 @@ class Matcher():
             lowe_factor  = None,
             giova_thr    = 0,
             geofix       = 0,
+            minkpdist    = 0,
             mingdist     = 0,
             maxgdist     = 0,
           ):
@@ -118,10 +119,24 @@ class Matcher():
     else:
       giova_maxdist = 0.0
 
+    # lowe_matches=[]
+    # for m,n in self.matches:
+    #   if m.distance < lowe_factor*n.distance or (m.distance < giova_maxdist and m.distance < giova_factor*n.distance):
+    #     lowe_matches.append(m)
+
+    dst_pts = []
     lowe_matches=[]
     for m,n in self.matches:
       if m.distance < lowe_factor*n.distance or (m.distance < giova_maxdist and m.distance < giova_factor*n.distance):
-        lowe_matches.append(m)
+        ok=True
+        p = np.float32(self.img2.kp[m.trainIdx].pt)
+        for p0 in dst_pts:
+          d = np.linalg.norm(p - p0)
+          ok = ok and (d > 5)
+        if ok:
+          dst_pts.append(p)
+          lowe_matches.append(m)
+
 
     self.homographyFilter(lowe_matches, geofix, mingdist, maxgdist)
 
@@ -284,6 +299,7 @@ parser.add_argument("-p", "--partials", action='store', type=int, default=0, hel
 parser.add_argument("-g", "--geofix", action='store', type=int, default=0, help="Try to exclude matches with unlikely geometry when score < geofix (default=0)")
 parser.add_argument("-D", "--maxgdist", action='store', default=0, type=int, help="Remove all the keypoints that are more than maxgdist from center of mass. If D<3 then it is multiplied by stddev")
 parser.add_argument("-E", "--mingdist", action='store', default=0, type=int, help="If dispersion of keypoints is smaller than this, match is not valid")
+parser.add_argument("-K", "--minkpdist", action='store', default=0, type=int, help="Reject matches that are closer than minkpdist from other points in the page")
 
 parser.add_argument("-s", "--show_upto", action='store', type=int, default=DEFAULT_MATCHES_TO_DRAW, help="Number of matches to show in the inspection image (default %d)" % DEFAULT_MATCHES_TO_DRAW)
 parser.add_argument("-l", "--lowe_factor", action='store', type=float, default=Matcher.LOWE_FACTOR, help="Set the Lowe factor: keypoint is kept only if distance(NN) < LF * distance(NNN) (default %f" % Matcher.LOWE_FACTOR)
@@ -325,14 +341,16 @@ verbose=(many_pages or many_logos)
 # if opts.verbose
 # save_all_matches = opts.verbose and opts.matchdir is not None
 # save_maybe_only  = opts.maybe and opts.matchdir is not None and not opts.verbose
-save_matches = not opts.verbose and not opts.quiet
+save_matches = not (opts.verbose or opts.quiet)
+print("maybe only:   " + ("Y" if opts.maybe else "N" ))
+print("verbose:      " + ("Y" if opts.verbose else "N" ))
+print("quiet:        " + ("Y" if opts.quiet else "N" ))
+print("save_matches: " + ("Y" if save_matches else "N" ))
 
 if (opts.verbose):
   print(opts)
   print("many_pages: " + ("Y" if many_pages else "N" ))
   print("many_logos: " + ("Y" if many_logos else "N" ))
-  print("save_all_matches: " + ("Y" if save_all_matches else "N" ))
-  print("save_maybe_only: "  + ("Y" if save_maybe_only else "N" ))
 
 # --------------------------------------------------------
 
@@ -367,7 +385,7 @@ for page_path in page_paths:
     if (opts.nolowe):
       score = m.match_simpler()
     else:
-      score = m.match(geofix=opts.geofix, mingdist=opts.mingdist, maxgdist=opts.maxgdist, lowe_factor=opts.lowe_factor, giova_thr=opts.giova_thr)
+      score = m.match(minkpdist=opts.minkpdist, geofix=opts.geofix, mingdist=opts.mingdist, maxgdist=opts.maxgdist, lowe_factor=opts.lowe_factor, giova_thr=opts.giova_thr)
 
     if (opts.kpcorrect):
       xscore = (300 - logo.nk())/80
@@ -394,7 +412,7 @@ for page_path in page_paths:
     for part in page.parts():
       for logo in logos:
         m = Matcher(part, logo)
-        score = m.match(geofix=opts.geofix, mingdist=opts.mingdist, maxgdist=opts.maxgdist, lowe_factor=opts.lowe_factor, giova_thr=opts.giova_thr)
+        score = m.match(minkpdist=opts.minkpdist, geofix=opts.geofix, mingdist=opts.mingdist, maxgdist=opts.maxgdist, lowe_factor=opts.lowe_factor, giova_thr=opts.giova_thr)
         if (score > max_score2): 
           max_score2 = score
           best_m2 = m

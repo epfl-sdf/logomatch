@@ -1,10 +1,20 @@
 #!/usr/bin/env bash
-#Petit script pour lancer le binz
-#ATTENTION: ça été fait pour une structure perso !
-#faudra modifier le script pour d'autres structures
-#zf181126.1619
+# This scruot executes test6.py up to three times. 
+# The first time on all the pages of the provided directory;
+# then only on the "maybe" pages from the previous step.
+# It accepts two mandatory argument:
+#   1. the path of the directory containing the images
+#   2. the path of the output directory 
+# an optional third argument that is the python exec.
+# The output is a directory (e.g. pippo) and a file (e.g. pippo.out).
+# 
+# Example:
+# start.sh pages/test attempt1
+# start.sh pages/test attempt2 python3
+# start.sh pages/test attempt3 "docker run -it -v $PWD:/wd opencv"
+#
+#gc181127.1625
 
-#test si l'argument est vide
 if [ -z "$1" ]
   then
     echo -e "\nSyntax: ./start.sh source_folder destination_folder \n\n"
@@ -20,7 +30,7 @@ else
 fi
 echo "Using $python"
 
-# ----------------------------------------------------------------
+# ---------------------------------------------------------------- 0 setup
 # Generate logos from svg
 ./generate.sh
 
@@ -45,7 +55,7 @@ cp $0 $od/
 # ------------------------------------------------------------------- 1
 # First run without special treatments and large "maybe" zone
 echo "$(date +%F-%R:%S) Start first round" >&2
-$python test6.py -l 0.68 -n 4 -y 14 -m $o1 $pd $lg > $o1.out
+$python test6.py -K 5 -l 0.68 -n 4 -y 14 -m $o1 $pd $lg > ${o1}.out
 if [ "$?" != "0" ] ; then
   echo "Test failed. Stopping."
   exit
@@ -69,7 +79,7 @@ done
 echo "$(date +%F-%R:%S) Start second round" >&2
 
 # $python test6.py -k --mingdist 40 --maxgdist 160 -l 0.74 -n 5 -y 8 -m $o2 ${o1}_maybe $lg > $o2.out
-$python test6.py -p 8 -k --mingdist 40 --maxgdist 160 -l 0.70 -n 6 -y 12 -m $o2 ${o1}_maybe $lg > $o2.out
+$python test6.py -p 8 -k --mingdist 40 --maxgdist 160 -l 0.70 -n 6 -y 12 -m $o2 ${o1}_maybe $lg > ${o2}.out
 if [ "$?" != "0" ] ; then
   echo "Test failed. Stopping."
   exit
@@ -91,7 +101,7 @@ done
 # Run again on maybe-pages with some tweaks
 # -p split the image in three parts if score is smaller than given value (8)
 echo "$(date +%F-%R:%S) Start third round" >&2
-$python test6.py -p 8 -k --mingdist 40 --maxgdist 160 -l 0.74 -n 6 -y 8 -m $o3 ${o2}_maybe $lg > $o3.out
+$python test6.py -p 8 -k --mingdist 40 --maxgdist 160 -l 0.74 -n 6 -y 8 -m $o3 ${o2}_maybe $lg > ${o3}.out
 if [ "$?" != "0" ] ; then
   echo "Test failed. Stopping."
   exit
