@@ -10,7 +10,7 @@ match=$1
 out=${match}_test.out
 
 echo "-----------------------------------------------" >> $out
-grep "test6.py" start.sh >> $out
+cat start.sh                                           >> $out
 echo "-----------------------------------------------" >> $out
 date                                                   >> $out
 ./start.sh pages/test $match python

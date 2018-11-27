@@ -42,14 +42,20 @@ mkdir -p $od || (echo "Could not create output dir"; exit 1)
 # Copy this file for future reference 
 cp $0 $od/
 
+# ------------------------------------------------------------------- 1
 # First run without special treatments and large "maybe" zone
 echo "$(date +%F-%R:%S) Start first round" >&2
-$python test6.py -l 0.72 -n 5 -y 14 -m $o1 $pd $lg > $o1.out
+$python test6.py -l 0.68 -n 4 -y 14 -m $o1 $pd $lg > $o1.out
 if [ "$?" != "0" ] ; then
   echo "Test failed. Stopping."
   exit
 fi
+cat $o1.out > $od.out
+# exit  # uncomment to stop here
 
+
+
+# ------------------------------------------------------------------- 2
 # Create a new set of pages with the maybe pages
 [ -d ${o1}_maybe ] || mkdir ${o1}_maybe
 awk '/maybe$/{print $1;}' $o1.out | while read p ; do
@@ -62,12 +68,21 @@ done
 # -l relax a bit the Lowe cryterium for match seleciton 
 echo "$(date +%F-%R:%S) Start second round" >&2
 
-$python test6.py -k --mingdist 40 --maxgdist 160 -l 0.74 -n 5 -y 8 -m $o2 ${o1}_maybe $lg > $o2.out
+# $python test6.py -k --mingdist 40 --maxgdist 160 -l 0.74 -n 5 -y 8 -m $o2 ${o1}_maybe $lg > $o2.out
+$python test6.py -p 8 -k --mingdist 40 --maxgdist 160 -l 0.70 -n 6 -y 12 -m $o2 ${o1}_maybe $lg > $o2.out
 if [ "$?" != "0" ] ; then
   echo "Test failed. Stopping."
   exit
 fi
 
+cat $o1.out $o2.out | grep -e 'yes$' >  $od.out
+cat $o1.out $o2.out | grep -e 'no$'  >> $od.out
+cat $o2.out | grep -e 'maybe$'       >> $od.out
+exit # uncomment to stop here
+
+
+
+# ------------------------------------------------------------------- 3
 [ -d ${o2}_maybe ] || mkdir ${o2}_maybe
 awk '/maybe$/{print $1;}' $o2.out | while read p ; do
   ln -s $apd/$p.png ${o2}_maybe/
@@ -76,7 +91,7 @@ done
 # Run again on maybe-pages with some tweaks
 # -p split the image in three parts if score is smaller than given value (8)
 echo "$(date +%F-%R:%S) Start third round" >&2
-$python test6.py -p 8 -k -E 40 -D 160 -l 0.74 -n 6 -y 8 -m $o3 ${o2}_maybe $lg > $o3.out
+$python test6.py -p 8 -k --mingdist 40 --maxgdist 160 -l 0.74 -n 6 -y 8 -m $o3 ${o2}_maybe $lg > $o3.out
 if [ "$?" != "0" ] ; then
   echo "Test failed. Stopping."
   exit
