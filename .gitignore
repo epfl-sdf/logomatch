@@ -19,6 +19,7 @@ template_matching/pages/gray/
 template_matching/match*/
 template_matching/match*.out
 template_matching/pages/all/
+template_matching/docker/out
 
 .DS_Store
 ._.DS_Store
