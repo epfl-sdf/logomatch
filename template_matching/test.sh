@@ -3,17 +3,24 @@
 
 if [ -z "$1" ]
   then
-    echo -e "\nSyntax: ./start.sh source_folder destination_folder \n\n"
+    echo -e "\nSyntax: ./test.sh destination_folder [python command]\n\n"
     exit
 fi
 match=$1
+
+if [ -n "$2" ] ; then
+  python="$2"
+else
+  python=""
+fi
+
 out=${match}_test.out
 
 echo "-----------------------------------------------" >> $out
 cat start.sh                                           >> $out
 echo "-----------------------------------------------" >> $out
 date                                                   >> $out
-./start.sh pages/test $match python
+./start.sh pages/test $match "$python"
 cat ${match}.out                                       >> $out
 date                                                   >> $out
 echo "-----------------------------------------------" >> $out

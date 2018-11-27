@@ -12,6 +12,7 @@ import argparse
 import signal
 from termcolor import colored
 
+DOWNGRAY = False
 MATCH_EXT="jpg"
 DEFAULT_YES_ABOVE = 8
 DEFAULT_NO_BELOW  = 6
@@ -27,15 +28,21 @@ class MImage():
     self.name = os.path.splitext(os.path.basename(self.path))[0]
 
     if image is None:
-      img_rgb = cv2.imread(self.path)
-      self.img = cv2.cvtColor(img_rgb,cv2.COLOR_BGR2GRAY)
+      if DOWNGRAY:
+        img_rgb = cv2.imread(self.path)
+        self.img = cv2.cvtColor(img_rgb,cv2.COLOR_BGR2GRAY)
+      else:
+        self.img = cv2.imread(self.path)
     else:
       self.img = image
 
+    if DOWNGRAY:
+      self.h, self.w = self.img.shape
+    else:
+      self.h, self.w, self.depth = self.img.shape
+
     self.kp, self.des = MImage.sift.detectAndCompute(self.img,None)
     # print("%20s  %d" % (self.name, len(self.kp)))
-
-    self.h, self.w = self.img.shape
 
   def nk(self):
     return(len(self.kp))
@@ -266,6 +273,7 @@ parser = argparse.ArgumentParser(
            """
 )
 parser.add_argument("-v", "--verbose", action='store_true', help="Increase output level")
+parser.add_argument("-q", "--quiet", action='store_true', help="Decrease output level. In particular, do not save match images.")
 parser.add_argument("-n", "--no_below", action='store', type=int, default=DEFAULT_NO_BELOW, help="Below this threshold, images do not match (default %d)" % DEFAULT_NO_BELOW)
 parser.add_argument("-y", "--yes_above", action='store', type=int, default=DEFAULT_YES_ABOVE, help="Below this threshold, images do not match (default %d)" % DEFAULT_YES_ABOVE)
 parser.add_argument("-k", "--kpcorrect", action='store_true', help="Correct the score based on the number of key points of the logo (cropped logos have much fewer kps)")
@@ -290,7 +298,9 @@ if opts.matchdir is not None:
   if opts.maybe:
     dirs=[opts.matchdir, opts.matchdir+"/maybe"]
   else:
-    dirs=[opts.matchdir, opts.matchdir+"/maybe", opts.matchdir+"/all", opts.matchdir+"/yes", opts.matchdir+"/no"]
+    dirs=[opts.matchdir, opts.matchdir+"/maybe", opts.matchdir+"/yes", opts.matchdir+"/no"]
+  if opts.verbose:
+    dirs.append(opts.matchdir+"/all")
   for d in dirs:
     if (not os.path.exists(d)):
       os.mkdir(d)
@@ -311,8 +321,11 @@ else:
 many_pages = (len(page_paths)>1)
 many_logos = (len(logo_paths)>1)
 verbose=(many_pages or many_logos)
-save_all_matches = not (opts.maybe or opts.matchdir is None)
-save_maybe_only  = opts.maybe and opts.matchdir is not None
+
+# if opts.verbose
+# save_all_matches = opts.verbose and opts.matchdir is not None
+# save_maybe_only  = opts.maybe and opts.matchdir is not None and not opts.verbose
+save_matches = not opts.verbose and not opts.quiet
 
 if (opts.verbose):
   print(opts)
@@ -369,7 +382,7 @@ for page_path in page_paths:
 
     if (many_logos and opts.verbose): print("%-20s %-20s %2d   %3d" % ("", logo.name, score, xscore))
 
-    if (save_all_matches): 
+    if (opts.verbose): 
       m.save(opts.matchdir + "/all/", opts.show_upto)
 
     m=None
@@ -386,7 +399,7 @@ for page_path in page_paths:
           max_score2 = score
           best_m2 = m
         if (many_logos and opts.verbose): print("%20s %-20s %2d" % ("part", logo.name, score))
-        if (save_all_matches): 
+        if (opts.verbose): 
           m.save(opts.matchdir + "/all/", opts.show_upto)
 
     if max_score2 > max_score:
@@ -396,12 +409,16 @@ for page_path in page_paths:
   ans=""
   if max_score < opts.no_below:
     ans=colored("no", "red") if opts.color else "no"
+    if save_matches and not opts.maybe:
+      best_m.save(opts.matchdir + "/no/", opts.show_upto)
   else:
     if max_score > opts.yes_above:
       ans=colored("yes", "green") if opts.color else "yes"
+      if save_matches and not opts.maybe:
+        best_m.save(opts.matchdir + "/yes/", opts.show_upto)
     else:
       ans=colored("maybe", "blue") if opts.color else "maybe"
-      if (save_maybe_only):
+      if save_matches:
         best_m.save(opts.matchdir + "/maybe/", opts.show_upto)
   
   if (verbose):
@@ -410,7 +427,7 @@ for page_path in page_paths:
   else:
     print(max_score)
 
-  if save_all_matches and best_m is not None:
+  if opts.verbose and best_m is not None:
     lpath=opts.matchdir + "/" + ans + "/" + best_m.basepath()
     os.symlink("../all/"+best_m.basepath(), lpath)
 
