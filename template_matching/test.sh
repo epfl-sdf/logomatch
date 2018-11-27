@@ -20,7 +20,7 @@ echo "-----------------------------------------------" >> $out
 cat start.sh                                           >> $out
 echo "-----------------------------------------------" >> $out
 date                                                   >> $out
-./start.sh pages/aaa $match "$python"
+./start.sh pages/test $match "$python"
 cat ${match}.out                                       >> $out
 date                                                   >> $out
 echo "-----------------------------------------------" >> $out
