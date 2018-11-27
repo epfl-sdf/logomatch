@@ -102,13 +102,18 @@ class Matcher():
             giova_thr    = 0,
             geofix       = 0,
             minkpdist    = 0,
-            mingdist     = 0,
-            maxgdist     = 0,
+            mingdisp     = 0,
+            maxgdisp     = 0,
           ):
 
     if lowe_factor is None:
       lowe_factor = Matcher.LOWE_FACTOR
 
+    # The giova_ stuff is a (failed) attempt to exploit the fact that we know that our logo
+    # is not deformed (rotation, perspective). So, we use a less strict Lowe threshold 
+    # (giova_factor > lowe_factor) but put an upper bound on the NN (giova_maxdist).
+    # For giova_factor==1.0 we will kill Lowe and just count the number of matches that are
+    # within a given distance. Preliminary tests show that this does not work at all.
     giova_factor = (1.0 + lowe_factor)/2,
     if self.matches is None: return 0
 
@@ -119,27 +124,28 @@ class Matcher():
     else:
       giova_maxdist = 0.0
 
-    # lowe_matches=[]
-    # for m,n in self.matches:
-    #   if m.distance < lowe_factor*n.distance or (m.distance < giova_maxdist and m.distance < giova_factor*n.distance):
-    #     lowe_matches.append(m)
+
 
     dst_pts = []
     lowe_matches=[]
     for m,n in self.matches:
       if m.distance < lowe_factor*n.distance or (m.distance < giova_maxdist and m.distance < giova_factor*n.distance):
-        ok=True
-        p = np.float32(self.img2.kp[m.trainIdx].pt)
-        for p0 in dst_pts:
-          d = np.linalg.norm(p - p0)
-          ok = ok and (d > 5)
-        if ok:
-          dst_pts.append(p)
+        if minkpdist > 0:
+          # Filter based on distance of match points in the second image. This is to
+          # prevent having many similar key points in the frist image match the same zone in the second image.
+          # A new match is added only if the point in the second image is far enough from all previously added points.
+          ok=True
+          p = np.float32(self.img2.kp[m.trainIdx].pt)
+          for p0 in dst_pts:
+            d = np.linalg.norm(p - p0)
+            ok = ok and (d > 5)
+          if ok:
+            dst_pts.append(p)
+            lowe_matches.append(m)
+        else:
           lowe_matches.append(m)
 
-
-    self.homographyFilter(lowe_matches, geofix, mingdist, maxgdist)
-
+    self.homographyFilter(lowe_matches, geofix, mingdisp, maxgdisp)
 
     # self.score = len(self.good_matches)
     # self.basepath="%02d_%s_%s.%s" % (self.score(), self.img2.name, self.img1.name, MATCH_EXT)
@@ -154,18 +160,21 @@ class Matcher():
     self.homographyFilter(small_dist_matches)
     return self.score()
 
-  def homographyFilter(self, mm, geofix=0, mingdist=0, maxgdist=0):
+  def homographyFilter(self, mm, geofix=0, mingdisp=0, maxgdisp=0):
 
     matches=[]
-    if maxgdist == 0 or ( (maxgdist == 1) and (len(mm) < Matcher.MIN_STDDEV_COUNT) ) or ( (maxgdist > 1) and len(mm) < Matcher.MIN_GDIST_COUNT ):
+    if maxgdisp == 0 or ( (maxgdisp == 1) and (len(mm) < Matcher.MIN_STDDEV_COUNT) ) or ( (maxgdisp > 1) and len(mm) < Matcher.MIN_GDIST_COUNT ):
       matches = mm
     else:
+      # Filter based on dispersion of match points. Two possible cryteria
+      # 1. when (maxgdisp == 1): use standard deviation as cut-off
+      # 2. when (maxgdisp  > 1): use given value (adapted to first image aspect ratio)
       pts = np.float32([ self.img2.kp[m.trainIdx].pt for m in mm ]).reshape(-1,2)
       cen = np.mean(pts, (0))
-      if (maxgdist == 1):
+      if (maxgdisp == 1):
         maxdev = Matcher.STDDEV_FACTOR * np.std(pts, (0))
       else:
-        maxdev = maxgdist * self.img2.arf()
+        maxdev = maxgdisp * self.img2.arf()
 
       i=0
       for p in pts:
@@ -174,10 +183,10 @@ class Matcher():
           matches.append(mm[i])
         i=i+1
 
-      if mingdist > 0 and len(matches) > 0:
+      if mingdisp > 0 and len(matches) > 0:
         pts = np.float32([ self.img2.kp[m.trainIdx].pt for m in matches ]).reshape(-1,2)
         dev = np.std(pts, (0))
-        mindev = mingdist * self.img2.arf()
+        mindev = mingdisp * self.img2.arf()
         if (dev[0] < mindev[0] or dev[1] < mindev[1]):
           matches = []
 
@@ -190,7 +199,7 @@ class Matcher():
     # only the points that can be linked geometrically
     if len(matches) > Matcher.MIN_MATCH_COUNT:
 
-    #   if (maxgdist>0):
+    #   if (maxgdisp>0):
     #     g=np.sum(dst_pts, (0,1))/len(matches)
         
       dst_pts = np.float32([ self.img2.kp[m.trainIdx].pt for m in matches ]).reshape(-1,1,2)
@@ -209,6 +218,10 @@ class Matcher():
       except:
         self.zone = None
 
+      # Filter based on the geometry of the resulting matched image. This also
+      # is not very usefull in the case of the logo because it contains text and
+      # is very easy to swap two similar character graces. Therefore the rectangle
+      # defining the match results often badly deformed although the match is not bad.
       if (len(self.good_matches) < geofix and self.zone is not None):
         # Negative values in the rotation matrix indicates some bad transofmration that will heavily deform the rectangle ?
         # if (M[0,0] < 0 or M[1,1] < 0 or M[0,1] < 0 or M[1,0] < 0):
@@ -297,8 +310,8 @@ parser.add_argument("-M", "--maybe", action='store_true', help="Only save inspec
 parser.add_argument("-c", "--color", action='store_true', help="Colorize output")
 parser.add_argument("-p", "--partials", action='store', type=int, default=0, help="Try to do the matching with parts of the page (default=0)")
 parser.add_argument("-g", "--geofix", action='store', type=int, default=0, help="Try to exclude matches with unlikely geometry when score < geofix (default=0)")
-parser.add_argument("-D", "--maxgdist", action='store', default=0, type=int, help="Remove all the keypoints that are more than maxgdist from center of mass. If D<3 then it is multiplied by stddev")
-parser.add_argument("-E", "--mingdist", action='store', default=0, type=int, help="If dispersion of keypoints is smaller than this, match is not valid")
+parser.add_argument("-D", "--maxgdisp", action='store', default=0, type=int, help="Remove all the keypoints that are more than maxgdisp from center of mass. If D<3 then it is multiplied by stddev")
+parser.add_argument("-E", "--mingdisp", action='store', default=0, type=int, help="If dispersion of keypoints is smaller than this, match is not valid")
 parser.add_argument("-K", "--minkpdist", action='store', default=0, type=int, help="Reject matches that are closer than minkpdist from other points in the page")
 
 parser.add_argument("-s", "--show_upto", action='store', type=int, default=DEFAULT_MATCHES_TO_DRAW, help="Number of matches to show in the inspection image (default %d)" % DEFAULT_MATCHES_TO_DRAW)
@@ -385,7 +398,7 @@ for page_path in page_paths:
     if (opts.nolowe):
       score = m.match_simpler()
     else:
-      score = m.match(minkpdist=opts.minkpdist, geofix=opts.geofix, mingdist=opts.mingdist, maxgdist=opts.maxgdist, lowe_factor=opts.lowe_factor, giova_thr=opts.giova_thr)
+      score = m.match(minkpdist=opts.minkpdist, geofix=opts.geofix, mingdisp=opts.mingdisp, maxgdisp=opts.maxgdisp, lowe_factor=opts.lowe_factor, giova_thr=opts.giova_thr)
 
     if (opts.kpcorrect):
       xscore = (300 - logo.nk())/80
@@ -412,7 +425,7 @@ for page_path in page_paths:
     for part in page.parts():
       for logo in logos:
         m = Matcher(part, logo)
-        score = m.match(minkpdist=opts.minkpdist, geofix=opts.geofix, mingdist=opts.mingdist, maxgdist=opts.maxgdist, lowe_factor=opts.lowe_factor, giova_thr=opts.giova_thr)
+        score = m.match(minkpdist=opts.minkpdist, geofix=opts.geofix, mingdisp=opts.mingdisp, maxgdisp=opts.maxgdisp, lowe_factor=opts.lowe_factor, giova_thr=opts.giova_thr)
         if (score > max_score2): 
           max_score2 = score
           best_m2 = m

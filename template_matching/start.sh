@@ -55,7 +55,7 @@ cp $0 $od/
 # ------------------------------------------------------------------- 1
 # First run without special treatments and large "maybe" zone
 echo "$(date +%F-%R:%S) Start first round" >&2
-$python test6.py -K 5 -l 0.68 -n 4 -y 14 -m $o1 $pd $lg > ${o1}.out
+$python test6.py -K 5 -l 0.68 -n 4 -y 10 -m $o1 $pd $lg > ${o1}.out
 if [ "$?" != "0" ] ; then
   echo "Test failed. Stopping."
   exit
@@ -78,8 +78,12 @@ done
 # -l relax a bit the Lowe cryterium for match seleciton 
 echo "$(date +%F-%R:%S) Start second round" >&2
 
-# $python test6.py -k --mingdist 40 --maxgdist 160 -l 0.74 -n 5 -y 8 -m $o2 ${o1}_maybe $lg > $o2.out
-$python test6.py -p 8 -k --mingdist 40 --maxgdist 160 -l 0.70 -n 6 -y 12 -m $o2 ${o1}_maybe $lg > ${o2}.out
+# $python test6.py -k --mingdisp 40 --maxgdisp 160 -l 0.74 -n 5 -y 8 -m $o2 ${o1}_maybe $lg > $o2.out
+# $python test6.py -p 8 -K 5 --mingdisp 40 --maxgdisp 160 -l 0.70 -n 6 -y 12 -m $o2 ${o1}_maybe $lg > ${o2}.out
+$python test6.py --maxgdisp 160 -p 8 -K 5 -l 0.70 -n 4 -y 4 -m $o2 ${o1}_maybe $lg > ${o2}.out
+
+
+
 if [ "$?" != "0" ] ; then
   echo "Test failed. Stopping."
   exit
@@ -101,7 +105,7 @@ done
 # Run again on maybe-pages with some tweaks
 # -p split the image in three parts if score is smaller than given value (8)
 echo "$(date +%F-%R:%S) Start third round" >&2
-$python test6.py -p 8 -k --mingdist 40 --maxgdist 160 -l 0.74 -n 6 -y 8 -m $o3 ${o2}_maybe $lg > ${o3}.out
+$python test6.py -p 8 -k --mingdisp 40 --maxgdisp 160 -l 0.74 -n 6 -y 8 -m $o3 ${o2}_maybe $lg > ${o3}.out
 if [ "$?" != "0" ] ; then
   echo "Test failed. Stopping."
   exit
