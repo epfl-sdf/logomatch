@@ -351,19 +351,19 @@ many_pages = (len(page_paths)>1)
 many_logos = (len(logo_paths)>1)
 verbose=(many_pages or many_logos)
 
-# if opts.verbose
-# save_all_matches = opts.verbose and opts.matchdir is not None
-# save_maybe_only  = opts.maybe and opts.matchdir is not None and not opts.verbose
-save_matches = not (opts.verbose or opts.quiet)
-print("maybe only:   " + ("Y" if opts.maybe else "N" ))
-print("verbose:      " + ("Y" if opts.verbose else "N" ))
-print("quiet:        " + ("Y" if opts.quiet else "N" ))
-print("save_matches: " + ("Y" if save_matches else "N" ))
+save_all   = opts.verbose and opts.matchdir is not None
+save_maybe = not (opts.quiet or save_all or opts.matchdir is None)
+save_yesno = not (opts.quiet or save_all or opts.maybe or opts.matchdir is None)
 
-if (opts.verbose):
-  print(opts)
-  print("many_pages: " + ("Y" if many_pages else "N" ))
-  print("many_logos: " + ("Y" if many_logos else "N" ))
+# print("save_all:   " + ("Y" if save_all else "N" ) )
+# print("save_maybe: " + ("Y" if save_maybe else "N" ) )
+# print("save_yesno: " + ("Y" if save_yesno else "N" ) )
+# print("verbose:           " + ("Y" if opts.verbose else "N" ))
+# print("quiet:             " + ("Y" if opts.quiet else "N" ))
+# if (opts.verbose):
+#   print(opts)
+#   print("many_pages: " + ("Y" if many_pages else "N" ))
+#   print("many_logos: " + ("Y" if many_logos else "N" ))
 
 # --------------------------------------------------------
 
@@ -413,7 +413,7 @@ for page_path in page_paths:
 
     if (many_logos and opts.verbose): print("%-20s %-20s %2d   %3d" % ("", logo.name, score, xscore))
 
-    if (opts.verbose): 
+    if save_all:
       m.save(opts.matchdir + "/all/", opts.show_upto)
 
     m=None
@@ -430,7 +430,7 @@ for page_path in page_paths:
           max_score2 = score
           best_m2 = m
         if (many_logos and opts.verbose): print("%20s %-20s %2d" % ("part", logo.name, score))
-        if (opts.verbose): 
+        if save_all:
           m.save(opts.matchdir + "/all/", opts.show_upto)
 
     if max_score2 > max_score:
@@ -440,16 +440,16 @@ for page_path in page_paths:
   ans=""
   if max_score < opts.no_below:
     ans=colored("no", "red") if opts.color else "no"
-    if save_matches and not opts.maybe:
+    if save_yesno:
       best_m.save(opts.matchdir + "/no/", opts.show_upto)
   else:
     if max_score > opts.yes_above:
       ans=colored("yes", "green") if opts.color else "yes"
-      if save_matches and not opts.maybe:
+      if save_yesno:
         best_m.save(opts.matchdir + "/yes/", opts.show_upto)
     else:
       ans=colored("maybe", "blue") if opts.color else "maybe"
-      if save_matches:
+      if save_maybe:
         best_m.save(opts.matchdir + "/maybe/", opts.show_upto)
   
   if (verbose):
@@ -458,7 +458,7 @@ for page_path in page_paths:
   else:
     print(max_score)
 
-  if opts.verbose and best_m is not None:
+  if save_all and best_m is not None:
     lpath=opts.matchdir + "/" + ans + "/" + best_m.basepath()
     os.symlink("../all/"+best_m.basepath(), lpath)
 
