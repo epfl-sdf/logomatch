@@ -30,7 +30,9 @@ for svg in $(ls ../logos/*.svg) ; do
       if [ "$haveis" == "0" ] ; then
         inkscape -z $PWD/$svg  --export-width=$s --export-png=$PWD/$png
       else
-        d=$(echo "$s*210.528/96" | bc -l) # in svg file size i 210 and density is 96 
+        # current size at default density (72)
+        cs=$(identify $svg | cut -f 3 -d ' ' | sed 's/x.*$//')
+        d=$(echo "$s*72/$cs" | bc -l)
         convert -density $d $svg $png
       fi
     fi
