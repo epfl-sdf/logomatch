@@ -1,5 +1,5 @@
 # Build with: docker build -t opencv .
-# Run with:   docker run -it -v $PWD:/wd opencv test.py
+# Run with:   docker run -v $PWD:/wd opencv test.py
 
 from python:3.5-stretch
 

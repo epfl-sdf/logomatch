@@ -13,7 +13,7 @@ usage() {
       -h             Show usage and exit
       -p PYTHON      Specify which python exec to use. Example:
                      -p python
-                     -p "docker run -it -v $PWD:/wd opencv"
+                     -p "docker run -v $PWD:/wd opencv"
 
 __EOF
 }

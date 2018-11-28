@@ -19,7 +19,7 @@ usage() {
       -h             Show usage and exit
       -p PYTHON      Specify which python exec to use. Example:
                      -p python
-                     -p "docker run -it -v $PWD:/wd opencv"
+                     -p "docker run -v $PWD:/wd opencv"
       -f             Read the run descriptions from an external file instead of
                      using built in ones. The default is start.conf
                      The config file have one line per feature_matcher run
