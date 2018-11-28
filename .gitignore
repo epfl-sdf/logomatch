@@ -12,15 +12,15 @@ html.txt
 url.txt
 tmp.csv
 
-template_matching/logo/jpg/
-template_matching/logo/png/
-template_matching/logo/gray
-template_matching/pages/gray/
-template_matching/match*/
-template_matching/match*.out
-template_matching/pages/all/
-template_matching/docker/out
-template_matching/Learn/out
+tests_matching/match*
+tests_matching/logo/*
+tests_matching/pages/*
+tests_matching/Learn/out/
+
+feature_matching/docker/out
+feature_matching/logo/*
+feature_matching/pages/*
+feature_matching/match*/
 
 .DS_Store
 ._.DS_Store
