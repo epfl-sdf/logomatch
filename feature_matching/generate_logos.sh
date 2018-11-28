@@ -33,7 +33,7 @@ for svg in $(ls ../logos/*.svg) ; do
         # current size at default density (72)
         cs=$(identify $svg | cut -f 3 -d ' ' | sed 's/x.*$//')
         d=$(echo "$s*72/$cs" | bc -l)
-        convert -density $d $svg $png
+        convert -density $d -depth 8 $svg $png
       fi
     fi
   done
