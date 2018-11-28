@@ -18,9 +18,10 @@ tests_matching/pages/*
 tests_matching/Learn/out/
 
 feature_matching/docker/out
-feature_matching/logo/*
+feature_matching/logos/*
 feature_matching/pages/*
 feature_matching/match*/
+feature_matching/match_*.*
 
 .DS_Store
 ._.DS_Store
