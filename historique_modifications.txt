@@ -1,0 +1,12 @@
+zf190222.1613
+
+En premier j'ai travaillé du 16 octobre 2018 au 12 novembre 2018 sur la machine docker-zf1 de l'infra sdfproxmox2 de la SDF.
+
+Puis après, pour des raisons d'utilisation d'interface graphique pour les previews des images, j'ai basculé sur la VM Master Hugo xubuntu 181107 du 13 novembre 2018 au 22 février 2019
+
+Toutes l'historique des modifications peuvent se trouver dans les commits du github:
+
+https://github.com/epfl-sdf/logomatch/commits/master
+
+
+
