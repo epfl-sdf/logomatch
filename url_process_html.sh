@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-#Petit script pour suivre un redirect de type refresh dans un fichier HTML.
+#ATTENTION on ne traite plus les redirections HTML ! Petit script pour suivre un redirect de type refresh dans un fichier HTML.
 #Filtre aussi si le serveur ne répond pas
 #ATTENTION: ça été fait pour une structure perso !
 #faudra modifier le script pour d'autres structures
-#zf181123.0913
+#zf190228.1106
 
 #source:  https://stackoverflow.com/questions/428109/extract-substring-in-bash
 #note:
