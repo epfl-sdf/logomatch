@@ -3,7 +3,7 @@
 #Filtre aussi si le serveur ne répond pas
 #ATTENTION: ça été fait pour une structure perso !
 #faudra modifier le script pour d'autres structures
-#zf190228.1106
+#zf190228.1650
 
 #source:  https://stackoverflow.com/questions/428109/extract-substring-in-bash
 #note:
@@ -60,7 +60,7 @@ fi
 t1=`cat html.txt |grep -i -e 'HP Color LaserJet' -e 'hp LaserJet' -e 'hp/device' -e 'okiprintingsolutions' -e 'okilogo' `            #filtre
 if [ "$t1" != "" ]                                        #test s'il y a un logo sur un serveur centralisé
 then
-    echo -e "printer: "$1", "$t1 >> removed.log
+    echo -e "printer: "$1 >> removed.log
     r=""
 fi
 
@@ -69,7 +69,7 @@ fi
 t1=`cat html.txt |grep -i -e '<title>Apache2 ' -e 'alt="IIS7"' -e 'IIS Windows' -e 'iis-8' -e 'syno' -e 'cisco.com' -e 'data-netapp' `            #filtre
 if [ "$t1" != "" ]                                        #test s'il y a un logo sur un serveur centralisé
 then
-    echo -e "srvweb1: "$1", "$t1 >> removed.log
+    echo -e "srvweb1: "$1 >> removed.log
     r=""
 fi
 
@@ -83,14 +83,22 @@ fi
 #traitement des pages serveurs tequila
 if [ "`echo -e $r |grep -i 'tequila'`" != "" ]                                        #test si c'est une page tequila
 then
-    echo -e "tequila: "$1", "$t1 >> removed.log
+    echo -e "tequila: "$1 >> removed.log
     r=""
 fi
 
 #traitement des pages serveurs archiveweb
 if [ "`echo -e $r |grep -i 'archiveweb'`" != "" ]                                        #test si c'est une page archivée
 then
-    echo -e "archiveweb: "$1", "$t1 >> removed.log
+    echo -e "archiveweb: "$1 >> removed.log
+    r=""
+fi
+
+#2e traitement des pages serveurs archiveweb
+curl --insecure --max-time 5 -Ivs $1  2>err.txt | sed "s/\r/\n/g" > header.txt                       #récupère le header HTTP
+if [ "`cat header.txt |grep -i 'archiveweb'`" != "" ]                                        #test si c'est une page archivée
+then
+    echo -e "archiveweb: "$1 >> removed.log
     r=""
 fi
 

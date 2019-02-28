@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #petit script pour faire le preprocessing d'une liste de sites web qui se trouvent dans un fichier .csv
 #afin d'épurer la liste brute d'url
-#zf190227.1457
+#zf190228.1709
 
 #source: https://www.cyberciti.biz/faq/unix-linux-bash-read-comma-separated-cvsfile/
 
@@ -19,7 +19,7 @@ CTRL+d                 pour terminer screen
 screen -list           pour lister tous les screens en fonctionement
 
 "
-read -p "Appuyer une touche pour démarrer $zNAME"
+#read -p "Appuyer une touche pour démarrer $zNAME"
 
 echo ---------- start
 
@@ -62,4 +62,6 @@ while read name ip ; do
 	echo ""
 done < $INPUT
 IFS=$OLDIFS
+
+./sort_url.sh
 
