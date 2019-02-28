@@ -3,7 +3,7 @@
 #Filtre aussi si le serveur ne répond pas
 #ATTENTION: ça été fait pour une structure perso !
 #faudra modifier le script pour d'autres structures
-#zf190228.1650
+#zf190228.1933
 
 #source:  https://stackoverflow.com/questions/428109/extract-substring-in-bash
 #note:
@@ -43,7 +43,10 @@ else
         fi
         #garde une trace du site redirigé pour debug
         echo -e "redirect_html: "$1", "$r >> redir.log
-        r=`./loop_url_process_header.sh $r`                                 #teste s'il y a encore des erreurs dans la nouvelle redirection
+
+#supprimé ce test le 190228.1934 car il me génère trop de problèmes lors de boucles !
+#        r=`./loop_url_process_header.sh $r`                                 #teste s'il y a encore des erreurs dans la nouvelle redirection
+
     fi
 fi
 
