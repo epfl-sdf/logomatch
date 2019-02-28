@@ -3,8 +3,9 @@
 
 rm -rf ~/.mozilla/
 unzip firefox_config.zip -d ~/
-mv ~/root/.mozilla ~/
-rm -rf ~/root
+mv ~/home/zuzu/.mozilla ~/
+rmdir ~/home/zuzu/
+rmdir ~/home/
 
 
 
