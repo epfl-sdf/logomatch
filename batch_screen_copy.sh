@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #petit script pour faire une copie d'écran des homes pages d'une liste de sites web qui se trouvent dans un fichier .csv
-#zf190228.1709
+#zf190301.1045
 
 #source: https://www.cyberciti.biz/faq/unix-linux-bash-read-comma-separated-cvsfile/
 
@@ -46,7 +46,7 @@ while read site url ; do
 echo -e "site: "$site
 echo -e "url: "$url
 
-        ./screen_copy.sh $url "./images/http_"$site
+        ./screen_copy.sh $url "./images/http_"$site".png"
 
 
 
