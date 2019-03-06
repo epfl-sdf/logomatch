@@ -75,10 +75,6 @@ class MImage():
 
 class Matcher():
 
-  # class variables / constants
-  GIOVA_FACTOR = 0.9         # (Failed) attempt to do better than Lowe using the fact that we have 
-  GIOVA_THRESHOLD = 0        # undeformed logo.
-
   LOWE_FACTOR = 0.7          # For each point in logo 2 possible matches are detected in the page
                              # image. Points are kept only when the distance of the first match is 
                              # considerably (LOWE_FACTOR) smaller than the one or the second match
@@ -107,7 +103,6 @@ class Matcher():
 
   def match(self, 
             lowe_factor  = None,
-            giova_thr    = 0,
             geofix       = 0,
             minkpdist    = 0,
             mingdisp     = 0,
@@ -117,31 +112,20 @@ class Matcher():
     if lowe_factor is None:
       lowe_factor = Matcher.LOWE_FACTOR
 
-    # The giova_ stuff is a (failed) attempt to exploit the fact that we know that our logo
-    # is not deformed (rotation, perspective). So, we use a less strict Lowe threshold 
-    # (giova_factor > lowe_factor) but put an upper bound on the NN (giova_maxdist).
-    # For giova_factor==1.0 we will kill Lowe and just count the number of matches that are
-    # within a given distance. Preliminary tests show that this does not work at all.
-    giova_factor = (1.0 + lowe_factor)/2,
     if self.matches is None: return 0
-
-    if (giova_thr > 0):
-      dmin = min(self.matches, key=lambda v: v[0].distance)[0].distance
-      dmax = max(self.matches, key=lambda v: v[0].distance)[0].distance
-      giova_maxdist = dmin + giova_thr * (dmax - dmin)
-    else:
-      giova_maxdist = 0.0
-
-
 
     dst_pts = []
     lowe_matches=[]
     for m,n in self.matches:
-      if m.distance < lowe_factor*n.distance or (m.distance < giova_maxdist and m.distance < giova_factor*n.distance):
+      if m.distance < lowe_factor*n.distance:
         if minkpdist > 0:
           # Filter based on distance of match points in the second image. This is to
           # prevent having many similar key points in the frist image match the same zone in the second image.
           # A new match is added only if the point in the second image is far enough from all previously added points.
+          # Quite useless. Similarly I have tried to get rid of matches that are on a completely different region of
+          # the page by giving a chance to the second best match when the first one is geometrically far from the center
+          # of gravity of the matched logo (computed from a first standard run)
+          # TODO: remove this crap
           ok=True
           p = np.float32(self.img2.kp[m.trainIdx].pt)
           for p0 in dst_pts:
@@ -322,7 +306,7 @@ parser.add_argument("-p", "--partials", action='store', type=int, default=0, hel
 parser.add_argument("-g", "--geofix", action='store', type=int, default=0, help="Try to exclude matches with unlikely geometry when score < geofix (default=0)")
 parser.add_argument("-D", "--maxgdisp", action='store', default=0, type=int, help="Remove all the keypoints that are more than maxgdisp from center of mass. If D<3 then it is multiplied by stddev")
 parser.add_argument("-E", "--mingdisp", action='store', default=0, type=int, help="If dispersion of keypoints is smaller than this, match is not valid")
-parser.add_argument("-K", "--minkpdist", action='store', default=0, type=int, help="Reject matches that are closer than minkpdist from other points in the page")
+parser.add_argument("-K", "--minkpdist", action='store', default=0, type=int, help="Reject matches that are closer than minkpdist from other points in the page (useless)")
 
 parser.add_argument("-s", "--show_upto", action='store', type=int, default=DEFAULT_MATCHES_TO_DRAW, help="Number of matches to show in the inspection image (default %d)" % DEFAULT_MATCHES_TO_DRAW)
 parser.add_argument("-l", "--lowe_factor", action='store', type=float, default=Matcher.LOWE_FACTOR, help="Set the Lowe factor: keypoint is kept only if distance(NN) < LF * distance(NNN) (default %f" % Matcher.LOWE_FACTOR)
@@ -409,7 +393,7 @@ for page_path in page_paths:
       if (opts.nolowe):
         score = m.match_simpler()
       else:
-        score = m.match(minkpdist=opts.minkpdist, geofix=opts.geofix, mingdisp=opts.mingdisp, maxgdisp=opts.maxgdisp, lowe_factor=opts.lowe_factor, giova_thr=opts.giova_thr)
+        score = m.match(minkpdist=opts.minkpdist, geofix=opts.geofix, mingdisp=opts.mingdisp, maxgdisp=opts.maxgdisp, lowe_factor=opts.lowe_factor)
     except:
       if opts.verbose:
         print("!! Error matching");
