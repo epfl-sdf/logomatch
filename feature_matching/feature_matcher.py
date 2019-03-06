@@ -3,6 +3,14 @@
 # rm match/yes/*
 # docker run -it -v $PWD:/app -w=/app valian/docker-python-opencv-ffmpeg python test3.py
 # https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_feature2d/py_sift_intro/py_sift_intro.html
+
+# park links for more study
+# https://docs.opencv.org/master/d5/dae/tutorial_aruco_detection.html
+# http://answers.opencv.org/question/25772/logo-detection-techniques/
+# https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_template_matching/py_template_matching.html
+# https://www.pyimagesearch.com/2015/01/26/multi-scale-template-matching-using-python-opencv/
+# https://www.pyimagesearch.com/practical-python-opencv/?src=resource-guide-conf
+
 import os.path
 import glob
 import sys
@@ -212,10 +220,11 @@ class Matcher():
         if (m==1):
           self.good_matches.append(matches[i])
       try:
-        h,w = self.logo().img.shape
+        h,w = self.logo().img.shape[:2]
         pts = np.float32([ [0,0],[0,h-1],[w-1,h-1],[w-1,0] ]).reshape(-1,1,2)
         self.zone = np.int32(cv2.perspectiveTransform(pts,M))
       except:
+        print("!!no zone")
         self.zone = None
 
       # Filter based on the geometry of the resulting matched image. This also
@@ -280,6 +289,7 @@ class Matcher():
         img3 = self.img2.img
       else:
         img3 = cv2.polylines(self.img2.img.copy(),[self.zone],True,255,3, cv2.LINE_AA)
+      # flags: 0=draw all the points without size, 1=crash, 2=only good matches without size, 4=draw all points with circle proportional to NN distance
       img4 = cv2.drawMatches(self.img1.img,self.img1.kp,img3,self.img2.kp,sgood[:nshow], None, flags=2)
 
 
@@ -395,10 +405,15 @@ for page_path in page_paths:
   for logo in logos:
     m=Matcher(page, logo)
 
-    if (opts.nolowe):
-      score = m.match_simpler()
-    else:
-      score = m.match(minkpdist=opts.minkpdist, geofix=opts.geofix, mingdisp=opts.mingdisp, maxgdisp=opts.maxgdisp, lowe_factor=opts.lowe_factor, giova_thr=opts.giova_thr)
+    try:
+      if (opts.nolowe):
+        score = m.match_simpler()
+      else:
+        score = m.match(minkpdist=opts.minkpdist, geofix=opts.geofix, mingdisp=opts.mingdisp, maxgdisp=opts.maxgdisp, lowe_factor=opts.lowe_factor, giova_thr=opts.giova_thr)
+    except:
+      if opts.verbose:
+        print("!! Error matching");
+      next
 
     if (opts.kpcorrect):
       xscore = (300 - logo.nk())/80
@@ -416,6 +431,9 @@ for page_path in page_paths:
     if save_all:
       m.save(opts.matchdir + "/all/", opts.show_upto)
 
+    # In case no match have a positive score we just take one at random (the last)
+    if best_m is None: best_m = m
+
     m=None
 
   if (max_score < opts.partials):
@@ -426,13 +444,13 @@ for page_path in page_paths:
       for logo in logos:
         m = Matcher(part, logo)
         score = m.match(minkpdist=opts.minkpdist, geofix=opts.geofix, mingdisp=opts.mingdisp, maxgdisp=opts.maxgdisp, lowe_factor=opts.lowe_factor, giova_thr=opts.giova_thr)
-        if (score > max_score2): 
+        if (score >= max_score2): 
           max_score2 = score
           best_m2 = m
         if (many_logos and opts.verbose): print("%20s %-20s %2d" % ("part", logo.name, score))
         if save_all:
           m.save(opts.matchdir + "/all/", opts.show_upto)
-
+        m = None
     if max_score2 > max_score:
       max_score = max_score2
       best_m = best_m2
