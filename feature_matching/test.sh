@@ -7,7 +7,9 @@ usage() {
     This script executes start.sh for every positional argument
     interpreted as the basename of a XXX.conf file that will 
     run start.sh with pages/test as pages, logos as logos,
-    XXX.conf as configuration file, and XXX as output directory
+    XXX.conf as configuration file, and XXX as output directory.
+    Example:
+    cp start.conf test1.conf ; ./test.sh -p "python" test1
 
     Optional argument:
       -h             Show usage and exit
