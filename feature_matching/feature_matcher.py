@@ -11,14 +11,18 @@
 # https://www.pyimagesearch.com/2015/01/26/multi-scale-template-matching-using-python-opencv/
 # https://www.pyimagesearch.com/practical-python-opencv/?src=resource-guide-conf
 
-import os.path
-import glob
-import sys
-import numpy as np
-import cv2
 import argparse
+import cv2
+# import gc
+import glob
+import numpy as np
+import os.path
+import resource
+import sys
 import signal
 from termcolor import colored
+from timeit import default_timer as timer
+
 
 DOWNGRAY = False
 MATCH_EXT="jpg"
@@ -307,6 +311,7 @@ parser.add_argument("-g", "--geofix", action='store', type=int, default=0, help=
 parser.add_argument("-D", "--maxgdisp", action='store', default=0, type=int, help="Remove all the keypoints that are more than maxgdisp from center of mass. If D<3 then it is multiplied by stddev")
 parser.add_argument("-E", "--mingdisp", action='store', default=0, type=int, help="If dispersion of keypoints is smaller than this, match is not valid")
 parser.add_argument("-K", "--minkpdist", action='store', default=0, type=int, help="Reject matches that are closer than minkpdist from other points in the page (useless)")
+parser.add_argument("-R", "--reslimit", action='store', default=1536, type=int, help="Limit memory usage to given number of Mb")
 
 parser.add_argument("-s", "--show_upto", action='store', type=int, default=DEFAULT_MATCHES_TO_DRAW, help="Number of matches to show in the inspection image (default %d)" % DEFAULT_MATCHES_TO_DRAW)
 parser.add_argument("-l", "--lowe_factor", action='store', type=float, default=Matcher.LOWE_FACTOR, help="Set the Lowe factor: keypoint is kept only if distance(NN) < LF * distance(NNN) (default %f" % Matcher.LOWE_FACTOR)
@@ -315,6 +320,10 @@ parser.add_argument("-w", "--nolowe", action='store_true', help="Use simpler mat
 parser.add_argument("page", help="A file or a folder with 'page' images")
 parser.add_argument("logo", help="A file or a folder with 'logo' images")
 opts = parser.parse_args()
+
+lh = opts.reslimit * 1024 * 1024
+ls = (opts.reslimit - 256) * 1024 * 1024
+resource.setrlimit(resource.RLIMIT_DATA, (ls, lh))
 
 # validate match dir and evetually create the various folder that are needed
 if opts.matchdir is not None:
@@ -374,6 +383,7 @@ for logo_path in logo_paths:
 page_count=0
 page_total=len(page_paths)
 for page_path in page_paths:
+  page_start = timer()
   page_count=page_count+1
   sys.stderr.write("%d/%d\n" % (page_count, page_total))
   try:
@@ -382,7 +392,7 @@ for page_path in page_paths:
     print("Skipping invalid page found in " + page_path, file=sys.stderr)
     continue
 
-  if (many_pages and opts.verbose): print("\n"+page_path)
+  if (many_pages and opts.verbose): sys.stderr.write("\n"+page_path+"\n")
 
   max_score=0
   best_m=None
@@ -390,10 +400,13 @@ for page_path in page_paths:
     m=Matcher(page, logo)
 
     try:
+      # match_start = timer()
       if (opts.nolowe):
         score = m.match_simpler()
       else:
         score = m.match(minkpdist=opts.minkpdist, geofix=opts.geofix, mingdisp=opts.mingdisp, maxgdisp=opts.maxgdisp, lowe_factor=opts.lowe_factor)
+      # match_stop = timer()  
+      # match_time = match_stop - match_start
     except:
       if opts.verbose:
         print("!! Error matching");
@@ -410,7 +423,8 @@ for page_path in page_paths:
       max_score = score
       best_m = m
 
-    if (many_logos and opts.verbose): print("%-20s %-20s %2d   %3d" % ("", logo.name, score, xscore))
+    # if (many_logos and opts.verbose): sys.stderr.write("%-20s %-20s %2d   %3d    %8.5f\n" % ("", logo.name, score, xscore, match_time))
+    if (many_logos and opts.verbose): sys.stderr.write("%-20s %-20s %2d   %3d\n" % ("", logo.name, score, xscore))
 
     if save_all:
       m.save(opts.matchdir + "/all/", opts.show_upto)
@@ -418,7 +432,7 @@ for page_path in page_paths:
     # In case no match have a positive score we just take one at random (the last)
     if best_m is None: best_m = m
 
-    m=None
+    del m
 
   if (max_score < opts.partials):
 
@@ -431,7 +445,8 @@ for page_path in page_paths:
         if (score >= max_score2): 
           max_score2 = score
           best_m2 = m
-        if (many_logos and opts.verbose): print("%20s %-20s %2d" % ("part", logo.name, score))
+        # if (many_logos and opts.verbose): print("%20s %-20s %2d" % ("part", logo.name, score))
+        if (many_logos and opts.verbose): sys.stderr.write("%20s %-20s %2d\n" % ("part", logo.name, score))
         if save_all:
           m.save(opts.matchdir + "/all/", opts.show_upto)
         m = None
@@ -439,6 +454,7 @@ for page_path in page_paths:
       max_score = max_score2
       best_m = best_m2
 
+  page_stop = timer()
   ans=""
   if max_score < opts.no_below:
     ans=colored("no", "red") if opts.color else "no"
@@ -456,7 +472,8 @@ for page_path in page_paths:
   
   if (verbose):
     logoname = best_m.logo().name if best_m is not None else "NO_MATCHES"
-    print("%-40s %-40s %3d      %s" % (page.name, logoname, max_score, ans))
+    # print("%-40s %-40s %3d      %s" % (page.name, logoname, max_score, ans))
+    sys.stderr.write("%-40s %-40s %3d      %s   %8.5f\n" % (page.name, logoname, max_score, ans, page_stop-page_start))
   else:
     print(max_score)
 
@@ -464,7 +481,10 @@ for page_path in page_paths:
     lpath=opts.matchdir + "/" + ans + "/" + best_m.basepath()
     os.symlink("../all/"+best_m.basepath(), lpath)
 
+  del page
+  del best_m
   page=None
   best_m=None
+  # gc.collect()
 
 exit(0)
