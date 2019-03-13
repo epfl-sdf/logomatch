@@ -1,10 +1,12 @@
+result/*
+screenshot.png
+toto*.png
+*.deb
 html/
 html2/
-data/
+data*/
 tempzip.csv
-images/
-images2/
-images_result
+images*/
 
 err.txt
 header.txt
