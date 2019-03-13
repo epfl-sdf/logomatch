@@ -24,6 +24,10 @@ usage() {
                      using built in ones. The default is start.conf
                      The config file have one line per feature_matcher run
                      and each line is just a list of arguments for feature_matcher.
+                     Default is start.conf
+
+    Example:
+      rm -rf work/ ; ./start.sh -p "docker run -v $PWD:/wd opencv" pages/2019-03-04/ work
 
 __EOF
 }
