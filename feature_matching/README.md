@@ -1,25 +1,17 @@
-zf190313.1124
+zf190313.1405
 
 1) il faut builder le container Python OpenCV avec:<br>
-cd docker<br>
-docker build -t opencv .
+cd docker ; docker build -t opencv . ; cd ..
 
 pour tester le container:<br>
 docker run -it -v $PWD:/wd -v $PWD/../test_pages/:/test_pages --entrypoint /bin/bash opencv
 
 
-1.5) il faut créer un lien symbolique<br>
-
-
 2) il faut faire tourner le script start.sh avec:<br>
 
+sudo rm -rf result2/ ; export zpages="test_pages" ; ./start.sh -p "docker run -v $PWD:/wd -v $PWD/../$zpages/:/$zpages opencv" ../$zpages/ result2
 
-rm -rf result2/ ; ./start.sh -p "docker run -v $PWD:/wd -v $PWD/../test_pages/:/test_pages opencv" ../test_pages/ result2
-
-rm -rf work/ ; ./start.sh -p "docker run -v $PWD:/wd opencv" pages/2019-03-04/ work
-
-
-rm -rf result2/ ; ./start.sh -p "docker run -v $PWD:/wd opencv" ../images.190301.0853/ result2
+sudo rm -rf result2/ ; export zpages="images.190301.0853" ; ./start.sh -p "docker run -v $PWD:/wd -v $PWD/../$zpages/:/$zpages opencv" ../$zpages/ result2
 
 
 
