@@ -26,8 +26,11 @@ from timeit import default_timer as timer
 DOWNGRAY = False
 MATCH_EXT="jpg"
 DEFAULT_YES_ABOVE = 8
+DEFAULT_YES_BREAK = 16
 DEFAULT_NO_BELOW  = 6
 DEFAULT_MATCHES_TO_DRAW = 50
+DEFAULT_PH = 600
+DEFAULT_PS = 400
 
 class MImage():
 
@@ -86,7 +89,7 @@ class MImage():
   #   return(parts)
 
   # Split the image into smaller parts (PH=height, PS=step => there will be PH-PS overlap)
-  def parts(self, ph=600, ps=400):
+  def parts(self, ph=DEFAULT_PH, ps=DEFAULT_PS):
     np=int(0.5 + (self.h - ph)/ps)
     parts=[]
     for i in range(0, np):
@@ -94,6 +97,8 @@ class MImage():
       y1 = min(y0+ph, self.h)
       nn = "%s_p%02d" % (self.name, i)
       parts.append(MImage(nn, image=self.img[y0:y1,0:self.w]))
+    # move the bottom of the page to second position because it has higher probability of having a logo
+    parts.insert(1, parts.pop())
     return(parts)
 
 class Matcher():
@@ -211,7 +216,6 @@ class Matcher():
         pts = np.float32([ [0,0],[0,h-1],[w-1,h-1],[w-1,0] ]).reshape(-1,1,2)
         self.zone = np.int32(cv2.perspectiveTransform(pts,M))
       except:
-        print("!!no zone")
         self.zone = None
 
       # Filter based on the geometry of the resulting matched image. This also
@@ -322,6 +326,9 @@ def best_match(page, logos, opts):
     if (opts.verbose): print("%-40s %-40s %3d     %8.4f" % (page.name, logo.name, max_score, t1-t0), file=sys.stderr)
 
     del m
+    # Needless to test all the logos if we already found a good (safe) match
+    if (max_score > opts.yes_break):
+      return max_score, best_m
   return max_score, best_m
 
 signal.signal(signal.SIGTERM, crepa)
@@ -339,13 +346,14 @@ parser.add_argument("-v", "--verbose", action='store_true', help="Increase outpu
 parser.add_argument("-q", "--quiet", action='store_true', help="Decrease output level. In particular, do not save match images.")
 parser.add_argument("-n", "--no_below", action='store', type=int, default=DEFAULT_NO_BELOW, help="Below this threshold, images do not match (default %d)" % DEFAULT_NO_BELOW)
 parser.add_argument("-y", "--yes_above", action='store', type=int, default=DEFAULT_YES_ABOVE, help="Below this threshold, images do not match (default %d)" % DEFAULT_YES_ABOVE)
+parser.add_argument("-Y", "--yes_break", action='store', type=int, default=DEFAULT_YES_BREAK, help="Below this threshold, images do not match (default %d)" % DEFAULT_YES_BREAK)
 parser.add_argument("-k", "--kpcorrect", action='store_true', help="Correct the score based on the number of key points of the logo (cropped logos have much fewer kps)")
 parser.add_argument("-m", "--matchdir", action='store', help="Output directory for match images (mostly used for inspecting output while debugging)")
 parser.add_argument("-M", "--maybe", action='store_true', help="Only save inspection images for uncertain matches (maybe matches)")
 parser.add_argument("-c", "--color", action='store_true', help="Colorize output")
 parser.add_argument("-p", "--parts", action='store', type=int, default=0, help="Split the image in sub images if the height is larger than given (default=0 means never split)")
-parser.add_argument("-ph", "--partheight", action='store', type=int, default=1200, help="Height of the partial page (default=1200)")
-parser.add_argument("-ps", "--partstep", action='store', type=int, default=1000, help="Height of the partial page (default=1000)")
+parser.add_argument("-H", "--partheight", action='store', type=int, default=DEFAULT_PH, help="Height of the partial page (default=%d)" % DEFAULT_PH)
+parser.add_argument("-S", "--partstep", action='store', type=int, default=DEFAULT_PS, help="Height of the partial page (default=%d)" % DEFAULT_PS)
 
 parser.add_argument("-g", "--geofix", action='store', type=int, default=0, help="Try to exclude matches with unlikely geometry when score < geofix (default=0)")
 parser.add_argument("-D", "--maxgdisp", action='store', default=0, type=int, help="Remove all the keypoints that are more than maxgdisp from center of mass. If D<3 then it is multiplied by stddev")
@@ -429,10 +437,10 @@ for page_path in page_paths:
       if (score >= max_score):
         max_score = score
         best_m = match
+        if (max_score > opts.yes_above): break
       part = None
   else:
     max_score, best_m = best_match(page, logos, opts)
-
 
   ans=""
   if max_score < opts.no_below:

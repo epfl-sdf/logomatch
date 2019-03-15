@@ -16,7 +16,6 @@ usage() {
       -p PYTHON      Specify which python exec to use. Example:
                      -p python
                      -p "docker run -v $PWD:/wd opencv"
-
 __EOF
 }
 

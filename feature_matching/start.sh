@@ -54,6 +54,8 @@ fi
 
 pd=$1
 od=$2
+apd=$(pwd)/$pd
+aod=$(pwd)/$od
 
 # Read run parameters from config file
 IFS=$'\r\n' GLOBIGNORE='*' command eval "configs=(\$(grep -v '#' $confile))"
@@ -69,9 +71,6 @@ while [ "x${configs[i]}" != "x" ] ; do
 done
 
 # ---------------------------------------------------------------- 0 setup
-# TODO: fix for absolute paths
-apd=$(pwd)/$pd
-
 # Generate logos from svg
 ./generate_logos.sh logos
 
@@ -96,9 +95,11 @@ while [ "x${configs[i]}" != "x" ] ; do
   # Create a new set of pages with the maybe pages of last run
   if [ -n "$m" -a -n "$out" ] ; then
     pages=${m}_maybe
+    pldst=../../$pd/
     [ -d $pages ] || mkdir $pages
     awk '/maybe$/{print $1;}' $out | while read p ; do
-      ln -s $apd/$p.png $pages/
+      # ln -s ../$m/maybe $pages/$p.png
+      ln -s $pldst/$p.png $pages/$p.png
     done
   else
     pages=$pd
@@ -109,8 +110,8 @@ while [ "x${configs[i]}" != "x" ] ; do
   all_out="$all_out $out"
 
   echo "$(date +%F-%R:%S) Start round $i" >&2
-  echo "$python feature_matcher.py $cfg -m $m $pages logos > $out" >&2
-  $python feature_matcher.py $cfg -m $m $pages logos > $out
+  echo "$python feature_matcher2.py $cfg -m $m $pages logos > $out" >&2
+  $python feature_matcher2.py $cfg -m $m $pages logos > $out
   if [ "$?" != "0" ] ; then
     echo "Test failed. Stopping."
     exit
