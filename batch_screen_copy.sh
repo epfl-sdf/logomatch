@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #petit script pour faire une copie d'écran des homes pages d'une liste de sites web qui se trouvent dans un fichier .csv
-#zf190319.0720
+#zf190319.1105
 
 #source: https://www.cyberciti.biz/faq/unix-linux-bash-read-comma-separated-cvsfile/
 
@@ -23,6 +23,7 @@ read -p "Appuyer une touche pour démarrer $zNAME"
 echo ---------- start
 
 
+rm -rf ~/.cache/mozilla/
 rm ./images/*
 mkdir ./images
 cp /dev/null err.log
