@@ -24,6 +24,10 @@ feature_matching/logos/*
 feature_matching/pages/*
 feature_matching/match*/
 feature_matching/match_*.*
+feature_matching/result*.out
+
+
+
 
 .DS_Store
 ._.DS_Store
