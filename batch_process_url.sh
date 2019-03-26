@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #petit script pour faire le preprocessing d'une liste de sites web qui se trouvent dans un fichier .csv
 #afin d'épurer la liste brute d'url
-#zf190228.1936
+#zf190326.1529
 
 #source: https://www.cyberciti.biz/faq/unix-linux-bash-read-comma-separated-cvsfile/
 
@@ -39,7 +39,8 @@ IFS=,
 [ ! -f $INPUT ] && { echo "$INPUT file not found"; exit 99; }
 
 nblines=0
-while read name ip ; do
+#while read name ip ; do
+while read name ; do
 	echo $nblines
 	if [ $nblines != "0" ]
 	then
