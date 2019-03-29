@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #petit script pour lancer le binz au niveau des batches
-#zf190229.1755
+#zf190229.18000
 
 
 zNAME="batch_all"
@@ -22,7 +22,7 @@ read -p "Appuyer une touche pour démarrer $zNAME"
 echo ---------- start
 
 SITES=data/liste_sites.csv
-URLS=data/liste_url.csv
+URLS=data/liste_urls.csv
 
 ./batch_process_url.sh $SITES $URLS
 ./batch_screen_copy.sh $URLS
