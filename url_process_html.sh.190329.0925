@@ -3,22 +3,10 @@
 #Filtre aussi si le serveur ne répond pas
 #ATTENTION: ça été fait pour une structure perso !
 #faudra modifier le script pour d'autres structures
-#zf190329.1737
+#zf190228.1933
 
 #source:  https://stackoverflow.com/questions/428109/extract-substring-in-bash
 #note:
-
-#test si l'argument est vide
-if [ -z "$1" ]
-  then
-    echo -e "
-Syntax:
-./url_process_html.sh https://www.epfl.ch
-"
-    exit
-fi
-
-
 
 shopt -s extglob                                                            #demande au bash de supporter les pipe !
 
@@ -63,13 +51,12 @@ else
 fi
 
 #traitement des logos pris sur un serveur centralisé
-#supprimé le 190329 car on n'en n'a plus besoin et il supprimait les pages qui pouvaient contenir le'ancien logo
-#t1=`cat html.txt |grep -i -e '/img/epfl_small' -e '/latest/includes/epfl-header' -e 'id="nav-logo"' `            #récupère s'il y a un logo sur static.epfl.ch
-#if [ "$t1" != "" ]                                        #test s'il y a un logo sur un serveur centralisé
-#then
-#    echo -e "static: "$1", "$t1 >> dyna.log
-#    r=""
-#fi
+t1=`cat html.txt |grep -i -e '/img/epfl_small' -e '/latest/includes/epfl-header' -e 'id="nav-logo"' `            #récupère s'il y a un logo sur static.epfl.ch
+if [ "$t1" != "" ]                                        #test s'il y a un logo sur un serveur centralisé
+then
+    echo -e "static: "$1", "$t1 >> dyna.log
+    r=""
+fi
 
 
 #traitement des pages d'imprimantes
@@ -97,12 +84,11 @@ fi
 
 
 #traitement des pages serveurs tequila
-#supprimé le 190329 car on n'en n'a plus besoin et il supprimait la page tequila.epfl.ch
-#if [ "`echo -e $r |grep -i 'tequila'`" != "" ]                                        #test si c'est une page tequila
-#then
-#    echo -e "tequila: "$1 >> removed.log
-#    r=""
-#fi
+if [ "`echo -e $r |grep -i 'tequila'`" != "" ]                                        #test si c'est une page tequila
+then
+    echo -e "tequila: "$1 >> removed.log
+    r=""
+fi
 
 #traitement des pages serveurs archiveweb
 if [ "`echo -e $r |grep -i 'archiveweb'`" != "" ]                                        #test si c'est une page archivée

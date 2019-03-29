@@ -4,10 +4,24 @@
 
 #ATTENTION: ça été fait pour une structure perso !
 #faudra modifier le script pour d'autres structures
-#zf190228.11003
+#zf190229.1733
 
 #source:  https://stackoverflow.com/questions/428109/extract-substring-in-bash
 #note:
+
+#test si l'argument est vide
+if [ -z "$1" ]
+  then
+    echo -e "
+Syntax:
+./url_process_https.sh http://www.epfl.ch
+"
+    exit
+fi
+
+
+
+
 
 shopt -s extglob                                                            #demande au bash de supporter les pipe !
 

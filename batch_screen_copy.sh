@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #petit script pour faire une copie d'écran des homes pages d'une liste de sites web qui se trouvent dans un fichier .csv
-#zf190319.1105
+#zf190329.1744
 
 #source: https://www.cyberciti.biz/faq/unix-linux-bash-read-comma-separated-cvsfile/
 
@@ -18,7 +18,21 @@ CTRL+d                 pour terminer screen
 screen -list           pour lister tous les screens en fonctionement
 
 "
-read -p "Appuyer une touche pour démarrer $zNAME"
+#read -p "Appuyer une touche pour démarrer $zNAME"
+
+
+#test si l'argument est vide
+if [ -z "$1" ]
+  then
+    echo -e "
+Syntax:
+./batch_screen_copy.sh data/liste_url.csv
+"
+    exit
+fi
+
+
+
 
 echo ---------- start
 
@@ -29,10 +43,9 @@ mkdir ./images
 cp /dev/null err.log
 cp /dev/null redir.log
 
-./sort_url.sh
+./sort_urls.sh $1
+INPUT=`echo $1 | sed 's/.csv/_unique.csv/g'`
 
-INPUT=./data/liste_url_unique.csv
-#INPUT=./data/liste_url.csv
 
 OLDIFS=$IFS
 IFS=,

@@ -1,9 +1,22 @@
 #!/usr/bin/env bash
 #petit script pour faire le preprocessing d'un site web 
 #afin d'épurer les sites à scanner par la suite
-#zf190228.1404
+#zf190229.1731
 
 #source: https://www.cyberciti.biz/faq/unix-linux-bash-read-comma-separated-cvsfile/
+
+#test si l'argument est vide
+if [ -z "$1" ]
+  then
+    echo -e "
+Syntax:
+./process_url.sh http://www.epfl.ch
+"
+    exit
+fi
+
+
+
 
 url=$1
 
