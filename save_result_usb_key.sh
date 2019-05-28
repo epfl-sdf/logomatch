@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #petit script pour faire faire une copie des images de résultat sur la clef USB 
-#zf190502.1529
+#zf190528.1546
 
 ATTENTION, il faut enlever le '-n' !
 
@@ -31,5 +31,17 @@ rsync -n -r -v -t --progress --stats /home/zuzu/giova/logomatch/feature_matching
 
 rsync -n -r -v -t --progress --stats /home/zuzu/logomatch/images/* zuzu@siipc6.epfl.ch:"/Users/zuzu/VirtualBox\ VM\ Masters/No\ zlightbackup/logomatch/190502/images"
 rsync -n -r -v -t --progress --stats /home/zuzu/giova/logomatch/feature_matching/result2/* zuzu@siipc6.epfl.ch:"/Users/zuzu/VirtualBox\ VM\ Masters/No\ zlightbackup/logomatch/190502/result"
+
+rsync -n -r -v -t --progress --stats /home/zuzu/logomatch/images/* zuzu@siipc6.epfl.ch:"/Users/zuzu/VirtualBox\ VM\ Masters/No\ zlightbackup/logomatch/190509/images"
+rsync -n -r -v -t --progress --stats /home/zuzu/giova/logomatch/feature_matching/result2/* zuzu@siipc6.epfl.ch:"/Users/zuzu/VirtualBox\ VM\ Masters/No\ zlightbackup/logomatch/190509/result"
+
+rsync -n -r -v -t --progress --stats /home/zuzu/logomatch/images/* zuzu@siipc6.epfl.ch:"/Users/zuzu/VirtualBox\ VM\ Masters/No\ zlightbackup/logomatch/190515/images"
+rsync -n -r -v -t --progress --stats /home/zuzu/giova/logomatch/feature_matching/result2/* zuzu@siipc6.epfl.ch:"/Users/zuzu/VirtualBox\ VM\ Masters/No\ zlightbackup/logomatch/190515/result"
+
+rsync -n -r -v -t --progress --stats /home/zuzu/logomatch/images/* zuzu@siipc6.epfl.ch:"/Users/zuzu/VirtualBox\ VM\ Masters/No\ zlightbackup/logomatch/190523/images"
+rsync -n -r -v -t --progress --stats /home/zuzu/giova/logomatch/feature_matching/result2/* zuzu@siipc6.epfl.ch:"/Users/zuzu/VirtualBox\ VM\ Masters/No\ zlightbackup/logomatch/190523/result"
+
+rsync -n -r -v -t --progress --stats /home/zuzu/logomatch/images/* zuzu@siipc6.epfl.ch:"/Users/zuzu/VirtualBox\ VM\ Masters/No\ zlightbackup/logomatch/190528/images"
+rsync -n -r -v -t --progress --stats /home/zuzu/giova/logomatch/feature_matching/result2/* zuzu@siipc6.epfl.ch:"/Users/zuzu/VirtualBox\ VM\ Masters/No\ zlightbackup/logomatch/190528/result"
 
 
