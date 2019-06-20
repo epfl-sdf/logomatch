@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #petit script pour faire faire une copie des images de résultat sur la clef USB 
-#zf190620.0921
+#zf190620.0923
 
 ATTENTION, il faut enlever le '-n' !
 
@@ -44,7 +44,7 @@ rsync -n -r -v -t --progress --stats /home/zuzu/giova/logomatch/feature_matching
 rsync -n -r -v -t --progress --stats /home/zuzu/logomatch/images/* zuzu@siipc6.epfl.ch:"/Users/zuzu/VirtualBox\ VM\ Masters/No\ zlightbackup/logomatch/190528/images"
 rsync -n -r -v -t --progress --stats /home/zuzu/giova/logomatch/feature_matching/result2/* zuzu@siipc6.epfl.ch:"/Users/zuzu/VirtualBox\ VM\ Masters/No\ zlightbackup/logomatch/190528/result"
 
-rsync -n -r -v -t --progress --stats /home/zuzu/logomatch/images/* zuzu@siipc6.epfl.ch:"/Users/zuzu/VirtualBox\ VM\ Masters/No\ zlightbackup/logomatch/190620/images"
-rsync -n -r -v -t --progress --stats /home/zuzu/giova/logomatch/feature_matching/result2/* zuzu@siipc6.epfl.ch:"/Users/zuzu/VirtualBox\ VM\ Masters/No\ zlightbackup/logomatch/190620/result"
+rsync -n -r -v -t --progress --stats /home/zuzu/logomatch/images/* zuzu@siipc6.epfl.ch:"/Users/zuzu/VirtualBox\ VM\ Masters/No\ zlightbackup/logomatch/190617/images"
+rsync -n -r -v -t --progress --stats /home/zuzu/giova/logomatch/feature_matching/result2/* zuzu@siipc6.epfl.ch:"/Users/zuzu/VirtualBox\ VM\ Masters/No\ zlightbackup/logomatch/190617/result"
 
 
